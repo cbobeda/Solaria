@@ -1,8 +1,6 @@
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#pragma once
 #include "Entity.h"
 
-using namespace std;
 using namespace sf;
 
 class Platform : public Entity {

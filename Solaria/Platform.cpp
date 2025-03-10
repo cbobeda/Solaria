@@ -1,7 +1,7 @@
 #include "Platform.h"
 
 Platform::Platform() {
-	TePlat.loadFromFile("Assets/Carre-Rouge.jpg");
+	TePlat.loadFromFile("plat.jpg");
 	SpPlat.setTexture(TePlat);
 	SpPlat.setPosition({ 500, 500 });
 }

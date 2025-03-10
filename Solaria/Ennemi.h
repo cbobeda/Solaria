@@ -13,6 +13,6 @@ private:
 public:
     Ennemi(sf::Vector2f pos, int patrolRange);
     void update(float deltatime) override;
-    void draw(RenderWindow& window) override;
+    void draw(sf::RenderWindow& window) override;
     ~Ennemi();
 };

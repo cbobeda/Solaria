@@ -1,16 +1,17 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Player.hpp"
 #include "Ennemi.h"
 #include "Platform.h"
+#include "Player.hpp"
 
 using namespace sf;
 using namespace std;
 
-
+Ennemi test({20.f,20.f},10.f);
 
 int main(int argc, char* argv[])
 {
+    Platform platform;
 	Player player(100, 0.2f, 100);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
     while (window.isOpen())
@@ -21,11 +22,19 @@ int main(int argc, char* argv[])
                 window.close();
         }
 
+        
+
+        test.update(0.01);
+        player.update(1);
+
+        
         window.clear();
 
-		player.update(1);
+		
 		player.draw(window);
-
+        test.draw(window);
+        platform.draw(window);
+	    
         
         window.display();
 

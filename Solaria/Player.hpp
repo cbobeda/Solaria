@@ -1,7 +1,7 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include "Entity.hpp"
+#include "Entity.h"
+
+
 using namespace std;
 using namespace sf;
 

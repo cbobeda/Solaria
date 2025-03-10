@@ -163,12 +163,18 @@
     <ClCompile Include="Ennemi.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Solaria.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ennemi.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="Player.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plat.jpg" />
+    <Content Include="player.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

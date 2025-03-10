@@ -1,3 +1,4 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -9,4 +10,5 @@ public:
 
 	virtual void draw(RenderWindow& window) = 0;
 	virtual void update(float deltatime) = 0;
+	~Entity() = default;
 };
