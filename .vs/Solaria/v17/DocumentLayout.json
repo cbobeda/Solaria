@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E37181EB-B837-41C4-80BF-70146B16A42B}|Solaria\\Solaria.vcxproj|C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E37181EB-B837-41C4-80BF-70146B16A42B}|Solaria\\Solaria.vcxproj|solutionrelative:Solaria\\Entity.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E37181EB-B837-41C4-80BF-70146B16A42B}|Solaria\\Solaria.vcxproj|C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E37181EB-B837-41C4-80BF-70146B16A42B}|Solaria\\Solaria.vcxproj|solutionrelative:Solaria\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E37181EB-B837-41C4-80BF-70146B16A42B}|Solaria\\Solaria.vcxproj|C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Solaria.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E37181EB-B837-41C4-80BF-70146B16A42B}|Solaria\\Solaria.vcxproj|solutionrelative:Solaria\\Solaria.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Entity.cpp",
+              "DocumentMoniker": "C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Entity.cpp",
+              "RelativeDocumentMoniker": "Solaria\\Entity.cpp",
+              "ToolTip": "C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Entity.cpp",
+              "RelativeToolTip": "Solaria\\Entity.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-10T10:48:02.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Entity.h",
+              "DocumentMoniker": "C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Entity.h",
+              "RelativeDocumentMoniker": "Solaria\\Entity.h",
+              "ToolTip": "C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Entity.h",
+              "RelativeToolTip": "Solaria\\Entity.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-10T10:47:55.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Solaria.cpp",
+              "DocumentMoniker": "C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Solaria.cpp",
+              "RelativeDocumentMoniker": "Solaria\\Solaria.cpp",
+              "ToolTip": "C:\\Users\\legai\\Desktop\\Mini-Studio-2D(Solaria)\\Solaria\\Solaria.cpp",
+              "RelativeToolTip": "Solaria\\Solaria.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-10T10:31:10.982Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

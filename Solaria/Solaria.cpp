@@ -1,9 +1,14 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
+using namespace sf;
+using namespace std;
+
 
 int main(int argc, char* argv[])
 {
     
-    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Whale-s-revenge", sf::Style::None);
+    RenderWindow window(VideoMode(1500, 500), "Solaria");
 	while (window.isOpen())
 	{
         while (window.isOpen())
