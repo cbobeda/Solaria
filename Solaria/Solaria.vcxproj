@@ -161,12 +161,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Ennemi.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Solaria.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Ennemi.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Platform.h" />
+    <ClInclude Include="Player.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
