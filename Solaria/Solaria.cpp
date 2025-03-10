@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 	while (window.isOpen())
 	{
         while (window.isOpen())
-        {
+        { 
             window.clear();
             window.display();
         }
