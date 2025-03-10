@@ -11,6 +11,7 @@ Ennemi test({20.f,20.f},10.f);
 
 int main(int argc, char* argv[])
 {
+    
     Platform platform;
 	Player player(100, 0.2f, 100);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
