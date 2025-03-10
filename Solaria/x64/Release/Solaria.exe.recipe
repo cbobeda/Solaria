@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\cleme\source\repos\Solaria\x64\Debug\Solaria.exe</FullPath>
+      <FullPath>C:\Users\cleme\source\repos\Solaria\x64\Release\Solaria.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
