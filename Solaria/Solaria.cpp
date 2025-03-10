@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Player.hpp"
 #include "Ennemi.h"
 #include "Platform.h"
 
@@ -10,25 +11,24 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    
-    RenderWindow window(VideoMode(1620, 1080), "Solaria");
-
-    Platform platform;
-
-	while (window.isOpen())
-	{
+	Player player(100, 0.2f, 100);
+    RenderWindow window(VideoMode(1920, 1080), "Solaria");
+    while (window.isOpen())
+    {
         Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == Event::Closed) {
+        while (window.pollEvent(event)) {
+            if (event.type == Event::Closed)
                 window.close();
-            }
-
         }
 
-
         window.clear();
-        platform.draw(window);
+
+		player.update(1);
+		player.draw(window);
+
+        
         window.display();
-	}
+
+
+    }
 }
