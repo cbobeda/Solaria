@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Platform.h"
 
 using namespace sf;
 using namespace std;
@@ -8,13 +9,24 @@ using namespace std;
 int main(int argc, char* argv[])
 {
     
-    RenderWindow window(VideoMode(1500, 500), "Solaria");
+    RenderWindow window(VideoMode(1620, 1080), "Solaria");
+
+    Platform platform;
+
 	while (window.isOpen())
 	{
-        while (window.isOpen())
+        Event event;
+        while (window.pollEvent(event))
         {
-            window.clear();
-            window.display();
+            if (event.type == Event::Closed) {
+                window.close();
+            }
+
         }
+
+
+        window.clear();
+        platform.draw(window);
+        window.display();
 	}
 }
