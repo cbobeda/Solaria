@@ -9,7 +9,7 @@ using namespace sf;
 Menu::Menu(RenderWindow& window)
 {
 	// Background du menu Principal
-	mainMenuBGTexture.loadFromFile("MainMenuBG.png");
+	mainMenuBGTexture.loadFromFile("MainMenuBG.jpg");
 	mainMenuBGSprite.setTexture(mainMenuBGTexture);
 	Vector2u windowSizeMainBG = window.getSize();
 	Vector2u textureSizeMainBG = mainMenuBGTexture.getSize();
@@ -18,7 +18,7 @@ Menu::Menu(RenderWindow& window)
 	float scaleMainBGY = static_cast<float>(windowSizeMainBG.y) / textureSizeMainBG.y;
 
 	// Background du menu Pause
-	pauseMenuBGTexture.loadFromFile("PauseMenuBG.png");
+	pauseMenuBGTexture.loadFromFile("PauseMenuBG.jpg");
 	pauseMenuBGSprite.setTexture(pauseMenuBGTexture);
 	Vector2u windowSizePauseBG = window.getSize();
 	Vector2u textureSizePauseBG = pauseMenuBGTexture.getSize();
