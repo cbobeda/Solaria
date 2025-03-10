@@ -143,7 +143,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 						window.close();
 						menu = false;
 					}
-					if (event.type = Event::KeyPressed)
+					if (event.type == Event::KeyPressed)
 					{
 						if (event.key.code == Keyboard::Escape)
 						{
@@ -252,7 +252,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 
 				while (window.pollEvent(event))
 				{
-					if (event.type = Event::Closed)
+					if (event.type == Event::Closed)
 					{
 						window.close();
 					}
@@ -285,29 +285,32 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 
 				while (window.pollEvent(event))
 				{
-					window.close();
-				}
-				if (buttons[4].isClicked(window, event))
-				{
-					type = 1;
-					pause = true;
-					options = false;
-				}
-				if (event.type == Event::KeyPressed)
-				{
-					if (event.key.code == Keyboard::Escape)
+					if (event.type == Event::Closed)
+					{
+						window.close();
+					}
+					if (buttons[4].isClicked(window, event))
 					{
 						type = 1;
 						pause = true;
 						options = false;
+					}
+					if (event.type == Event::KeyPressed)
+					{
+						if (event.key.code == Keyboard::Escape)
+						{
+							type = 1;
+							pause = true;
+							options = false;
 
+						}
 					}
 				}
+				window.clear();
+				window.draw(optionsMenuBGSprite);
+				buttons[4].draw(window);
+				window.display();
 			}
-			window.clear();
-			window.draw(optionsMenuBGSprite);
-			buttons[4].draw(window);
-			window.display();
 		}
 	}
 	if (type == 5)
