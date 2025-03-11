@@ -53,6 +53,13 @@ void Player::update(float deltatime)
 	/*for(auo& plat: platforms)*/
 	if (platform && !platform->platBounds.intersects(playerSprite.getGlobalBounds()))
 	{
+	
+		
+		playerPosition.y += speed * deltatime;
+		
+	}
+	else if (platform->platBounds.getPosition().y < playerSprite.getPosition().y)
+	{
 		playerPosition.y += speed * deltatime;
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Q))
