@@ -14,6 +14,12 @@ public:
 	Sprite playerSprite;
 	Texture playerTexture;
 
+	bool jump;           
+	float initialY;
+	float maxJumpHeight;
+	sf::Clock jumpCooldown; 
+	float lastJumpTime;
+
 	Vector2f playerPosition;
 
 	void draw(RenderWindow& window) override;
