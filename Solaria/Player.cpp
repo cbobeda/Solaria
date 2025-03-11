@@ -1,7 +1,7 @@
 #include "Player.hpp"
 #include "Platform.h"
 
-Player::Player(int health, float aspeed, int aenergy, Platform* plat) : hp(health), speed(aspeed), energy(aenergy), platform(plat), jump(false), initialY(0.f), maxJumpHeight(350.f)
+Player::Player(int health, float aspeed, int aenergy, Platform* plat) : hp(health), speed(aspeed), energy(aenergy), platform(plat), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(350.f)
 {
 	if (!playerTexture.loadFromFile("player.png"))
 	{
@@ -59,10 +59,32 @@ void Player::update(float deltatime)
 	{
 		playerPosition.x -= speed * deltatime;
 	}
+
+	if (Keyboard::isKeyPressed(Keyboard::Q) && Keyboard::isKeyPressed(Keyboard::LShift)) {
+		float currentTime = Clock().getElapsedTime().asSeconds();
+
+		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
+			initialX = playerPosition.x;
+			playerPosition.x -= initialX + 50;
+			dashCooldown.restart();
+		}
+	}
+
 	if (Keyboard::isKeyPressed(Keyboard::D))
 	{
 		playerPosition.x += speed * deltatime;
 	}
+
+	if (Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::LShift)) {
+		float currentTime = Clock().getElapsedTime().asSeconds();
+
+		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
+			initialX = playerPosition.x;
+			playerPosition.x += initialX + 50;
+			dashCooldown.restart();
+		}
+	}
+
 	playerSprite.setPosition(playerPosition);
 }
 

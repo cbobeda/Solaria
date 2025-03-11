@@ -16,8 +16,10 @@ public:
 
 	bool jump;           
 	float initialY;
+	float initialX;
 	float maxJumpHeight;
 	sf::Clock jumpCooldown; 
+    sf::Clock dashCooldown;
 	float lastJumpTime;
 
 	Vector2f playerPosition;
