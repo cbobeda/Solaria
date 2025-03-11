@@ -7,7 +7,7 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 		cout << "Error loading player texture" << endl;
 	}
 	playerSprite.setTexture(playerTexture);
-	playerPosition = Vector2f(960.f, 540.f);
+	playerPosition = Vector2f(960.f, 20.f);
 	playerSprite.setPosition(playerPosition);
 	playerSprite.setScale(1, 1);
 }

@@ -11,8 +11,13 @@ private:
     sf::Vector2f pos;
     sf::Vector2f positionP[2];
 public:
+
     Ennemi(sf::Vector2f pos, int patrolRange);
     void update(float deltatime) override;
     void draw(sf::RenderWindow& window) override;
     ~Ennemi();
+
+    FloatRect getBounds() {
+        return sprite.getGlobalBounds();
+    }
 };

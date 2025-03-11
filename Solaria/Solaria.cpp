@@ -22,7 +22,9 @@ int main(int argc, char* argv[])
                 window.close();
         }
 
-        
+        if (test.getBounds().intersects(player.getBounds())) {
+            window.close();
+        }
 
         test.update(0.01);
         player.update(1);

@@ -18,4 +18,8 @@ public:
 	void update(float deltatime) override;
 		
 	Player(int health, float aspeed, int aenergy);
+
+	FloatRect getBounds() {
+		return playerSprite.getGlobalBounds();
+	}
 };
