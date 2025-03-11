@@ -1,9 +1,9 @@
 #include "Platform.h"
 
-Platform::Platform() {
+Platform::Platform(Vector2i pos) {
 	TePlat.loadFromFile("plat.jpg");
 	SpPlat.setTexture(TePlat);
-	SpPlat.setPosition({ 500, 500 });
+	SpPlat.setPosition(Vector2f(pos));
 	platBounds = SpPlat.getGlobalBounds();
 }
 

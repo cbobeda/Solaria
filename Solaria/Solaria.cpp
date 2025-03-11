@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Ennemi.h"
+#include "MapLoader.h"
 #include "Platform.h"
 #include "Player.hpp"
 #include "Menu.h"
@@ -22,15 +23,18 @@ int main(int argc, char* argv[])
     Menu menu(window);
     Clock clock;
 
+    MapLoader mapLoader;
+    
     bool isPause = false;
     bool gameOver = false;
     bool win = false;
     bool isOptions = false;
 
-    menu.menuDisplay(window, 0);
-
+    //menu.menuDisplay(window, 0);
+    
     while (window.isOpen())
     {
+        
         Event event;
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed)
@@ -76,10 +80,12 @@ int main(int argc, char* argv[])
             continue;
         }
 
+        mapLoader.setCurrentLevel("map.txt");
+        
         deltaTime = clock.restart().asSeconds();
 
-        test.update(0.01);
-        player.update(1);
+        test.update(deltaTime);
+        player.update(deltaTime);
 
         
         window.clear();
@@ -87,8 +93,7 @@ int main(int argc, char* argv[])
 		
 		player.draw(window);
         test.draw(window);
-        platform.draw(window);
-	    
+	    mapLoader.draw(window);
         
         window.display();
 
