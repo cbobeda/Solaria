@@ -28,6 +28,11 @@ void Player::update(float deltatime)
 	{
 		playerPosition.x += speed * deltatime;
 	}
+	if (Keyboard::isKeyPressed(Keyboard::Space)) {
+		
+
+	}
+	
 	playerSprite.setPosition(playerPosition);
 }
 

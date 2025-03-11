@@ -3,6 +3,7 @@
 #include "Ennemi.h"
 #include "Platform.h"
 #include "Player.hpp"
+#include "Trampoline.h"
 
 using namespace sf;
 using namespace std;
@@ -13,7 +14,10 @@ int main(int argc, char* argv[])
 {
     Platform platform;
 	Player player(100, 0.2f, 100);
+    Trampoline trampoline;
+
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
+
     while (window.isOpen())
     {
         Event event;
@@ -34,6 +38,7 @@ int main(int argc, char* argv[])
 		player.draw(window);
         test.draw(window);
         platform.draw(window);
+        trampoline.draw(window);
 	    
         
         window.display();

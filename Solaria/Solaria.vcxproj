@@ -165,12 +165,14 @@
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Solaria.cpp" />
+    <ClCompile Include="Trampoline.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ennemi.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Trampoline.h" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="plat.jpg" />
