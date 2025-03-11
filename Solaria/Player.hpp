@@ -5,6 +5,8 @@
 using namespace std;
 using namespace sf;
 
+class Platform;
+
 class Player: public Entity{
 public:
 	int hp, energy;
@@ -17,5 +19,7 @@ public:
 	void draw(RenderWindow& window) override;
 	void update(float deltatime) override;
 		
-	Player(int health, float aspeed, int aenergy);
+	Player(int health, float aspeed, int aenergy, Platform* plat);
+
+	Platform* platform;
 };

@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 {
     
     Platform platform;
-	Player player(100, 0.2f, 100);
+	Player player(100, 0.2f, 100, &platform);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
     float deltaTime;

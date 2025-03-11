@@ -4,6 +4,7 @@ Platform::Platform() {
 	TePlat.loadFromFile("plat.jpg");
 	SpPlat.setTexture(TePlat);
 	SpPlat.setPosition({ 500, 500 });
+	platBounds = SpPlat.getGlobalBounds();
 }
 
 
