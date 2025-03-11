@@ -13,17 +13,18 @@ Ennemi test({20.f,20.f},10.f);
 
 int main(int argc, char* argv[])
 {
-    
-    Platform platform;
-	Player player(100, 0.2f, 100, &platform);
+    MapLoader mapLoader;
+	Player player(100, 0.2f, 100);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
+    std::vector<std::unique_ptr<Platform>> currentMap;
+    
     float deltaTime;
     View view = window.getView();
     Menu menu(window);
     Clock clock;
 
-    MapLoader mapLoader;
+
     
     bool isPause = false;
     bool gameOver = false;
@@ -36,6 +37,7 @@ int main(int argc, char* argv[])
     {
         
         Event event;
+        currentMap = mapLoader.getCurrentMap();
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed)
             {
@@ -85,7 +87,7 @@ int main(int argc, char* argv[])
         deltaTime = clock.restart().asSeconds();
 
         test.update(deltaTime);
-        player.update(deltaTime);
+        player.update(deltaTime,currentMap);
 
         
         window.clear();

@@ -1,7 +1,7 @@
 #include "Player.hpp"
 #include "Platform.h"
 
-Player::Player(int health, float aspeed, int aenergy, Platform* plat) : hp(health), speed(aspeed), energy(aenergy), platform(plat)
+Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed), energy(aenergy)
 {
 	if (!playerTexture.loadFromFile("player.png"))
 	{
@@ -21,12 +21,14 @@ void Player::draw(RenderWindow& window)
 	window.draw(playerSprite);
 }
 
-void Player::update(float deltatime)
+void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& platforms)
 {
-
-	if (platform && !platform->platBounds.intersects(playerSprite.getGlobalBounds()))
+	for (auto& plat: platforms)
 	{
-		playerPosition.y += speed * deltatime;
+		if (plat && !plat->platBounds.intersects(playerSprite.getGlobalBounds()))
+		{
+			playerPosition.y += speed * deltatime;
+		}
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Q))
 	{

@@ -28,10 +28,9 @@ void MapLoader::setCurrentLevel(string newlevel)
         }
     }
 }
-
-const std::vector<std::unique_ptr<Platform>>& MapLoader::getCurrentMap()
+std::vector<std::unique_ptr<Platform>> MapLoader::getCurrentMap()
 {
-    return platforms;
+    return std::move(platforms);
 }
 
 void MapLoader::draw(RenderWindow& window)

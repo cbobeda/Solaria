@@ -14,7 +14,7 @@ private:
 public:
     MapLoader();
     void setCurrentLevel (string newlevel);
-    const std::vector<std::unique_ptr<Platform>>& getCurrentMap();
+    std::vector<std::unique_ptr<Platform>> getCurrentMap();
     void draw(RenderWindow& window);
     ~MapLoader();
     

@@ -7,7 +7,7 @@ using namespace sf;
 
 class Platform;
 
-class Player: public Entity{
+class Player{
 public:
 	int hp, energy;
 	float speed;
@@ -16,10 +16,8 @@ public:
 
 	Vector2f playerPosition;
 
-	void draw(RenderWindow& window) override;
-	void update(float deltatime) override;
+	void draw(RenderWindow& window);
+	void update(float deltatime, std::vector<std::unique_ptr<Platform>>& platforms);
 		
-	Player(int health, float aspeed, int aenergy, Platform* plat);
-
-	Platform* platform;
+	Player(int health, float aspeed, int aenergy);
 };
