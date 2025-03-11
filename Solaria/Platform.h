@@ -9,7 +9,7 @@ public:
 	Texture TePlat;
 	Sprite SpPlat;
 
-	Platform();
+	Platform(Vector2i pos);
 
 	void draw(RenderWindow& window) override;
 	void update(float deltatime) override; 
