@@ -38,9 +38,12 @@ int main(int argc, char* argv[])
                 window.close();
             }
 
-            if (event.key.code == Keyboard::Escape)
+            if (event.type == Event::KeyPressed)
             {
-                isPause = !isPause;
+                if (event.key.code == Keyboard::Escape)
+                {
+                    isPause = !isPause;
+                }
             }
         }
         if (isPause)
@@ -94,4 +97,5 @@ int main(int argc, char* argv[])
 
 
     }
+    return 0;
 }
