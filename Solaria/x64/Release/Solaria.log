@@ -1,9 +1,12 @@
-﻿  Solaria.cpp
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Solaria.cpp(11,25): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Solaria.cpp(84,21): warning C4305: 'argument' : troncation de 'double' à 'float'
+﻿  FlyingEnemy.cpp
+  Grid.cpp
+C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Grid.cpp(16,47): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Grid.cpp(16,32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Node.cpp
+  Pathfinding.cpp
   Génération de code en cours
-  1 of 153 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+  4 of 153 functions ( 2.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    19 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
   Solaria.vcxproj -> C:\Users\tbouaifel\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe
