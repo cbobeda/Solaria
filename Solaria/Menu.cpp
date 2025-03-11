@@ -198,8 +198,8 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 					{
 						if (event.key.code == Keyboard::Escape)
 						{
-							type = 5;
 							pause = false;
+							type = 5;
 						}
 					}
 				}
