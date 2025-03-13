@@ -4,6 +4,9 @@
 #include "Platform.h"
 #include "Player.hpp"
 #include "Menu.h"
+#include "GroundTile.h"
+#include "UndergroundTile.h"
+#include "DirtTile.h"
 
 using namespace sf;
 using namespace std;
@@ -16,7 +19,9 @@ int main(int argc, char* argv[])
     Platform platform;
 	Player player(100, 0.2f, 100);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
-
+	/*GroundTile ground({ 50.f, 200.f });*/
+    /*UndergroundTile underground({ 50.f, 200.f });*/
+	/*DirtTile dirt({ 50.f, 200.f });*/
     float deltaTime;
     View view = window.getView();
     Menu menu(window);
@@ -91,6 +96,9 @@ int main(int argc, char* argv[])
 		player.draw(window);
         test.draw(window);
         platform.draw(window);
+		/*ground.draw(window);*/
+		/*underground.draw(window);*/
+		/*dirt.draw(window);*/
 	    
         
         window.display();
