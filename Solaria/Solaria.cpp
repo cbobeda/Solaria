@@ -3,6 +3,8 @@
 #include "Ennemi.h"
 #include "Platform.h"
 #include "Player.hpp"
+#include "Boss.h"
+#include "Missile.h"
 
 using namespace sf;
 using namespace std;
@@ -13,6 +15,9 @@ int main(int argc, char* argv[])
 {
     Platform platform;
 	Player player(100, 0.2f, 100);
+    Boss boss(100);
+    Missile missile({ 500.f,20.f });
+
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
     while (window.isOpen())
     {
@@ -22,11 +27,14 @@ int main(int argc, char* argv[])
                 window.close();
         }
 
-        
+        if (missile.getBounds().intersects(player.getBounds())) {
+            //window.close();
+        }
 
         test.update(0.01);
         player.update(1);
-
+        missile.FollowPlayer(player);
+        boss.update(1);
         
         window.clear();
 
@@ -34,6 +42,8 @@ int main(int argc, char* argv[])
 		player.draw(window);
         test.draw(window);
         platform.draw(window);
+        boss.draw(window);
+        missile.draw(window);
 	    
         
         window.display();
