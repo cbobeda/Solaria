@@ -3,8 +3,12 @@
 #include "Ennemi.h"
 #include "FlyingEnemy.h"
 #include "Platform.h"
+#include "MapLoader.h"
 #include "Player.hpp"
 #include "Menu.h"
+#include "GroundTile.h"
+#include "UndergroundTile.h"
+#include "DirtTile.h"
 
 using namespace sf;
 using namespace std;
@@ -13,10 +17,14 @@ Ennemi test({20.f,20.f},10.f);
 
 int main(int argc, char* argv[])
 {
+    MapLoader mapLoader;
+    
 	Player player(100, 0.2f, 100);
     FlyingEnemy flyingEnemy(Vector2f(400, 300), 200.0f);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
+    std::vector<std::unique_ptr<Tiles>> currentMap;
+    
     float deltaTime;
     View view = window.getView();
     Menu menu(window);
@@ -32,6 +40,7 @@ int main(int argc, char* argv[])
     while (window.isOpen())
     {
         Event event;
+        currentMap = mapLoader.getCurrentMap();
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed)
             {
@@ -82,7 +91,7 @@ int main(int argc, char* argv[])
         deltaTime = clock.restart().asSeconds();
 
         test.update(0.01);
-        player.update(1);
+        player.update(deltaTime,currentMap, event);
 
         flyingEnemy.setPlayerPosition(player.getPosition());
         flyingEnemy.update(deltaTime);
@@ -93,7 +102,6 @@ int main(int argc, char* argv[])
 		player.draw(window);
         flyingEnemy.draw(window);
         test.draw(window);
-        platform.draw(window);
 	    
         
         window.display();
