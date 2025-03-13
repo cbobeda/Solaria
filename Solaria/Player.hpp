@@ -16,6 +16,7 @@ public:
 
 	void draw(RenderWindow& window) override;
 	void update(float deltatime) override;
+	Vector2f getPosition() const;
 		
 	Player(int health, float aspeed, int aenergy);
 };

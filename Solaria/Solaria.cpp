@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Ennemi.h"
+#include "FlyingEnemy.h"
 #include "Platform.h"
 #include "Player.hpp"
 #include "Menu.h"
@@ -15,6 +16,7 @@ int main(int argc, char* argv[])
     
     Platform platform;
 	Player player(100, 0.2f, 100);
+    FlyingEnemy flyingEnemy(Vector2f(400, 300), 200.0f);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
     float deltaTime;
@@ -84,11 +86,14 @@ int main(int argc, char* argv[])
         test.update(0.01);
         player.update(1);
 
+        flyingEnemy.setPlayerPosition(player.getPosition());
+        flyingEnemy.update(deltaTime);
         
         window.clear();
 
 		
 		player.draw(window);
+        flyingEnemy.draw(window);
         test.draw(window);
         platform.draw(window);
 	    

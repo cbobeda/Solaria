@@ -31,7 +31,9 @@ void Player::update(float deltatime)
 	playerSprite.setPosition(playerPosition);
 }
 
-
+Vector2f Player::getPosition() const {
+	return playerPosition;
+}
 
 
 
