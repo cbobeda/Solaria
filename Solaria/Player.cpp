@@ -118,7 +118,9 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Tiles>>& platfor
 
 }
 
-
+Vector2f Player::getPosition() const {
+	return playerPosition;
+}
 
 
 
