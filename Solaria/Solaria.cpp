@@ -85,6 +85,7 @@ int main(int argc, char* argv[])
             continue;
         }
 
+           
         mapLoader.setCurrentLevel("map.txt");
         
         deltaTime = clock.restart().asSeconds();
