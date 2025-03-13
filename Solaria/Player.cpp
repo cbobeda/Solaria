@@ -1,7 +1,7 @@
 #include "Player.hpp"
 #include "Platform.h"
 
-Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed), energy(aenergy)
+Player::Player(int health, float aspeed, int aenergy, Platform* plat) : hp(health), speed(aspeed), energy(aenergy), platform(plat), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(350.f)
 {
 	if (!playerTexture.loadFromFile("player.png"))
 	{
@@ -23,9 +23,40 @@ void Player::draw(RenderWindow& window)
 
 void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& platforms)
 {
+    if (jump && playerPosition.y <= initialY - maxJumpHeight) {
+        jump = false;
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::Space) && !jump && platform && platform->platBounds.intersects(playerSprite.getGlobalBounds()))
+    {
+        float currentTime = Clock().getElapsedTime().asSeconds();
+
+        if (1 <= jumpCooldown.getElapsedTime().asSeconds())
+        {
+            jump = true;
+            initialY = playerPosition.y;
+			jumpCooldown.restart();
+        }
+    }
+
+    if (jump)
+    {
+        if (playerPosition.y > initialY - maxJumpHeight)
+        {
+            playerPosition.y -= speed * 1.5f;
+        }
+        else
+        {
+            jump = false;
+        }
+    }
 	for (auto& plat: platforms)
 	{
 		if (plat && !plat->platBounds.intersects(playerSprite.getGlobalBounds()))
+		{
+			playerPosition.y += speed * deltatime;
+		}
+		else if (platform->platBounds.getPosition().y < playerSprite.getPosition().y)
 		{
 			playerPosition.y += speed * deltatime;
 		}
@@ -34,10 +65,32 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
 	{
 		playerPosition.x -= speed * deltatime;
 	}
+
+	if (Keyboard::isKeyPressed(Keyboard::Q) && Keyboard::isKeyPressed(Keyboard::LShift)) {
+		float currentTime = Clock().getElapsedTime().asSeconds();
+
+		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
+			initialX = playerPosition.x;
+			playerPosition.x -= initialX + 50;
+			dashCooldown.restart();
+		}
+	}
+
 	if (Keyboard::isKeyPressed(Keyboard::D))
 	{
 		playerPosition.x += speed * deltatime;
 	}
+
+	if (Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::LShift)) {
+		float currentTime = Clock().getElapsedTime().asSeconds();
+
+		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
+			initialX = playerPosition.x;
+			playerPosition.x += initialX + 50;
+			dashCooldown.restart();
+		}
+	}
+
 	playerSprite.setPosition(playerPosition);
 }
 

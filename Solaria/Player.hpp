@@ -14,6 +14,14 @@ public:
 	Sprite playerSprite;
 	Texture playerTexture;
 
+	bool jump;           
+	float initialY;
+	float initialX;
+	float maxJumpHeight;
+	sf::Clock jumpCooldown; 
+    sf::Clock dashCooldown;
+	float lastJumpTime;
+
 	Vector2f playerPosition;
 
 	void draw(RenderWindow& window);
