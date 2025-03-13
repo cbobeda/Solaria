@@ -94,8 +94,8 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Tiles>>& platfor
 		float currentTime = Clock().getElapsedTime().asSeconds();
 
 		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
-			initialX = playerPosition.x;
-			playerPosition.x -= initialX + 50;
+			initialX = playerSprite.getPosition().x;
+			playerSprite.move( -100,0);
 			dashCooldown.restart();
 		}
 	}
@@ -109,8 +109,8 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Tiles>>& platfor
 		float currentTime = Clock().getElapsedTime().asSeconds();
 
 		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
-			initialX = playerPosition.x;
-			playerPosition.x += initialX + 50;
+			initialX = playerSprite.getPosition().x;
+			playerSprite.move( 100,0);
 			dashCooldown.restart();
 		}
 	}
