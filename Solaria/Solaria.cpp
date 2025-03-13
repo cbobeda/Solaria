@@ -5,7 +5,7 @@
 #include "Platform.h"
 #include "Player.hpp"
 #include "Menu.h"
-
+#include "Taupe.h"
 using namespace sf;
 using namespace std;
 
