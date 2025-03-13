@@ -14,7 +14,7 @@ Ennemi test({20.f,20.f},10.f);
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
-	Player player(100, 0.2f, 100);
+	Player player(100, 20.f, 100);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
     std::vector<std::unique_ptr<Platform>> currentMap;

@@ -1,7 +1,7 @@
 #include "Player.hpp"
 #include "Platform.h"
 
-Player::Player(int health, float aspeed, int aenergy, Platform* plat) : hp(health), speed(aspeed), energy(aenergy), platform(plat), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(350.f)
+Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed), energy(aenergy), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(350.f)
 {
 	if (!playerTexture.loadFromFile("player.png"))
 	{
@@ -27,7 +27,7 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
         jump = false;
     }
 
-    if (Keyboard::isKeyPressed(Keyboard::Space) && !jump && platform && platform->platBounds.intersects(playerSprite.getGlobalBounds()))
+    if (Keyboard::isKeyPressed(Keyboard::Space) && !jump)
     {
         float currentTime = Clock().getElapsedTime().asSeconds();
 
@@ -56,10 +56,10 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
 		{
 			playerPosition.y += speed * deltatime;
 		}
-		else if (platform->platBounds.getPosition().y < playerSprite.getPosition().y)
+		/*else if (plat->platBounds.getPosition().y > playerSprite.getPosition().y)
 		{
 			playerPosition.y += speed * deltatime;
-		}
+		}*/
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Q))
 	{
