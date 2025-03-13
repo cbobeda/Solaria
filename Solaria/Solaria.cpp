@@ -12,6 +12,7 @@
 using namespace sf;
 using namespace std;
 
+
 Ennemi test({20.f,650.f},50.f);
 
 int main(int argc, char* argv[])
