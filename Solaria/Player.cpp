@@ -23,9 +23,6 @@ void Player::draw(RenderWindow& window)
 
 void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& platforms)
 {
-    if (jump && playerPosition.y <= initialY - maxJumpHeight) {
-        jump = false;
-    }
 
     if (Keyboard::isKeyPressed(Keyboard::Space) && !jump)
     {
@@ -34,36 +31,46 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
         if (1 <= jumpCooldown.getElapsedTime().asSeconds())
         {
             jump = true;
-            initialY = playerPosition.y;
+            initialY = playerSprite.getPosition().y;
 			jumpCooldown.restart();
         }
     }
 
     if (jump)
     {
-        if (playerPosition.y > initialY - maxJumpHeight)
+        if (playerSprite.getPosition().y > initialY - maxJumpHeight)
         {
-            playerPosition.y -= speed * 1.5f;
+            playerSprite.move(0,-speed);
         }
         else
         {
             jump = false;
         }
     }
+	hasToMoveDown = true;
 	for (auto& plat: platforms)
 	{
-		if (plat && !plat->platBounds.intersects(playerSprite.getGlobalBounds()))
+		if (plat->SpPlat.getGlobalBounds().intersects(playerSprite.getGlobalBounds()))
 		{
-			playerPosition.y += speed * deltatime;
+			std::cout << "col" << std::endl;
+			
+			if (plat->platBounds.getPosition().y < playerSprite.getPosition().y)
+			{
+				hasToMoveDown = true;
+			}
+			else
+			{
+				hasToMoveDown = false;
+			}
 		}
-		/*else if (plat->platBounds.getPosition().y > playerSprite.getPosition().y)
-		{
-			playerPosition.y += speed * deltatime;
-		}*/
+	}
+	if (hasToMoveDown)
+	{
+		playerSprite.move( 0,speed * deltatime * 5.f);
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Q))
 	{
-		playerPosition.x -= speed * deltatime;
+		playerSprite.move(-speed * deltatime,0);
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::Q) && Keyboard::isKeyPressed(Keyboard::LShift)) {
@@ -78,7 +85,7 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
 
 	if (Keyboard::isKeyPressed(Keyboard::D))
 	{
-		playerPosition.x += speed * deltatime;
+		playerSprite.move(speed * deltatime,0);
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::LShift)) {
@@ -91,7 +98,7 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
 		}
 	}
 
-	playerSprite.setPosition(playerPosition);
+
 }
 
 

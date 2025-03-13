@@ -16,8 +16,6 @@ void MapLoader::setCurrentLevel(string newlevel)
         }
     }
     for (int y = 0; y<map.size(); y++) {
-        std::cout << line << std::endl;
-        std::cout << "z" << std::endl;
 
         for (int x = 0; x < map[y].size(); x++)
         {

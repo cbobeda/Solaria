@@ -14,7 +14,8 @@ public:
 	Sprite playerSprite;
 	Texture playerTexture;
 
-	bool jump;           
+	bool jump;
+	bool hasToMoveDown;
 	float initialY;
 	float initialX;
 	float maxJumpHeight;
