@@ -2,7 +2,7 @@
 
 GroundTile::GroundTile(sf::Vector2f pos)
 {
-	groundTexture.loadFromFile("ground.png");
+	groundTexture.loadFromFile("assets/tiles/tiles terre.png");
 	groundSprite.setTexture(groundTexture);
 	groundSprite.setPosition(pos);
 	groundSprite.setScale(1, 1);

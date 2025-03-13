@@ -22,6 +22,14 @@ void MapLoader::setCurrentLevel(string newlevel)
             {
                 platforms.push_back(std::move(std::make_unique<DirtTile>(Vector2f{x * 40.f, y * 40.f})));
             }
+            if (map[y][x] == 'c')
+            {
+                platforms.push_back(std::move(std::make_unique<GroundTile>(Vector2f{x * 40.f, y * 40.f})));
+            }
+            if (map[y][x] == 'w')
+            {
+                platforms.push_back(std::move(std::make_unique<UndergroundTile>(Vector2f{x * 40.f, y * 40.f})));
+            }
         }
     }
 }

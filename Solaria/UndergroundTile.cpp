@@ -2,7 +2,7 @@
 
 UndergroundTile::UndergroundTile(sf::Vector2f pos)
 {
-	undergroundTexture.loadFromFile("underground.png");
+	undergroundTexture.loadFromFile("assets/tiles/tiles coteterre4.png");
 	undergroundSprite.setTexture(undergroundTexture);
 	undergroundSprite.setPosition(pos);
 	undergroundSprite.setScale(1, 1);
