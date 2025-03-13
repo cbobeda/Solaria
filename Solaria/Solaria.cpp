@@ -19,10 +19,6 @@ int main(int argc, char* argv[])
     MapLoader mapLoader;
 	Player player(100, 150.f, 100);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
-	/*GroundTile ground({ 50.f, 200.f });*/
-    /*UndergroundTile underground({ 50.f, 200.f });*/
-	/*DirtTile dirt({ 50.f, 200.f });*/
-
     std::vector<std::unique_ptr<Tiles>> currentMap;
     
     float deltaTime;
