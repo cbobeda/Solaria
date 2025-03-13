@@ -7,7 +7,7 @@
 
 class FlyingEnemy : public Entity {
 private:
-    int hp = 3, i = 0;
+    int hp = 3;
     Texture texture;
     Sprite sprite;
     Vector2f playerPosition;
