@@ -1,8 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Ennemi.h"
-#include "MapLoader.h"
+#include "FlyingEnemy.h"
 #include "Platform.h"
+#include "MapLoader.h"
 #include "Player.hpp"
 #include "Menu.h"
 #include "GroundTile.h"
@@ -19,6 +20,7 @@ int main(int argc, char* argv[])
     MapLoader mapLoader;
 	Player player(100, 150.f, 100);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
+
     std::vector<std::unique_ptr<Tiles>> currentMap;
     
     float deltaTime;
@@ -26,18 +28,15 @@ int main(int argc, char* argv[])
     Menu menu(window);
     Clock clock;
 
-
-    
     bool isPause = false;
     bool gameOver = false;
     bool win = false;
     bool isOptions = false;
 
-    //menu.menuDisplay(window, 0);
-    
+    menu.menuDisplay(window, 0);
+
     while (window.isOpen())
     {
-        
         Event event;
         currentMap = mapLoader.getCurrentMap();
         while (window.pollEvent(event)) {
@@ -95,11 +94,14 @@ int main(int argc, char* argv[])
         test.update(deltaTime);
         player.update(deltaTime,currentMap, event);
 
+        flyingEnemy.setPlayerPosition(player.getPosition());
+        flyingEnemy.update(deltaTime);
         
         window.clear();
 
 		
 		player.draw(window);
+        flyingEnemy.draw(window);
         test.draw(window);
 	    mapLoader.draw(window);
         
