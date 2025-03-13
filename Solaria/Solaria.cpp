@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
 	Player player(100, 150.f, 100);
+    FlyingEnemy flyingEnemy(Vector2f(400, 300), 200.0f);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
     std::vector<std::unique_ptr<Tiles>> currentMap;
@@ -33,6 +34,7 @@ int main(int argc, char* argv[])
     bool win = false;
     bool isOptions = false;
 
+    
     menu.menuDisplay(window, 0);
 
     while (window.isOpen())
