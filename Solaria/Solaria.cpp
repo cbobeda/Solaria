@@ -5,6 +5,9 @@
 #include "Platform.h"
 #include "Player.hpp"
 #include "Menu.h"
+#include "GroundTile.h"
+#include "UndergroundTile.h"
+#include "DirtTile.h"
 
 using namespace sf;
 using namespace std;
@@ -16,6 +19,9 @@ int main(int argc, char* argv[])
     MapLoader mapLoader;
 	Player player(100, 150.f, 100);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
+	/*GroundTile ground({ 50.f, 200.f });*/
+    /*UndergroundTile underground({ 50.f, 200.f });*/
+	/*DirtTile dirt({ 50.f, 200.f });*/
 
     std::vector<std::unique_ptr<Platform>> currentMap;
     
