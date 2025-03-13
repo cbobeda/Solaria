@@ -1,11 +1,15 @@
 ﻿  Button.cpp
   Ennemi.cpp
   Entity.cpp
+  MapLoader.cpp
   Menu.cpp
   Platform.cpp
   Player.cpp
   Solaria.cpp
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Solaria.cpp(11,25): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Solaria.cpp(81,21): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\Utilisateur\source\repos\cbobeda\Solaria\Solaria\Solaria.cpp(12,25): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Taupe.cpp
+C:\Users\Utilisateur\source\repos\cbobeda\Solaria\Solaria\Taupe.cpp(17,41): error C2440: '=' : impossible de convertir de 'const sf::Vector2f' en 'float'
+      C:\Users\Utilisateur\source\repos\cbobeda\Solaria\Solaria\Taupe.cpp(17,41):
+      Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
+  
   Génération de code en cours...
-  Solaria.vcxproj -> C:\Users\tbouaifel\source\repos\cbobeda\Solaria\x64\Debug\Solaria.exe

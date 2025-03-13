@@ -1,38 +1,49 @@
 #include "Taupe.h"
+#include <iostream>
 
-Taupe::Taupe(sf::Vector2f pos)
+Taupe::Taupe(sf::Vector2f pos, int moveRange)
 {
-	taupeTexture.loadFromFile("taupe.jpg");
-	taupeSprite.setTexture(taupeTexture);
-	taupeSprite.setScale(0.1f, 0.1f);
-	taupeSprite.setPosition(pos);
+    taupeTexture.loadFromFile("taupe.jpg");
+    taupeSprite.setTexture(taupeTexture);
+    taupeSprite.setScale(0.1f, 0.1f);
+    taupeSprite.setPosition(pos);
 
+    positionP[0] = pos;
+    positionP[1] = { pos.x + moveRange, pos.y };
 }
 
 void Taupe::update(float deltatime)
 {
-	currentpos = taupeSprite.getPosition();
-	maxY = currentpos.y + 50;
-	minY = currentpos.y - 50;
+    currentpos = taupeSprite.getPosition();
 
-	if (digging == false) {
-
-	}
-
-	if (digging == true) {
-		if (currentpos.y < maxY) {
-			Taupe::taupeSprite.move(0, (currentpos.y + 1 * speed * deltatime));
-		}
-		else if (currentpos.y > minY) {
-			Taupe::taupeSprite.move(0, (currentpos.y - 1 * speed * deltatime));
-		}
-		
-	}
+    if (!digging)
+    {
+        if (currentpos.y < positionP[0].y + digDepth)
+        {
+            taupeSprite.move(0, speed * deltatime);
+        }
+        else
+        {
+            digging = true;
+            taupeSprite.setPosition(positionP[1].x, positionP[0].y - 100);
+        }
+    }
+    else
+    {
+        if (currentpos.y < positionP[0].y)
+        {
+            taupeSprite.move(0, speed * deltatime);
+        }
+        else
+        {
+            digging = false;
+        }
+    }
 }
 
 void Taupe::draw(sf::RenderWindow& window)
 {
-	window.draw(taupeSprite);
+    window.draw(taupeSprite);
 }
 
 Taupe::~Taupe()

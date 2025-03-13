@@ -15,6 +15,7 @@ int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
 	Player player(100, 150.f, 100);
+	Taupe taupe({ 500.f, 500.f }, 100.f);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
     std::vector<std::unique_ptr<Platform>> currentMap;
@@ -98,6 +99,7 @@ int main(int argc, char* argv[])
 
 		
 		player.draw(window);
+		taupe.draw(window);
         test.draw(window);
 	    mapLoader.draw(window);
         
