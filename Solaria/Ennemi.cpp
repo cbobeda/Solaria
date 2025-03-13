@@ -3,10 +3,10 @@
 Ennemi::Ennemi(sf::Vector2f pos, int patrolRange)
 {
     positionP[0] = {pos.x, pos.y};
-    positionP[1] = {pos.x + patrolRange, pos.y + patrolRange};
-    texture.loadFromFile("ennemi.jpg");
+    positionP[1] = {pos.x + patrolRange, pos.y};
+    texture.loadFromFile("ennemi.png");
     sprite.setTexture(texture);
-    sprite.setScale(0.1f, 0.1f);
+    sprite.setScale(2.f, 2.f);
     sprite.setPosition(pos);
 }
 
