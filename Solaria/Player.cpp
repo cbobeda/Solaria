@@ -1,6 +1,7 @@
 #include "Player.hpp"
 #include "Platform.h"
 
+
 Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed), energy(aenergy), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(350.f)
 {
 	if (!playerTexture.loadFromFile("player.png"))
@@ -22,7 +23,7 @@ void Player::draw(RenderWindow& window)
 	window.draw(playerSprite);
 }
 
-void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& platforms)
+void Player::update(float deltatime,std::vector<std::unique_ptr<Tiles>>& platforms,Event& event)
 {
 
 	if (watchanime.getElapsedTime().asSeconds() > 0.5f) {
@@ -48,8 +49,16 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
     {
         if (playerSprite.getPosition().y > initialY - maxJumpHeight)
         {
-            playerSprite.move(0,-speed);
+            playerSprite.move(0,-speed * 0.5f);
         }
+    	if (sf::Event::KeyReleased)
+    	{
+    		if (event.key.code == sf::Keyboard::Space)
+    		{
+    			std::cout << "endJump" << std::endl;
+    			jump = false;
+    		}
+    	}
         else
         {
             jump = false;
@@ -58,16 +67,16 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
 	hasToMoveDown = true;
 	for (auto& plat: platforms)
 	{
-		if (plat->SpPlat.getGlobalBounds().intersects(playerSprite.getGlobalBounds()))
+		if (plat->sprite.getGlobalBounds().intersects(playerSprite.getGlobalBounds()))
 		{
 			
-			if (plat->platBounds.getPosition().y < playerSprite.getPosition().y)
+			if (plat->sprite.getPosition().y < playerSprite.getPosition().y)
 			{
 				hasToMoveDown = true;
 			}
 			else
 			{
-				playerSprite.setPosition(playerSprite.getPosition().x,plat->platBounds.getPosition().y -95);
+				playerSprite.setPosition(playerSprite.getPosition().x,plat->sprite.getPosition().y -95);
 				hasToMoveDown = false;
 			}
 		}

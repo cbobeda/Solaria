@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     /*UndergroundTile underground({ 50.f, 200.f });*/
 	/*DirtTile dirt({ 50.f, 200.f });*/
 
-    std::vector<std::unique_ptr<Platform>> currentMap;
+    std::vector<std::unique_ptr<Tiles>> currentMap;
     
     float deltaTime;
     View view = window.getView();
@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
         deltaTime = clock.restart().asSeconds();
 
         test.update(deltaTime);
-        player.update(deltaTime,currentMap);
+        player.update(deltaTime,currentMap, event);
 
         
         window.clear();
