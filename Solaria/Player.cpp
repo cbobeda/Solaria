@@ -8,9 +8,10 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 		cout << "Error loading player texture" << endl;
 	}
 	playerSprite.setTexture(playerTexture);
+	playerSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
 	playerPosition = Vector2f(500.f, 300.f);
 	playerSprite.setPosition(playerPosition);
-	playerSprite.setScale(1, 1);
+	playerSprite.setScale(1.5f, 1.5f);
 	FloatRect playerBounds = playerSprite.getGlobalBounds();
 	
 }
@@ -24,6 +25,13 @@ void Player::draw(RenderWindow& window)
 void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& platforms)
 {
 
+	if (watchanime.getElapsedTime().asSeconds() > 0.5f) {
+		IntRect newRect = playerSprite.getTextureRect();
+		newRect.left += 64;
+		if (newRect.left >= 256) { newRect.left -= 256; }
+		playerSprite.setTextureRect(newRect);
+		watchanime.restart();
+	}
     if (Keyboard::isKeyPressed(Keyboard::Space) && !jump)
     {
         float currentTime = Clock().getElapsedTime().asSeconds();
@@ -52,7 +60,6 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
 	{
 		if (plat->SpPlat.getGlobalBounds().intersects(playerSprite.getGlobalBounds()))
 		{
-			std::cout << "col" << std::endl;
 			
 			if (plat->platBounds.getPosition().y < playerSprite.getPosition().y)
 			{
@@ -60,6 +67,7 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
 			}
 			else
 			{
+				playerSprite.setPosition(playerSprite.getPosition().x,plat->platBounds.getPosition().y -95);
 				hasToMoveDown = false;
 			}
 		}

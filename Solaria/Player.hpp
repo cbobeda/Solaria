@@ -19,6 +19,7 @@ public:
 	float initialY;
 	float initialX;
 	float maxJumpHeight;
+	sf::Clock watchanime;
 	sf::Clock jumpCooldown; 
     sf::Clock dashCooldown;
 	float lastJumpTime;
