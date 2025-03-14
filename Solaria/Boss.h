@@ -1,5 +1,7 @@
 #include "Entity.h"
 
+class Platform;
+
 class Boss : public Entity {
 private:
 
@@ -14,6 +16,16 @@ private:
 	Clock clock;
 	bool isWaiting = false;
 	float pauseDuration = 1;
+
+	bool jump;
+	bool hasToMoveDown;
+	float initialY;
+	float initialX;
+	float maxJumpHeight;
+	sf::Clock watchanime;
+	sf::Clock jumpCooldown;
+	sf::Clock dashCooldown;
+	float lastJumpTime;
 	
 public:
 

@@ -8,6 +8,8 @@ public:
 
 	Texture TePlat;
 	Sprite SpPlat;
+	FloatRect platBounds;
+	FloatRect platsideBounds;
 
 	Platform();
 
