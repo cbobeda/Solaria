@@ -9,6 +9,7 @@
 #include "GroundTile.h"
 #include "UndergroundTile.h"
 #include "DirtTile.h"
+#include "Grid.h"
 
 using namespace sf;
 using namespace std;
@@ -18,9 +19,10 @@ Ennemi test({20.f,20.f},10.f);
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
+    Grid grid;
     
-	Player player(100, 0.2f, 100);
-    FlyingEnemy flyingEnemy(Vector2f(400, 300), 200.0f);
+	Player player(100, 150.f, 100);
+    FlyingEnemy flyingEnemy(Vector2f(300, 300), 130.0f, &grid);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
     std::vector<std::unique_ptr<Tiles>> currentMap;
@@ -88,12 +90,14 @@ int main(int argc, char* argv[])
             continue;
         }
 
+        mapLoader.setCurrentLevel("map.txt");
+
         deltaTime = clock.restart().asSeconds();
 
         test.update(0.01);
         player.update(deltaTime,currentMap, event);
 
-        flyingEnemy.setPlayerPosition(player.getPosition());
+        flyingEnemy.setPlayerPosition(player.playerSprite.getPosition());
         flyingEnemy.update(deltaTime);
         
         window.clear();
@@ -102,6 +106,7 @@ int main(int argc, char* argv[])
 		player.draw(window);
         flyingEnemy.draw(window);
         test.draw(window);
+        mapLoader.draw(window);
 	    
         
         window.display();

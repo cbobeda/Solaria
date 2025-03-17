@@ -10,13 +10,12 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 	}
 	playerSprite.setTexture(playerTexture);
 	playerSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-	playerPosition = Vector2f(500.f, 300.f);
+	playerPosition = Vector2f(200.f, 300.f);
 	playerSprite.setPosition(playerPosition);
 	playerSprite.setScale(1.5f, 1.5f);
 	FloatRect playerBounds = playerSprite.getGlobalBounds();
 	
 }
-
 
 void Player::draw(RenderWindow& window)
 {
