@@ -3,7 +3,10 @@
 
 #include "Entity.h"
 #include "Player.hpp"
+#include "Pathfinding.h"
+#include "Grid.h"
 #include <cmath>
+#include <queue>
 
 class FlyingEnemy : public Entity {
 private:
@@ -11,6 +14,9 @@ private:
     Texture texture;
     Sprite sprite;
     Vector2f playerPosition;
+    vector<Vector2i> path;
+    int pathIndex;
+    Grid* grid;
 
 public:
     Vector2f position;
@@ -20,17 +26,16 @@ public:
     enum State { PATROL, CHASE, SEARCH };
     State currentState;
 
-    FlyingEnemy(Vector2f startPos, float radiusDetect);
+    FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid);
     void update(float deltatime) override;
     void draw(RenderWindow& window) override;
 
     bool detectPlayer(Vector2f playerPosition);
     void patrol();
     void chase(Vector2f playerPosition);
-    void search(Vector2f lastPlayterPos, float deltatime);
+    void search(Vector2f lastPlayerPos, float deltatime);
     void setPlayerPosition(Vector2f playerPosition);
     ~FlyingEnemy();
-
 };
 
 #endif
