@@ -1,8 +1,4 @@
-﻿  Button.cpp
-  DirtTile.cpp
-  Ennemi.cpp
-  Entity.cpp
-  FlyingEnemy.cpp
+﻿  FlyingEnemy.cpp
 C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(50,73): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
@@ -14,19 +10,10 @@ C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(50,47): 
               T=float
           ]
   Grid.cpp
-  GroundTile.cpp
-  MapLoader.cpp
-  Menu.cpp
-  Node.cpp
   Pathfinding.cpp
-  Platform.cpp
-  Player.cpp
-  Solaria.cpp
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Solaria.cpp(16,26): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  Tiles.cpp
-  UndergroundTile.cpp
   Génération de code en cours
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-  All 472 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  0 of 472 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
   Solaria.vcxproj -> C:\Users\tbouaifel\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe
