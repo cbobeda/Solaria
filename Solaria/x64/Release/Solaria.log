@@ -1,19 +1,2 @@
-﻿  FlyingEnemy.cpp
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(50,73): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(50,47): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-  Grid.cpp
-  Pathfinding.cpp
-  Génération de code en cours
-  0 of 472 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Fin de la génération du code
-  Solaria.vcxproj -> C:\Users\tbouaifel\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe
+﻿Solaria.obj : error LNK2001: symbole externe non résolu "public: __cdecl FlyingEnemy::FlyingEnemy(class sf::Vector2<float>,float)" (??0FlyingEnemy@@QEAA@V?$Vector2@M@sf@@M@Z)
+C:\Users\tbouaifel\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe : fatal error LNK1120: 1 externes non résolus
