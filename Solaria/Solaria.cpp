@@ -24,7 +24,6 @@ int main(int argc, char* argv[])
     Menu menu(window);
     Clock clock;
 
-
     
     bool isPause = false;
     bool gameOver = false;
@@ -36,6 +35,8 @@ int main(int argc, char* argv[])
     while (window.isOpen())
     {
         
+       
+
         Event event;
         currentMap = mapLoader.getCurrentMap();
         while (window.pollEvent(event)) {
@@ -91,13 +92,16 @@ int main(int argc, char* argv[])
         deltaTime = clock.restart().asSeconds();
 
         test.update(deltaTime);
-        player.update(deltaTime,currentMap);
-
+        player.update(deltaTime,currentMap, window);
+        
         
         window.clear();
 
 		
 		player.draw(window);
+
+       
+        player.grapin(window, currentMap, deltaTime);
         test.draw(window);
 	    mapLoader.draw(window);
         

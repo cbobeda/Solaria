@@ -13,6 +13,13 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 	playerSprite.setPosition(playerPosition);
 	playerSprite.setScale(1.5f, 1.5f);
 	FloatRect playerBounds = playerSprite.getGlobalBounds();
+
+	grapinTexture.loadFromFile("cable-grapin.jpg");
+	
+	line.setTexture(&grapinTexture);
+	line.setPosition(playerPosition);
+	
+	FloatRect grapinBounds = line.getGlobalBounds();
 	
 }
 
@@ -20,9 +27,10 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 void Player::draw(RenderWindow& window)
 {
 	window.draw(playerSprite);
+	
 }
 
-void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& platforms)
+void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& platforms, RenderWindow& window)
 {
 
 	if (watchanime.getElapsedTime().asSeconds() > 0.5f) {
@@ -106,6 +114,36 @@ void Player::update(float deltatime,std::vector<std::unique_ptr<Platform>>& plat
 		}
 	}
 
+	
+
+}
+
+
+void Player::grapin(RenderWindow& window, vector<unique_ptr<Platform>>& currentMap, float deltatime) {
+	Vector2i Mousepos = Mouse::getPosition(window);
+
+	
+	if (Mouse::isButtonPressed(Mouse::Left)) {
+
+		float distance = sqrt(pow(playerSprite.getPosition().x-Mousepos.x  , 2) + pow( playerSprite.getPosition().y-Mousepos.y , 2));
+		float angle = (atan2(Mousepos.y - playerSprite.getPosition().y, Mousepos.x - playerSprite.getPosition().x)) * (180.0 / 3.14f);
+		
+		line.setSize(Vector2f(distance, 5));
+		line.setPosition(playerSprite.getPosition());
+		line.setRotation(angle);
+
+		
+		
+		
+	}
+	
+	window.draw(line);
+	
+	
+	
+	
+	
+	
 
 }
 
