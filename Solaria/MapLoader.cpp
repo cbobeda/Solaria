@@ -4,6 +4,7 @@ MapLoader::MapLoader()
 {
 }
 
+
 void MapLoader::setCurrentLevel(string newlevel)
 {
     if (newlevel != currentLevel)
@@ -26,6 +27,10 @@ void MapLoader::setCurrentLevel(string newlevel)
             {
                 platforms.push_back(std::move(std::make_unique<GroundTile>(Vector2f{x * 40.f, y * 40.f})));
             }
+            if (map[y][x] == 'p' && !mapLoaded)
+            {
+                player.playerSprite.setPosition(x * 40.f, y * 40.f);
+            }
             if (map[y][x] == 'w')
             {
                 platforms.push_back(std::move(std::make_unique<UndergroundTile>(Vector2f{x * 40.f, y * 40.f})));
@@ -36,6 +41,11 @@ void MapLoader::setCurrentLevel(string newlevel)
 std::vector<std::unique_ptr<Tiles>> MapLoader::getCurrentMap()
 {
     return std::move(platforms);
+}
+
+void MapLoader::mapClear()
+{
+    platforms.clear();
 }
 
 void MapLoader::draw(RenderWindow& window)

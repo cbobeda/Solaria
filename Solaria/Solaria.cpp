@@ -6,9 +6,9 @@
 #include "MapLoader.h"
 #include "Player.hpp"
 #include "Menu.h"
-#include "GroundTile.h"
-#include "UndergroundTile.h"
-#include "DirtTile.h"
+#include "ClassTiles/GroundTile.h"
+#include "ClassTiles/UndergroundTile.h"
+#include "ClassTiles/DirtTile.h"
 
 using namespace sf;
 using namespace std;
@@ -18,10 +18,9 @@ Ennemi test({20.f,650.f},50.f);
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
-	Player player(100, 150.f, 100);
     FlyingEnemy flyingEnemy(Vector2f(400, 300), 200.0f);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
-
+    
     std::vector<std::unique_ptr<Tiles>> currentMap;
     
     float deltaTime;
@@ -29,13 +28,15 @@ int main(int argc, char* argv[])
     Menu menu(window);
     Clock clock;
 
+    int typeMenu = 0;
+    bool isMainMenu = true;
     bool isPause = false;
     bool gameOver = false;
     bool win = false;
     bool isOptions = false;
 
     
-    menu.menuDisplay(window, 0);
+    
 
     while (window.isOpen())
     {
@@ -55,57 +56,74 @@ int main(int argc, char* argv[])
                 }
             }
         }
-        if (isPause)
+        if (isMainMenu)
         {
-            menu.menuDisplay(window, 1);
+            typeMenu = 0;
+            menu.menuDisplay(window, typeMenu);
+            isMainMenu = false;
+            clock.restart();
+            window.setView(view);
+            continue;
+        }
+        else if (isPause)
+        {
+            typeMenu = 1;
+            menu.menuDisplay(window, typeMenu);
             isPause = false;
             clock.restart();
             window.setView(view);
             continue;
         }
-        if (gameOver)
+        else if (gameOver)
         {
-            menu.menuDisplay(window, 2);
+            typeMenu = 2;
+            menu.menuDisplay(window, typeMenu);
             gameOver = false;
             clock.restart();
             window.setView(view);
             continue;
         }
-        if (win)
+        else if (win)
         {
-            menu.menuDisplay(window, 3);
+            typeMenu = 3;
+            menu.menuDisplay(window, typeMenu);
             win = false;
             clock.restart();
             window.setView(view);
             continue;
         }
-        if (isOptions)
+        else if (isOptions)
         {
-            menu.menuDisplay(window, 4);
+            typeMenu = 4;
+            menu.menuDisplay(window, typeMenu);
             isOptions = false;
             clock.restart();
             window.setView(view);
             continue;
         }
+        else if (!isMainMenu && !isPause && !gameOver && !win && !isOptions)
+        {
+            mapLoader.setCurrentLevel("map.txt");
+            deltaTime = clock.restart().asSeconds();
 
-           
-        mapLoader.setCurrentLevel("map.txt");
+            test.update(deltaTime);
+            mapLoader.player.update(deltaTime,currentMap, event);
+
+            flyingEnemy.setPlayerPosition(mapLoader.player.getPosition());
+            flyingEnemy.update(deltaTime);
         
-        deltaTime = clock.restart().asSeconds();
-
-        test.update(deltaTime);
-        player.update(deltaTime,currentMap, event);
-
-        flyingEnemy.setPlayerPosition(player.getPosition());
-        flyingEnemy.update(deltaTime);
-        
-        window.clear();
+            window.clear();
 
 		
-		player.draw(window);
-        flyingEnemy.draw(window);
-        test.draw(window);
-	    mapLoader.draw(window);
+            mapLoader.player.draw(window);
+            flyingEnemy.draw(window);
+            test.draw(window);
+            mapLoader.draw(window);
+            mapLoader.mapClear();
+            mapLoader.mapLoaded = true;
+        }
+
+        
         
         window.display();
 
