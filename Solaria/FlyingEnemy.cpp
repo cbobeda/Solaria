@@ -129,4 +129,3 @@ void FlyingEnemy::draw(RenderWindow& window) {
 
 FlyingEnemy::~FlyingEnemy() {
 }
-
