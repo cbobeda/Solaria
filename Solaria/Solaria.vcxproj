@@ -165,6 +165,7 @@
     <ClCompile Include="ClassTiles\GroundTile.cpp" />
     <ClCompile Include="ClassTiles\Tiles.cpp" />
     <ClCompile Include="ClassTiles\UndergroundTile.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileLeft.cpp" />
     <ClCompile Include="Ennemi.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FlyingEnemy.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="ClassTiles\GroundTile.h" />
     <ClInclude Include="ClassTiles\Tiles.h" />
     <ClInclude Include="ClassTiles\UndergroundTile.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileLeft.h" />
     <ClInclude Include="Ennemi.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FlyingEnemy.h" />

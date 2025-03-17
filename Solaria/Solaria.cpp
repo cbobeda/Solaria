@@ -13,15 +13,15 @@
 using namespace sf;
 using namespace std;
 
-Ennemi test({20.f,650.f},50.f);
 
 int main(int argc, char* argv[])
 {
+    Ennemi test({20.f,650.f},50.f);
     MapLoader mapLoader;
     FlyingEnemy flyingEnemy(Vector2f(400, 300), 200.0f);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
     
-    std::vector<std::unique_ptr<Tiles>> currentMap;
+    std::vector<std::shared_ptr<Tiles>> currentMap;
     
     float deltaTime;
     View view = window.getView();
@@ -119,7 +119,6 @@ int main(int argc, char* argv[])
             flyingEnemy.draw(window);
             test.draw(window);
             mapLoader.draw(window);
-            mapLoader.mapClear();
             mapLoader.mapLoaded = true;
         }
 
