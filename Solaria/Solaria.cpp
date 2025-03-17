@@ -10,6 +10,7 @@ using namespace sf;
 using namespace std;
 
 Ennemi test({20.f,20.f},10.f);
+Taupe taupe({ 500.f, 500.f }, 100.f);
 
 int main(int argc, char* argv[])
 {
@@ -93,6 +94,7 @@ int main(int argc, char* argv[])
 
         test.update(deltaTime);
         player.update(deltaTime,currentMap);
+		taupe.update(deltaTime);
 
         
         window.clear();
@@ -101,6 +103,7 @@ int main(int argc, char* argv[])
 		player.draw(window);
 		taupe.draw(window);
         test.draw(window);
+		taupe.draw(window);
 	    mapLoader.draw(window);
         
         window.display();

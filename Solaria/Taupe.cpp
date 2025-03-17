@@ -3,7 +3,11 @@
 
 Taupe::Taupe(sf::Vector2f pos, int moveRange)
 {
-    taupeTexture.loadFromFile("taupe.jpg");
+    if (!taupeTexture.loadFromFile("taupe.jpg"))
+    {
+        std::cerr << "Erreur de chargement de la texture taupe.jpg" << std::endl;
+    }
+
     taupeSprite.setTexture(taupeTexture);
     taupeSprite.setScale(0.1f, 0.1f);
     taupeSprite.setPosition(pos);
@@ -12,32 +16,33 @@ Taupe::Taupe(sf::Vector2f pos, int moveRange)
     positionP[1] = { pos.x + moveRange, pos.y };
 }
 
-void Taupe::update(float deltatime)
+void Taupe::update(float deltaTime)
 {
-    currentpos = taupeSprite.getPosition();
+    sf::Vector2f currentPos = taupeSprite.getPosition();
 
     if (!digging)
     {
-        if (currentpos.y < positionP[0].y + digDepth)
+        if (currentPos.y < positionP[0].y + digDepth)
         {
-            taupeSprite.move(0, speed * deltatime);
+            taupeSprite.move(0, speed * deltaTime);
         }
         else
         {
             digging = true;
-            taupeSprite.setPosition(positionP[1].x, positionP[0].y - 100);
         }
     }
     else
     {
-        if (currentpos.y < positionP[0].y)
+        if (currentPos.y < positionP[0].y)
         {
-            taupeSprite.move(0, speed * deltatime);
+            taupeSprite.move(0, digSpeed * deltaTime);
         }
         else
         {
             digging = false;
         }
+
+        taupeSprite.move(-lateralSpeed * deltaTime, 0);
     }
 }
 
