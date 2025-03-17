@@ -24,11 +24,11 @@ void MapLoader::setCurrentLevel(string newlevel)
             {
                 if (map[y][x] == 'x')
                 {
-                    platforms.push_back(std::move(std::make_shared<DirtTile>(Vector2f{x * 40.f, y * 40.f})));
+                    platforms.push_back(std::make_shared<DirtTile>(Vector2f{x * 40.f, y * 40.f}));
                 }
                 if (map[y][x] == 'c')
                 {
-                    platforms.push_back(std::move(std::make_shared<GroundTile>(Vector2f{x * 40.f, y * 40.f})));
+                    platforms.push_back(std::make_shared<GroundTile>(Vector2f{x * 40.f, y * 40.f}));
                 }
                 if (map[y][x] == 'p' && !mapLoaded)
                 {
@@ -36,11 +36,11 @@ void MapLoader::setCurrentLevel(string newlevel)
                 }
                 if (map[y][x] == 'w')
                 {
-                    platforms.push_back(std::move(std::make_shared<UndergroundTile>(Vector2f{x * 40.f, y * 40.f})));
+                    platforms.push_back(std::make_shared<UndergroundTile>(Vector2f{x * 40.f, y * 40.f}));
                 }
                 if (map[y][x] == 'l')
                 {
-                    platforms.push_back()
+                    platforms.push_back(std::make_shared<UndergroundTileLeft>(Vector2f{x * 40.f, y * 40.f}));
                 }
             }
         }
