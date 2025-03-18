@@ -54,11 +54,8 @@ std::vector<std::shared_ptr<Tiles>> MapLoader::getCurrentMap()
 
 void MapLoader::draw(RenderWindow& window)
 {
-    int i = 0;
     for (auto& platform : platforms)
     {
-        i++;
-        std::cout << i  << std::endl;
         platform->draw(window);
     }
 }
