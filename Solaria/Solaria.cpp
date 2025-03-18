@@ -114,14 +114,13 @@ int main(int argc, char* argv[])
             deltaTime = clock.restart().asSeconds();
 
             test.update(deltaTime);
-            mapLoader.player.update(deltaTime,currentMap, window, event);
+            mapLoader.player.update(deltaTime,currentMap, event);
 
             flyingEnemy.setPlayerPosition(mapLoader.player.playerSprite.getPosition());
             flyingEnemy.update(deltaTime);
         
             window.clear();
-
-            player.grapin(window, currentMap, deltaTime);
+            
             mapLoader.player.draw(window);
             flyingEnemy.draw(window);
             test.draw(window);
