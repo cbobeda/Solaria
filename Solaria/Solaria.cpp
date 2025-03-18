@@ -14,7 +14,7 @@
 using namespace sf;
 using namespace std;
 
-Ennemi test({20.f,20.f},10.f);
+Ennemi test({20.f,650.f},10.f);
 
 int main(int argc, char* argv[])
 {
