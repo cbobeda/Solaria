@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     MapLoader mapLoader;
     Grid grid;
     
-	Player player(100, 150.f, 100);
+	
     FlyingEnemy flyingEnemy(Vector2f(300, 300), 130.0f, &grid);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
     
@@ -120,7 +120,8 @@ int main(int argc, char* argv[])
             flyingEnemy.update(deltaTime);
         
             window.clear();
-            
+
+            mapLoader.player.grapin(window, currentMap, deltaTime);
             mapLoader.player.draw(window);
             flyingEnemy.draw(window);
             test.draw(window);

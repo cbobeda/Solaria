@@ -32,6 +32,7 @@ void MapLoader::setCurrentLevel(string newlevel)
                 }
                 if (map[y][x] == 'p' && !mapLoaded)
                 {
+                    player.playerPosition = { x * 40.f, y * 40.f };
                     player.playerSprite.setPosition(x * 40.f, y * 40.f);
                 }
                 if (map[y][x] == 'w')
