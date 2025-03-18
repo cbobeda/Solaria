@@ -34,7 +34,7 @@ void Player::draw(RenderWindow& window)
 	
 }
 
-void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms, RenderWindow& window,Event& event)
+void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms, RenderWindow& window, Event event)
 {
 
 	if (watchanime.getElapsedTime().asSeconds() > 0.5f) {
@@ -143,12 +143,12 @@ bool rayIntersectsRect(const sf::Vector2f& rayOrigin,
 	sf::Vector2f rectMin(rect.left, rect.top);
 	sf::Vector2f rectMax(rect.left + rect.width, rect.top + rect.height);
 
-	// V�rification sur X
+	// Vérification sur X
 	float t1x = (rectMin.x - rayOrigin.x) * invDir.x;
 	float t2x = (rectMax.x - rayOrigin.x) * invDir.x;
 	if (t1x > t2x) std::swap(t1x, t2x);
 
-	// V�rification sur Y
+	// Vérification sur Y
 	float t1y = (rectMin.y - rayOrigin.y) * invDir.y;
 	float t2y = (rectMax.y - rayOrigin.y) * invDir.y;
 	if (t1y > t2y) std::swap(t1y, t2y);
@@ -167,7 +167,6 @@ bool rayIntersectsRect(const sf::Vector2f& rayOrigin,
 
 Vector2f normalize(const Vector2f& vector) {
 	float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
-
 	if (length == 0.0f)
 		return Vector2f(0.0f, 0.0f);
 	return Vector2f(vector.x / length, vector.y / length);
@@ -178,14 +177,14 @@ bool presqueEgal(const sf::Vector2f& a, const sf::Vector2f& b, float epsilon = 0
 }
 
 
-void Player::grapin(RenderWindow& window, vector<unique_ptr<Tiles>>& currentMap, float deltatime) {
+void Player::grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap, float deltatime) {
 	Vector2i Mousepos = Mouse::getPosition(window);
 	Vector2f rayOrigin = playerSprite.getPosition(); // Origine du rayon
-	Vector2f rayDir = normalize(Vector2f(Mousepos) - rayOrigin);
+	Vector2f rayDir = normalize(Vector2f(Mousepos) - rayOrigin); // Direction du rayon
 
 	Vector2f hitPoint;
 	bool hit = false;
-
+	
 	for (auto& plat : currentMap) {
 		if (rayIntersectsRect(rayOrigin, rayDir, plat->sprite.getGlobalBounds(), hitPoint)) {
 			hit = true;
@@ -199,19 +198,13 @@ void Player::grapin(RenderWindow& window, vector<unique_ptr<Tiles>>& currentMap,
 
 	
 	if (Mouse::isButtonPressed(Mouse::Left) && hit) {
-	
-
 		line.setSize(Vector2f(distance, 5));
 		line.setPosition(rayOrigin);
 		line.setRotation(angle);
-		
-		while(!presqueEgal(hitPoint, playerSprite.getPosition(), 5.f))
-		{
+
+		while (!presqueEgal(hitPoint, playerSprite.getPosition(), 5.f)) {
 			playerSprite.move(normalize(hitPoint - playerSprite.getPosition()));
 		}
-		
-
-
 	}
 	
 	window.draw(line);
@@ -227,6 +220,3 @@ void Player::grapin(RenderWindow& window, vector<unique_ptr<Tiles>>& currentMap,
 Vector2f Player::getPosition() const {
 	return playerPosition;
 }
-
-
-
