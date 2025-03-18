@@ -13,6 +13,9 @@ public:
 	float speed;
 	Sprite playerSprite;
 	Texture playerTexture;
+	
+	Texture grapinTexture;
+	RectangleShape line;
 
 	bool jump;
 	bool hasToMoveDown;
@@ -25,9 +28,13 @@ public:
 	float lastJumpTime;
 
 	Vector2f playerPosition;
+	
+
+	
 
 	void draw(RenderWindow& window);
 	void update(float deltatime, std::vector<std::shared_ptr<Tiles>>& platforms,Event& event);
+	void grapin(RenderWindow& window, vector<unique_ptr<Tiles>>& currentMap, float deltatime);
 	Vector2f getPosition() const;
 	Player(int health = 100, float aspeed = 150.f, int aenergy = 100);
 };

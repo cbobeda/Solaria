@@ -44,6 +44,9 @@ int main(int argc, char* argv[])
 
     while (window.isOpen())
     {
+        
+       
+
         Event event;
         currentMap = mapLoader.getCurrentMap();
         while (window.pollEvent(event)) {
@@ -118,7 +121,7 @@ int main(int argc, char* argv[])
         
             window.clear();
 
-		
+            player.grapin(window, currentMap, deltaTime);
             mapLoader.player.draw(window);
             flyingEnemy.draw(window);
             test.draw(window);
