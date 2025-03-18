@@ -13,6 +13,8 @@ public:
 	float speed;
 	Sprite playerSprite;
 	Texture playerTexture;
+	Sprite energySprite;
+	Texture energyTexture;
 
 	bool jump;
 	bool hasToMoveDown;
@@ -20,6 +22,7 @@ public:
 	float initialX;
 	float maxJumpHeight;
 	sf::Clock watchanime;
+	sf::Clock energyreload;
 	sf::Clock jumpCooldown; 
 	sf::Clock dashCooldown;
 	float lastJumpTime;
@@ -29,5 +32,5 @@ public:
 	void draw(RenderWindow& window);
 	void update(float deltatime, std::vector<std::shared_ptr<Tiles>>& platforms,Event& event);
 	Vector2f getPosition() const;
-	Player(int health = 100, float aspeed = 150.f, int aenergy = 100);
+	Player(int health = 100, float aspeed = 150.f, int aenergy = 14);
 };
