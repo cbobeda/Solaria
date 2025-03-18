@@ -22,6 +22,10 @@ private:
 	Sprite titleTextSprite;
 	Sprite gameOverTextSprite;
 	Sprite winTextSprite;
+	Sprite soundOnSprite;
+	Sprite soundOffSprite;
+	Sprite volumeBarSprite;
+	Sprite volumeCursorSprite;
 
 	Texture mainMenuBGTexture;
 	Texture pauseMenuBGTexture;
@@ -36,6 +40,12 @@ private:
 	Texture buttonOptionsTexture;
 	Texture buttonResumeTexture;
 	Texture buttonReturnTexture;
+	Texture soundOnTexture;
+	Texture soundOffTexture;
+	Texture volumeBarTexture;
+	Texture volumeCursorTexture;
+
+	Music levelOneMusic;
 	
 	vector<Button> buttons;
 
@@ -45,6 +55,11 @@ public:
 	void draw(RenderWindow& window);
 	void menuDisplay(RenderWindow&, int type);
 	int handleInput(const RenderWindow& window, Event event);
+	void handleVolumeControl(const RenderWindow& window, Event event);
+	void updateVolumeCursorPosition();
+	bool soundOn;
+	bool isDraggingCursor;
+	float volumeLevel;
 };
 
 #endif
