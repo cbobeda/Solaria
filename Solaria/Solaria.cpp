@@ -127,11 +127,11 @@ int main(int argc, char* argv[])
             window.clear();
 
             mapLoader.player.grapin(window, currentMap, deltaTime);
-            mapLoader.player.draw(window);
             flyingEnemy.draw(window);
             test.draw(window);
             taupe.draw(window);
             mapLoader.draw(window);
+            mapLoader.player.draw(window);
             mapLoader.mapLoaded = true;
         }
 

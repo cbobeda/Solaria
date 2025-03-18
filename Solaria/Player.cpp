@@ -38,6 +38,7 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 void Player::draw(RenderWindow& window)
 {
 	window.draw(playerSprite);
+	window.draw(energySprite);
 }
 
 void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms, RenderWindow& window, Event& event)
@@ -69,14 +70,6 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 		{
 			playerSprite.move(0, -speed * 0.5f);
 		}
-		if (sf::Event::KeyReleased)
-		{
-			if (event.key.code == sf::Keyboard::Space)
-			{
-				std::cout << "endJump" << std::endl;
-				jump = false;
-			}
-		}
 		else
 		{
 			jump = false;
@@ -94,7 +87,7 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 			}
 			else
 			{
-				playerSprite.setPosition(playerSprite.getPosition().x, plat->sprite.getPosition().y - 95);
+				//playerSprite.setPosition(playerSprite.getPosition().x, plat->sprite.getPosition().y - 95);
 				hasToMoveDown = false;
 			}
 		}
