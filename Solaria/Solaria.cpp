@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Ennemi.h"
 #include "FlyingEnemy.h"
+#include "Taupe.h"
 #include "Platform.h"
 #include "MapLoader.h"
 #include "Player.hpp"
@@ -11,14 +12,18 @@
 #include "ClassTiles/DirtTile.h"
 #include "Grid.h"
 
+
 using namespace sf;
 using namespace std;
 
-Ennemi test({20.f,650.f},50.f);
+Ennemi test({20.f,650.f},10.f);
+Taupe taupe({ 500.f, 500.f }, 100.f);
 
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
+
+	Taupe taupe({ 500.f, 500.f }, 100.f);
     Grid grid;
     
 	
@@ -115,7 +120,7 @@ int main(int argc, char* argv[])
 
             test.update(deltaTime);
             mapLoader.player.update(deltaTime,currentMap,window, event);
-
+            taupe.update(deltaTime);
             flyingEnemy.setPlayerPosition(mapLoader.player.playerSprite.getPosition());
             flyingEnemy.update(deltaTime);
         
@@ -125,6 +130,7 @@ int main(int argc, char* argv[])
             mapLoader.player.draw(window);
             flyingEnemy.draw(window);
             test.draw(window);
+            taupe.draw(window);
             mapLoader.draw(window);
             mapLoader.mapLoaded = true;
         }
