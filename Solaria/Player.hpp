@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-#include "Tiles.h"
+#include "ClassTiles/Tiles.h"
 
 using namespace std;
 using namespace sf;
@@ -27,7 +27,7 @@ public:
 	Vector2f playerPosition;
 
 	void draw(RenderWindow& window);
-	void update(float deltatime, std::vector<std::unique_ptr<Tiles>>& platforms,Event& event);
+	void update(float deltatime, std::vector<std::shared_ptr<Tiles>>& platforms,Event& event);
 	Vector2f getPosition() const;
-	Player(int health, float aspeed, int aenergy);
+	Player(int health = 100, float aspeed = 150.f, int aenergy = 100);
 };
