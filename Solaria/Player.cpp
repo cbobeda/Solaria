@@ -22,7 +22,7 @@ void Player::draw(RenderWindow& window)
 	window.draw(playerSprite);
 }
 
-void Player::update(float deltatime,std::vector<std::unique_ptr<Tiles>>& platforms,Event& event)
+void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms,Event& event)
 {
 
 	if (watchanime.getElapsedTime().asSeconds() > 0.5f) {
