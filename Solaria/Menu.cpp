@@ -87,10 +87,10 @@ Menu::Menu(RenderWindow& window)
 	buttonResumeTexture.loadFromFile("ResumeButton.png");
 	buttonReturnTexture.loadFromFile("ReturnButton.png");
 
-	buttons.push_back(Button(buttonPlayTexture, Vector2f(540, 450)));
-	buttons.push_back(Button(buttonExitTexture, Vector2f(620, 700)));
-	buttons.push_back(Button(buttonResumeTexture, Vector2f(620, 200)));
-	buttons.push_back(Button(buttonOptionsTexture, Vector2f(620, 450)));
+	buttons.push_back(Button(buttonPlayTexture, Vector2f(770, 500)));
+	buttons.push_back(Button(buttonExitTexture, Vector2f(850, 750)));
+	buttons.push_back(Button(buttonResumeTexture, Vector2f(850, 200)));
+	buttons.push_back(Button(buttonOptionsTexture, Vector2f(850, 475)));
 	buttons.push_back(Button(buttonReturnTexture, Vector2f(50, 50)));
 
 	// Musique

@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 ﻿  Player.cpp
 C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(128,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
   Génération de code en cours
   2 of 402 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+=======
+﻿  Menu.cpp
+  Génération de code en cours
+  1 of 169 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+>>>>>>> master
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
+<<<<<<< HEAD
   Solaria.vcxproj -> C:\Users\legai\source\repos\Solaria\x64\Release\Solaria.exe
+=======
+  Solaria.vcxproj -> C:\Users\tbouaifel\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe
+>>>>>>> master

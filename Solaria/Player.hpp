@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-
+#include "Tiles.h"
 
 using namespace std;
 using namespace sf;
@@ -24,7 +24,7 @@ public:
 	float maxJumpHeight;
 	sf::Clock watchanime;
 	sf::Clock jumpCooldown; 
-    sf::Clock dashCooldown;
+	sf::Clock dashCooldown;
 	float lastJumpTime;
 
 	Vector2f playerPosition;
@@ -36,5 +36,7 @@ public:
 	void update(float deltatime, std::vector<std::unique_ptr<Platform>>& platforms, RenderWindow& window);
 	void grapin(RenderWindow& window, vector<unique_ptr<Platform>>& currentMap, float deltatime);
 		
+	void update(float deltatime, std::vector<std::unique_ptr<Tiles>>& platforms,Event& event);
+	Vector2f getPosition() const;
 	Player(int health, float aspeed, int aenergy);
 };

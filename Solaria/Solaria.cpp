@@ -1,23 +1,28 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Ennemi.h"
-#include "MapLoader.h"
+#include "FlyingEnemy.h"
 #include "Platform.h"
+#include "MapLoader.h"
 #include "Player.hpp"
 #include "Menu.h"
+#include "GroundTile.h"
+#include "UndergroundTile.h"
+#include "DirtTile.h"
 
 using namespace sf;
 using namespace std;
 
-Ennemi test({20.f,20.f},10.f);
+Ennemi test({20.f,650.f},50.f);
 
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
 	Player player(100, 150.f, 100);
+    FlyingEnemy flyingEnemy(Vector2f(400, 300), 200.0f);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
 
-    std::vector<std::unique_ptr<Platform>> currentMap;
+    std::vector<std::unique_ptr<Tiles>> currentMap;
     
     float deltaTime;
     View view = window.getView();
@@ -30,8 +35,9 @@ int main(int argc, char* argv[])
     bool win = false;
     bool isOptions = false;
 
-    //menu.menuDisplay(window, 0);
     
+    menu.menuDisplay(window, 0);
+
     while (window.isOpen())
     {
         
@@ -94,6 +100,10 @@ int main(int argc, char* argv[])
         test.update(deltaTime);
         player.update(deltaTime,currentMap, window);
         
+        player.update(deltaTime,currentMap, event);
+
+        flyingEnemy.setPlayerPosition(player.getPosition());
+        flyingEnemy.update(deltaTime);
         
         window.clear();
 
@@ -102,6 +112,7 @@ int main(int argc, char* argv[])
 
        
         player.grapin(window, currentMap, deltaTime);
+        flyingEnemy.draw(window);
         test.draw(window);
 	    mapLoader.draw(window);
         
