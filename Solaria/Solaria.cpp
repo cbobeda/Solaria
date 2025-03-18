@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
             deltaTime = clock.restart().asSeconds();
 
             test.update(deltaTime);
-            mapLoader.player.update(deltaTime,currentMap, event);
+            mapLoader.player.update(deltaTime,currentMap, window, event);
 
             flyingEnemy.setPlayerPosition(mapLoader.player.playerSprite.getPosition());
             flyingEnemy.update(deltaTime);
