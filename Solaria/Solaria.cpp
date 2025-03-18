@@ -6,9 +6,7 @@
 #include "MapLoader.h"
 #include "Player.hpp"
 #include "Menu.h"
-#include "ClassTiles/GroundTile.h"
-#include "ClassTiles/UndergroundTile.h"
-#include "ClassTiles/DirtTile.h"
+#include "ClassTiles/Tiles.h"
 
 using namespace sf;
 using namespace std;
