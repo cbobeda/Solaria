@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
             test.update(deltaTime);
             mapLoader.player.update(deltaTime,currentMap, event);
 
-            flyingEnemy.setPlayerPosition(mapLoader.player.getPosition());
+            flyingEnemy.setPlayerPosition(mapLoader.player.playerSprite.getPosition());
             flyingEnemy.update(deltaTime);
         
             window.clear();
