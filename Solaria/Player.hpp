@@ -33,7 +33,7 @@ public:
 	
 
 	void draw(RenderWindow& window);
-	void update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms,Event& event);
+	void update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms,RenderWindow& window, Event& event);
 	void grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap, float deltatime);
 	Vector2f getPosition() const;
 	Player(int health = 100, float aspeed = 150.f, int aenergy = 100);
