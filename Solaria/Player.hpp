@@ -15,6 +15,8 @@ public:
 	Texture playerTexture;
 	Sprite energySprite;
 	Texture energyTexture;
+	Sprite lifeSprite;
+	Texture lifeTexture;
 	Texture grapinTexture;
 	RectangleShape line;
 
@@ -30,6 +32,8 @@ public:
 	float lastJumpTime;
 
 	Vector2f playerPosition;
+	Vector2f viewCenter;
+	Vector2f viewSize;
 	
 
 	
@@ -39,5 +43,5 @@ public:
 	void grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap,View& view, float deltatime);
 	void getdamage();
 	Vector2f getPosition() const;
-	Player(int health = 100, float aspeed = 150.f, int aenergy = 14);
+	Player(int health = 90, float aspeed = 150.f, int aenergy = 14);
 };

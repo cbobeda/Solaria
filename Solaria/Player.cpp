@@ -23,6 +23,15 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 	energySprite.setTextureRect(sf::IntRect(0, 0, 39, 38));
 	energySprite.setScale(3.f, 3.f);
 	energySprite.setPosition(25.f, 100.f);
+
+	if (!lifeTexture.loadFromFile("vie-Sheet.png"))
+	{
+		cout << "Error loading life texture" << endl;
+	}
+	lifeSprite.setTexture(lifeTexture);
+	lifeSprite.setTextureRect(sf::IntRect(0, 0, 63, 21));
+	lifeSprite.setScale(3.f, 3.f);
+	lifeSprite.setPosition(25.f, 25.f);
 	
 	FloatRect playerLocalBounds = playerSprite.getLocalBounds();
 	playerSprite.setOrigin(playerLocalBounds.width / 2, playerLocalBounds.height / 2);
@@ -39,6 +48,7 @@ void Player::draw(RenderWindow& window)
 {
 	window.draw(playerSprite);
 	window.draw(energySprite);
+	window.draw(lifeSprite);
 }
 
 void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms, RenderWindow& window, Event& event)
@@ -129,7 +139,9 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 		}
 	}
 
-	cout << hp << endl;
+	viewCenter = window.getView().getCenter();
+	viewSize = window.getView().getSize();
+
 	IntRect newRect = energySprite.getTextureRect();
 	newRect.left = 39 * energy;
 	if (newRect.left >= 585) { newRect.left -= 585; }
@@ -141,6 +153,24 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 		energyreload.restart();
 		}
 	}
+	energySprite.setPosition(viewCenter.x - viewSize.x / 2 + 25.f, viewCenter.y - viewSize.y / 2 + 100.f);
+
+	int health;
+	if (0 < hp && hp <= 30) {
+		health = 2;
+	}
+	else if (30 < hp && hp <= 60) {
+		health = 1;
+	}
+	else if (60 < hp && hp <= 90) {
+		health = 0;
+	}
+
+	IntRect newRect2 = lifeSprite.getTextureRect();
+	newRect2.left = 63 * health;
+	if (newRect2.left >= 189) { newRect2.left -= 189; }
+	lifeSprite.setTextureRect(newRect2);
+	lifeSprite.setPosition(viewCenter.x - viewSize.x / 2 + 20.f, viewCenter.y - viewSize.y / 2 + 35.f);
 }
 
 bool rayIntersectsRect(const sf::Vector2f& rayOrigin,

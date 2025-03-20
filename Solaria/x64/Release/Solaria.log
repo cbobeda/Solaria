@@ -1,26 +1,8 @@
 ﻿  Player.cpp
-C:\Users\tsfeir\source\repos\cbobeda\Solaria\Solaria\Player.cpp(197,59): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\tsfeir\source\repos\cbobeda\Solaria\Solaria\Player.cpp(197,47): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\tsfeir\source\repos\cbobeda\Solaria\Solaria\Player.cpp(210,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\Users\Utilisateur\source\repos\cbobeda\Solaria\Solaria\Player.cpp(242,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
   Génération de code en cours
-  1 of 962 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 1400 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  Solaria.vcxproj -> C:\Users\tsfeir\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe
+  Solaria.vcxproj -> C:\Users\Utilisateur\Source\Repos\cbobeda\Solaria\x64\Release\Solaria.exe
