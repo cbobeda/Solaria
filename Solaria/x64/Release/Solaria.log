@@ -1,7 +1,50 @@
-﻿  Menu.cpp
+﻿  FlyingEnemy.cpp
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         with
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         [
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:             T=float
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         ]
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         with
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         [
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:             T=float
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         ]
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         with
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         [
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:             T=float
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         ]
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         with
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         [
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:             T=float
+C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         ]
+  Menu.cpp
   Génération de code en cours
-  1 of 1418 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  0 of 1418 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
+Button.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Button.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+DirtTile.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'DirtTile.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+GroundTile.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'GroundTile.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+Tiles.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Tiles.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTile3Down.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTile3Down.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTile3Left.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTile3Left.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTile3Right.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTile3Right.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTile3Up.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTile3Up.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTileDown.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTileDown.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTileDownLeft.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTileDownLeft.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTileDownRight.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTileDownRight.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTileLeft.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTileLeft.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTileRight.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTileRight.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTileUp.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTileUp.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTileUpLeft.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTileUpLeft.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+UndergroundTileUpRight.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'UndergroundTileUpRight.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+Grid.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Grid.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+MapLoader.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'MapLoader.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+Node.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Node.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+Pathfinding.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Pathfinding.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+Taupe.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Taupe.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+Winitem.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Winitem.obj' ou sur '' ; l'objet sera lié sans informations de débogage
   Solaria.vcxproj -> C:\Users\tarik\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe
