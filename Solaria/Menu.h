@@ -22,8 +22,7 @@ private:
 	Sprite titleTextSprite;
 	Sprite gameOverTextSprite;
 	Sprite winTextSprite;
-	Sprite soundOnSprite;
-	Sprite soundOffSprite;
+	Sprite volumeTextSprite;
 	Sprite volumeBarSprite;
 	Sprite volumeCursorSprite;
 
@@ -35,13 +34,13 @@ private:
 	Texture titleTextTexture;
 	Texture gameOverTextTexture;
 	Texture winTextTexture;
+	Texture volumeTextTexture;
+
 	Texture buttonPlayTexture;
 	Texture buttonExitTexture;
 	Texture buttonOptionsTexture;
 	Texture buttonResumeTexture;
 	Texture buttonReturnTexture;
-	Texture soundOnTexture;
-	Texture soundOffTexture;
 	Texture volumeBarTexture;
 	Texture volumeCursorTexture;
 
@@ -59,7 +58,6 @@ public:
 	int handleInput(const RenderWindow& window, Event event);
 	void handleVolumeControl(const RenderWindow& window, Event event);
 	void updateVolumeCursorPosition();
-	bool soundOn;
 	bool isDraggingCursor;
 	float volumeLevel;
 };

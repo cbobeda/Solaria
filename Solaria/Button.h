@@ -16,6 +16,7 @@ public:
    void setPosition(const Vector2f& position);  
    void setTexture(const Texture& texture);
    void setTextureRect(const sf::IntRect& rect);
+   void setScale(float scaleX, float scaleY);
 
 private:  
    Sprite buttonSprite;  
