@@ -2,15 +2,15 @@
 
 GroundTile::GroundTile(sf::Vector2f pos)
 {
-	groundTexture.loadFromFile("assets/tiles/tiles terre.png");
-	groundSprite.setTexture(groundTexture);
-	groundSprite.setPosition(pos);
-	groundSprite.setScale(1, 1);
+	texture.loadFromFile("assets/tiles/tiles terre.png");
+	sprite.setTexture(texture);
+	sprite.setPosition(pos);
+	sprite.setScale(1, 1);
 }
 
 void GroundTile::draw(sf::RenderWindow& window)
 {
-	window.draw(groundSprite);
+	window.draw(sprite);
 }
 
 void GroundTile::setTile()

@@ -3,10 +3,10 @@
 using namespace std;
 using namespace sf;
 
-class UndergroundTileLeft : public Tiles
+class UndergroundTileDownLeft : public Tiles
 {
 public:
-	UndergroundTileLeft(sf::Vector2f pos);
+	UndergroundTileDownLeft(sf::Vector2f pos);
 	void draw(sf::RenderWindow& window) override;
 	void setTile() override;
 };

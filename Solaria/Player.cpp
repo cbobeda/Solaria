@@ -4,15 +4,15 @@
 
 Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed), energy(aenergy), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(350.f)
 {
-	if (!playerTexture.loadFromFile("player.png"))
+	if (!playerTexture.loadFromFile("assets/player/playerIdle.png"))
 	{
 		cout << "Error loading player texture" << endl;
 	}
 	playerSprite.setTexture(playerTexture);
-	playerSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+	playerSprite.setTextureRect(sf::IntRect(0, 0, 22, 53));
 	
 	playerSprite.setPosition(playerPosition);
-	playerSprite.setScale(1.5f, 1.5f);
+	playerSprite.setScale(2.5f, 2.5f);
 	FloatRect playerBounds = playerSprite.getGlobalBounds();
 
 	if (!energyTexture.loadFromFile("Energie-Sheet.png"))
@@ -44,10 +44,10 @@ void Player::draw(RenderWindow& window)
 void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms, RenderWindow& window, Event& event)
 {
 
-	if (watchanime.getElapsedTime().asSeconds() > 0.5f) {
+	if (watchanime.getElapsedTime().asSeconds() > 0.2f) {
 		IntRect newRect = playerSprite.getTextureRect();
-		newRect.left += 64;
-		if (newRect.left >= 256) { newRect.left -= 256; }
+		newRect.left += 22;
+		if (newRect.left >= 176) { newRect.left -= 176; }
 		playerSprite.setTextureRect(newRect);
 		watchanime.restart();
 	}
@@ -187,8 +187,9 @@ bool presqueEgal(const sf::Vector2f& a, const sf::Vector2f& b, float epsilon = 0
 }
 
 
-void Player::grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap, float deltatime) {
-	Vector2i Mousepos = Mouse::getPosition(window);
+void Player::grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap,View& view, float deltatime) {
+	Vector2i Mouseposloc = Mouse::getPosition(window);
+	Vector2f Mousepos = window.mapPixelToCoords(Mouseposloc);
 	Vector2f rayOrigin = playerSprite.getPosition();
 	Vector2f rayDir = normalize(Vector2f(Mousepos.x, Mousepos.y) - rayOrigin);
 

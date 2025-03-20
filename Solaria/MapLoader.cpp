@@ -1,7 +1,16 @@
 ﻿#include "MapLoader.h"
 
+
+
+
 MapLoader::MapLoader()
 {
+    if (!bgTexture.loadFromFile("assets/background/level1.png"))
+    {
+        std::cerr << "Failed to load background texture" << std::endl;
+    }
+    bgSprite.setTexture(bgTexture);
+    bgSprite.setScale(6.75, 6.75);
 }
 
 
@@ -22,7 +31,7 @@ void MapLoader::setCurrentLevel(string newlevel)
 
             for (int x = 0; x < map[y].size(); x++)
             {
-                if (map[y][x] == 'x')
+                if (map[y][x] == 'g')
                 {
                     platforms.push_back(std::make_shared<DirtTile>(Vector2f{x * 40.f, y * 40.f}));
                 }
@@ -35,13 +44,65 @@ void MapLoader::setCurrentLevel(string newlevel)
                     player.playerPosition = { x * 40.f, y * 40.f };
                     player.playerSprite.setPosition(x * 40.f, y * 40.f);
                 }
-                if (map[y][x] == 'w')
+                if (map[y][x] == 'u')
                 {
-                    platforms.push_back(std::make_shared<UndergroundTile>(Vector2f{x * 40.f, y * 40.f}));
+                    platforms.push_back(std::make_shared<UndergroundTileUp>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 'd')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTileDown>(Vector2f{x * 40.f, y * 40.f}));
                 }
                 if (map[y][x] == 'l')
                 {
                     platforms.push_back(std::make_shared<UndergroundTileLeft>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 'r')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTileRight>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 't')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTileUpLeft>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 'b')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTileUpRight>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 'f')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTileDownLeft>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 'm')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTileDownRight>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 's')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTile3Up>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 'y')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTile3Down>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 'k')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTile3Right>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == 'n')
+                {
+                    platforms.push_back(std::make_shared<UndergroundTile3Left>(Vector2f{x * 40.f, y * 40.f}));
+                }
+                if (map[y][x] == '1')
+                {
+                    ennemies.push_back(std::make_shared<Ennemi>(Vector2f{x * 40.f, y * 40.f},10));
+                }
+                if (map[y][x] == '2')
+                {
+                    flyingEnemies.push_back(std::make_shared<FlyingEnemy>(Vector2f{x * 40.f, y * 40.f},10,&grid));
+                }
+                if (map[y][x] == '3')
+                {
+                    taupes.push_back(std::make_shared<Taupe>(Vector2f{x * 40.f, y * 40.f},10));
                 }
             }
         }
@@ -55,6 +116,7 @@ std::vector<std::shared_ptr<Tiles>> MapLoader::getCurrentMap()
 
 void MapLoader::draw(RenderWindow& window)
 {
+    window.draw(bgSprite);
     for (auto& platform : platforms)
     {
         platform->draw(window);

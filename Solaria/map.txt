@@ -3,20 +3,25 @@
 
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+p
 
-
-
-
-
-
-
-               p
-
-
-
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-cccccccccccccccccccccccccccccccccccccc
-wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+ggg            gggggggggggggggggggggggggggggggggggggg
+ccr            lccccccccccccccccccccccccccccccccccccc
+ccr            lccccccccccccccccccccccccccccccccccccc
+ccr            lccccccccccccccccccccccccccccccccccccc
+ccr            fddddddddddddddddddddddddddddddddddddd
+ccr
+ccr
+ccr
+ccr
+ccr                               tuuuuuuuub
+ccr                               lcccccccccuub
+ccr                               lccccccccccccuub
+ccr                               lccccccccccccccr
+cccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuucccccccccccccccr
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc

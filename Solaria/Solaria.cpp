@@ -8,32 +8,24 @@
 #include "Player.hpp"
 #include "Menu.h"
 #include "ClassTiles/GroundTile.h"
-#include "ClassTiles/UndergroundTile.h"
+#include "ClassTiles/UndergroundTileDown.h"
 #include "ClassTiles/DirtTile.h"
-#include "Grid.h"
+
 
 
 using namespace sf;
 using namespace std;
 
-Ennemi test({20.f,650.f},10.f);
-Taupe taupe({ 500.f, 500.f }, 100.f);
-
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
-
-	Taupe taupe({ 500.f, 500.f }, 100.f);
-    Grid grid;
     
-	
-    FlyingEnemy flyingEnemy(Vector2f(300, 300), 130.0f, &grid);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
     
     std::vector<std::shared_ptr<Tiles>> currentMap;
     
     float deltaTime;
-    View view = window.getView();
+    View view = window.getDefaultView();
     Menu menu(window);
     Clock clock;
 
@@ -118,19 +110,39 @@ int main(int argc, char* argv[])
             mapLoader.setCurrentLevel("map.txt");
             deltaTime = clock.restart().asSeconds();
 
-            test.update(deltaTime);
+            for (auto& ennemi : mapLoader.ennemies)
+            {
+                ennemi->update(deltaTime);
+            }
             mapLoader.player.update(deltaTime,currentMap,window, event);
-            taupe.update(deltaTime);
-            flyingEnemy.setPlayerPosition(mapLoader.player.playerSprite.getPosition());
-            flyingEnemy.update(deltaTime);
+            for (auto& taupe : mapLoader.taupes)
+            {
+                taupe->update(deltaTime);
+            }
+            for (auto& fly :mapLoader.flyingEnemies)
+            {
+                fly->setPlayerPosition(mapLoader.player.playerSprite.getPosition());
+                fly->update(deltaTime);
+            }
+            
         
             window.clear();
-
-            mapLoader.player.grapin(window, currentMap, deltaTime);
-            flyingEnemy.draw(window);
-            test.draw(window);
-            taupe.draw(window);
+            for (auto& fly :mapLoader.flyingEnemies)
+            {
+                fly->draw(window);
+            }
+            for (auto& ennemi : mapLoader.ennemies)
+            {
+                ennemi->draw(window);
+            }
+            for (auto& taupe : mapLoader.taupes)
+            {
+                taupe->draw(window);
+            }
+            view.setCenter(mapLoader.player.playerSprite.getPosition());
+            window.setView(view);
             mapLoader.draw(window);
+            mapLoader.player.grapin(window, currentMap,view, deltaTime);
             mapLoader.player.draw(window);
             mapLoader.mapLoaded = true;
         }
