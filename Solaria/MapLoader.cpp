@@ -94,15 +94,15 @@ void MapLoader::setCurrentLevel(string newlevel)
                 }
                 if (map[y][x] == '1')
                 {
-                    ennemies.push_back(std::make_shared<Ennemi>(Vector2f{x * 40.f, y * 40.f},10));
+                    ennemies.push_back(std::make_shared<Ennemi>(Vector2f{x * 40.f, y * 40.f},10,&player));
                 }
                 if (map[y][x] == '2')
                 {
-                    flyingEnemies.push_back(std::make_shared<FlyingEnemy>(Vector2f{x * 40.f, y * 40.f},10,&grid));
+                    flyingEnemies.push_back(std::make_shared<FlyingEnemy>(Vector2f{x * 40.f, y * 40.f},10,&grid,&player));
                 }
                 if (map[y][x] == '3')
                 {
-                    taupes.push_back(std::make_shared<Taupe>(Vector2f{x * 40.f, y * 40.f},10));
+                    taupes.push_back(std::make_shared<Taupe>(Vector2f{x * 40.f, y * 40.f},10,&player));
                 }
             }
         }
