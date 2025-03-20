@@ -57,6 +57,22 @@ void Player::draw(RenderWindow& window)
 	window.draw(lifeSprite);
 	//window.draw(CurseurSprite);
 }
+bool checkCollision(const FloatRect& nextPos, const std::vector<std::shared_ptr<Tiles>>& walls)
+{
+	for (auto& wall : walls)
+	{
+		if (nextPos.intersects(wall->sprite.getGlobalBounds()))
+		{
+			return true; // Collision détectée
+		}
+	}
+	return false; // Pas de collision
+}
+
+void moveTowards(Vector2f dir)
+{
+	
+}
 
 void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms, RenderWindow& window, Event& event)
 {
@@ -88,7 +104,16 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	{
 		if (playerSprite.getPosition().y > initialY - maxJumpHeight)
 		{
-			playerSprite.move(0, -speed*12.f  * deltatime);
+			FloatRect nextPos = playerSprite.getGlobalBounds();
+			nextPos.top += -speed*12.f  * deltatime;
+			if (!checkCollision(nextPos,platforms))
+			{
+				playerSprite.move(0, -speed*12.f  * deltatime);
+			}
+			else
+			{
+				jump = false;
+			}
 		}
 
 		else
@@ -117,15 +142,19 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	{
 		playerSprite.move(0, speed*5.f * deltatime);
 	}
-	if (Keyboard::isKeyPressed(Keyboard::Q) || Joystick::getAxisPosition(0, Joystick::X) <= -20 && Joystick::getAxisPosition(0, Joystick::X) >= -100)
+	FloatRect nextPosX = playerSprite.getGlobalBounds();
+	nextPosX.top -= 5;
+	nextPosX.left += speed*deltatime - 5;
+	if ((Keyboard::isKeyPressed(Keyboard::Q) || Joystick::getAxisPosition(0, Joystick::X) <= -20 && Joystick::getAxisPosition(0, Joystick::X) >= -100) && !checkCollision(nextPosX,platforms))
 	{
 		playerSprite.move(-speed * deltatime, 0);
 	}
 	
-
-	if (Keyboard::isKeyPressed(Keyboard::Q) && Keyboard::isKeyPressed(Keyboard::LShift) ||
+	nextPosX.top -= 5;
+	nextPosX.left += 100 - 5;
+	if ((Keyboard::isKeyPressed(Keyboard::Q) && Keyboard::isKeyPressed(Keyboard::LShift) ||
 		Joystick::getAxisPosition(0, Joystick::X) <= -20 && Joystick::getAxisPosition(0, Joystick::X) >= -100 &&
-		Joystick::isButtonPressed(0, 5) && energy >= 1) {
+		Joystick::isButtonPressed(0, 5) && energy >= 1) && !checkCollision(nextPosX, platforms)) {
 		float currentTime = Clock().getElapsedTime().asSeconds();
 
 		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
@@ -135,16 +164,17 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 			dashCooldown.restart();
 		}
 	}
-
-	if (Keyboard::isKeyPressed(Keyboard::D) || 
-		Joystick::getAxisPosition(0, Joystick::X) >= 20 && Joystick::getAxisPosition(0, Joystick::X) <= 100)
+	nextPosX.top -= 5;
+	nextPosX.left -= speed*deltatime - 5;
+	if ((Keyboard::isKeyPressed(Keyboard::D) || Joystick::getAxisPosition(0, Joystick::X) >= 20 && Joystick::getAxisPosition(0, Joystick::X) <= 100)&& !checkCollision(nextPosX,platforms))
 	{
 		playerSprite.move(speed * deltatime, 0);
 	}
-
-	if (Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::LShift) || 
+	nextPosX.top -= 5;
+	nextPosX.left -= 100 - 5;
+	if ((Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::LShift) || 
 		Joystick::getAxisPosition(0, Joystick::X) >= 20 && Joystick::getAxisPosition(0, Joystick::X) <= 100 && 
-		Joystick::isButtonPressed(0, 5) && energy >= 1) {
+		Joystick::isButtonPressed(0, 5) && energy >= 1) && !checkCollision(nextPosX, platforms)) {
 		float currentTime = Clock().getElapsedTime().asSeconds();
 
 		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
@@ -276,7 +306,11 @@ void Player::grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap,
 		// D�placement progressif du joueur
 		Vector2f moveDir = normalize(hitPoint - playerSprite.getPosition());
 		float speed = 6000.0f;  // Ajuste la vitesse selon le besoin
-		playerSprite.move(moveDir * deltatime * speed);
+		FloatRect nextPos = playerSprite.getGlobalBounds();
+		nextPos.top += moveDir.y * deltatime * speed;
+		nextPos.left += moveDir.x * deltatime * speed;
+		if (!checkCollision(nextPos,currentMap))
+			playerSprite.move(moveDir * deltatime * speed);
 		if (hit) window.draw(line);
 	}
 	

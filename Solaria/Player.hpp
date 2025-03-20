@@ -39,8 +39,6 @@ public:
 	Vector2f viewSize;
 	
 
-	
-
 	void draw(RenderWindow& window);
 	void update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms,RenderWindow& window, Event& event);
 	void grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap,View& view, float deltatime);
