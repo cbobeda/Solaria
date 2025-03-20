@@ -37,3 +37,7 @@ void Button::setTexture(const Texture& texture) {
 void Button::setTextureRect(const sf::IntRect& rect) {
 	buttonSprite.setTextureRect(rect);
 }
+
+void Button::setScale(float scaleX, float scaleY) {
+	buttonSprite.setScale(scaleX, scaleY);
+}
