@@ -114,7 +114,94 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 		}
 	}
 
+bool rayIntersectsRect(const sf::Vector2f& rayOrigin,
+	const sf::Vector2f& rayDir,
+	const sf::FloatRect& rect,
+	sf::Vector2f& hitPoint) {
 
+
+	float tMin = 0.0f, tMax = 1000.0f; // Distance min et max pour le recast
+	sf::Vector2f invDir(1.0f / rayDir.x, 1.0f / rayDir.y); // Inverse du vecteur direction
+
+	// Limites du rectangle
+	sf::Vector2f rectMin(rect.left, rect.top);
+	sf::Vector2f rectMax(rect.left + rect.width, rect.top + rect.height);
+
+	// Vérification sur X
+	float t1x = (rectMin.x - rayOrigin.x) * invDir.x;
+	float t2x = (rectMax.x - rayOrigin.x) * invDir.x;
+	if (t1x > t2x) std::swap(t1x, t2x);
+
+	// Vérification sur Y
+	float t1y = (rectMin.y - rayOrigin.y) * invDir.y;
+	float t2y = (rectMax.y - rayOrigin.y) * invDir.y;
+	if (t1y > t2y) std::swap(t1y, t2y);
+
+	tMin = std::max(tMin, t1x);
+	tMax = std::min(tMax, t2x);
+
+	tMin = std::max(tMin, t1y);
+	tMax = std::min(tMax, t2y);
+
+	if (tMax < tMin) return false; // Pas d'intersection
+
+	hitPoint = rayOrigin + tMin * rayDir; // Calcul du point d'impact
+	return true;
+}
+
+Vector2f normalize(const Vector2f& vector) {
+	float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
+
+	if (length == 0.0f)
+		return Vector2f(0.0f, 0.0f);
+	return Vector2f(vector.x / length, vector.y / length);
+}
+
+bool presqueEgal(const sf::Vector2f& a, const sf::Vector2f& b, float epsilon = 0.0001f) {
+	return (std::fabs(a.x - b.x) < epsilon) && (std::fabs(a.y - b.y) < epsilon);
+}
+
+
+void Player::grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap, float deltatime) {
+	Vector2i Mousepos = Mouse::getPosition(window);
+	Vector2f rayOrigin = playerSprite.getPosition();
+	Vector2f rayDir;
+	
+
+	Vector2f hitPoint;
+	if (Mouse::isButtonPressed(Mouse::Left) && !presqueEgal(hitPoint,playerSprite.getPosition(),5.f))
+	{
+		 rayDir = normalize(Vector2f(Mousepos.x, Mousepos.y) - rayOrigin);
+	}
+	bool hit = false;
+
+	for (auto& plat : currentMap) {
+		if (rayIntersectsRect(rayOrigin, rayDir, plat->sprite.getGlobalBounds(), hitPoint)) {
+			hit = true;
+			break;
+		}
+	}
+
+	if (hit && Mouse::isButtonPressed(Mouse::Left)) {
+		float distance = sqrt(pow(playerSprite.getPosition().x - hitPoint.x, 2) + pow(playerSprite.getPosition().y - hitPoint.y, 2));
+		float angle = atan2(hitPoint.y - playerSprite.getPosition().y, hitPoint.x - playerSprite.getPosition().x) * (180.0f / 3.14f);
+
+		// Mise à jour de la ligne du grappin
+		line.setSize(Vector2f(distance, 5));
+		line.setPosition(rayOrigin);
+		line.setRotation(angle);
+
+		// Déplacement progressif du joueur
+		Vector2f moveDir = normalize(hitPoint - playerSprite.getPosition());
+		float speed = 6000.0f;  // Ajuste la vitesse selon le besoin
+		if (!presqueEgal(hitPoint, playerSprite.getPosition(), 5.f))
+		{
+			playerSprite.move(moveDir * deltatime * speed);
+			if (hit) window.draw(line);
+		}
+	}
+	
+	
 }
 
 Vector2f Player::getPosition() const {
