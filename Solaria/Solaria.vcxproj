@@ -188,6 +188,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Solaria.cpp" />
     <ClCompile Include="Taupe.cpp" />
+    <ClCompile Include="Winitem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -217,6 +218,7 @@
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Taupe.h" />
+    <ClInclude Include="Winitem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
