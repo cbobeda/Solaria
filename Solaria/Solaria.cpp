@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     
 	
 
-    RenderWindow window(VideoMode(1920, 1080), "Solaria");
+    RenderWindow window(VideoMode(1920, 1080), "Solaria",Style::Fullscreen);
     
     std::vector<std::shared_ptr<Tiles>> currentMap;
     
@@ -137,6 +137,8 @@ int main(int argc, char* argv[])
             }
             
             window.clear();
+            window.setView(view);
+            mapLoader.draw(window);
             for (auto& fly :mapLoader.flyingEnemies)
             {
                 fly->draw(window);
@@ -153,8 +155,6 @@ int main(int argc, char* argv[])
             {
                 view.setCenter(mapLoader.player.playerSprite.getPosition().x,540);
             }
-            window.setView(view);
-            mapLoader.draw(window);
             mapLoader.player.grapin(window, currentMap,view, deltaTime);
             mapLoader.player.draw(window);
             mapLoader.mapLoaded = true;

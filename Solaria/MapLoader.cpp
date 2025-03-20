@@ -124,17 +124,6 @@ void MapLoader::draw(RenderWindow& window)
     window.draw(bgSprite);
     for (auto& platform : platforms)
     {
-        /*if (platform->sprite.getGlobalBounds().intersects(player.playerSprite.getGlobalBounds()))
-        {
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            {
-                player.playerSprite.move(-player.speed,0);
-            }
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-            {
-                player.playerSprite.move(player.speed,0);
-            }
-        }*/
         platform->draw(window);
     }
     winitem->draw(window);

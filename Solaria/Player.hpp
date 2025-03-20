@@ -13,6 +13,7 @@ public:
 	float speed;
 	Sprite playerSprite;
 	Texture playerTexture;
+	Texture runTexture;
 	Sprite energySprite;
 	Texture energyTexture;
 	Sprite lifeSprite;
@@ -37,8 +38,12 @@ public:
 	Vector2f playerPosition;
 	Vector2f viewCenter;
 	Vector2f viewSize;
-	
 
+	IntRect idleRect;
+	IntRect runRect;
+	
+	bool moving;
+	
 	void draw(RenderWindow& window);
 	void update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms,RenderWindow& window, Event& event);
 	void grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap,View& view, float deltatime);
