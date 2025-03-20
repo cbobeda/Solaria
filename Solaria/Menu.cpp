@@ -6,7 +6,7 @@
 using namespace std;
 using namespace sf;
 
-Menu::Menu(RenderWindow& window)
+Menu::Menu(RenderWindow& window) : soundOn(true), isDraggingCursor(false), volumeLevel(100.0f)
 {
 	// Background du menu Principal
 	mainMenuBGTexture.loadFromFile("MainMenuBG.jpg");
@@ -80,20 +80,82 @@ Menu::Menu(RenderWindow& window)
 	float scaleWinTextX = static_cast<float>(windowSizeWinText.x) / textureSizeWinText.x;
 	float scaleWinTextY = static_cast<float>(windowSizeWinText.y) / textureSizeWinText.y;
 
+	// Initialisation de la barre de volume
+	volumeBarTexture.loadFromFile("VolumeBar.png");
+	volumeBarSprite.setTexture(volumeBarTexture);
+	volumeBarSprite.setPosition(850, 300);
+
+	// Initialisation du curseur de volume
+	volumeCursorTexture.loadFromFile("VolumeCursor.png");
+	volumeCursorSprite.setTexture(volumeCursorTexture);
+	updateVolumeCursorPosition();
+
 	// Sprite Buttons
 	buttonPlayTexture.loadFromFile("PlayButton.png");
 	buttonExitTexture.loadFromFile("ExitButton.png");
 	buttonOptionsTexture.loadFromFile("OptionsButton.png");
 	buttonResumeTexture.loadFromFile("ResumeButton.png");
 	buttonReturnTexture.loadFromFile("ReturnButton.png");
+	soundOnTexture.loadFromFile("SoundOn.png");
+	soundOffTexture.loadFromFile("SoundOff.png");
 
 	buttons.push_back(Button(buttonPlayTexture, Vector2f(770, 500)));
 	buttons.push_back(Button(buttonExitTexture, Vector2f(850, 750)));
 	buttons.push_back(Button(buttonResumeTexture, Vector2f(850, 200)));
 	buttons.push_back(Button(buttonOptionsTexture, Vector2f(850, 475)));
 	buttons.push_back(Button(buttonReturnTexture, Vector2f(50, 50)));
+	buttons.push_back(Button(soundOnTexture, Vector2f(850, 200)));
+	buttons.push_back(Button(soundOffTexture, Vector2f(850, 200)));
 
 	// Musique
+	if (!levelOneMusic.openFromFile("Willderness.ogg"))
+	{
+		cout << "Erreur lors du chargement de la musique du menu" << endl;
+	}
+}
+
+void Menu::handleVolumeControl(const RenderWindow& window, Event event)
+{
+	if (event.type == Event::MouseButtonPressed)
+	{
+		if (event.mouseButton.button == Mouse::Left)
+		{
+			if (volumeCursorSprite.getGlobalBounds().contains(window.mapPixelToCoords(Mouse::getPosition(window))))
+			{
+				isDraggingCursor = true;
+			}
+		}
+	}
+	else if (event.type == Event::MouseButtonReleased)
+	{
+		if (event.mouseButton.button == Mouse::Left)
+		{
+			isDraggingCursor = false;
+		}
+	}
+	else if (event.type == Event::MouseMoved)
+	{
+		if (isDraggingCursor)
+		{
+			Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
+			float newCursorX = std::max(volumeBarSprite.getPosition().x, std::min(mousePos.x, volumeBarSprite.getPosition().x + volumeBarSprite.getGlobalBounds().width - volumeCursorSprite.getGlobalBounds().width));
+			float cursorY = volumeBarSprite.getPosition().y + (volumeBarSprite.getGlobalBounds().height / 2) - (volumeCursorSprite.getGlobalBounds().height / 2);
+			volumeCursorSprite.setPosition(newCursorX, cursorY);
+
+			float barWidth = volumeBarSprite.getGlobalBounds().width - volumeCursorSprite.getGlobalBounds().width;
+			float cursorPos = volumeCursorSprite.getPosition().x - volumeBarSprite.getPosition().x;
+			volumeLevel = (cursorPos / barWidth) * 100.0f;
+			levelOneMusic.setVolume(volumeLevel);
+		}
+	}
+}
+
+void Menu::updateVolumeCursorPosition()
+{
+    float barWidth = volumeBarSprite.getGlobalBounds().width - volumeCursorSprite.getGlobalBounds().width;
+    float cursorX = volumeBarSprite.getPosition().x + (volumeLevel / 100.0f) * barWidth;
+    float cursorY = volumeBarSprite.getPosition().y + (volumeBarSprite.getGlobalBounds().height / 2) - (volumeCursorSprite.getGlobalBounds().height / 2);
+    volumeCursorSprite.setPosition(cursorX, cursorY);
 }
 
 void Menu::draw(RenderWindow& window)
@@ -295,6 +357,23 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 						pause = true;
 						options = false;
 					}
+					if (buttons[5].isClicked(window, event)) 
+					{
+						soundOn = !soundOn;
+						if (soundOn)
+						{
+							levelOneMusic.setVolume(100);
+							buttons[5].setTexture(soundOnTexture);
+							buttons[5].setTextureRect(sf::IntRect(0, 0, soundOnTexture.getSize().x, soundOnTexture.getSize().y));
+						}
+						else
+						{
+							levelOneMusic.setVolume(0);
+							buttons[5].setTexture(soundOffTexture);
+							buttons[5].setTextureRect(sf::IntRect(0, 0, soundOffTexture.getSize().x, soundOffTexture.getSize().y));
+						}
+					}
+					handleVolumeControl(window, event);
 					if (event.type == Event::KeyPressed)
 					{
 						if (event.key.code == Keyboard::Escape)
@@ -309,13 +388,16 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 				window.clear();
 				window.draw(optionsMenuBGSprite);
 				buttons[4].draw(window);
+				buttons[5].draw(window);
+				window.draw(volumeBarSprite);
+				window.draw(volumeCursorSprite);
 				window.display();
 			}
 		}
 	}
 	if (type == 5)
 	{
-
+		levelOneMusic.play();
 	}
 }
 

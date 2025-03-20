@@ -29,3 +29,11 @@ void Button::setPosition(const Vector2f& position)
 {
 	buttonSprite.setPosition(position);
 }
+
+void Button::setTexture(const Texture& texture) {
+	buttonSprite.setTexture(texture);
+}
+
+void Button::setTextureRect(const sf::IntRect& rect) {
+	buttonSprite.setTextureRect(rect);
+}
