@@ -9,7 +9,7 @@ using namespace sf;
 Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 {
 	// Background du menu Principal
-	mainMenuBGTexture.loadFromFile("assets/Menu/MainMenuBG.jpg");
+	mainMenuBGTexture.loadFromFile("assets/Menu/MainMenuBG.png");
 	mainMenuBGSprite.setTexture(mainMenuBGTexture);
 	Vector2u windowSizeMainBG = window.getSize();
 	Vector2u textureSizeMainBG = mainMenuBGTexture.getSize();
@@ -110,8 +110,6 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	buttonOptionsTexture.loadFromFile("assets/Menu/OptionsButton.png");
 	buttonResumeTexture.loadFromFile("assets/Menu/ResumeButton.png");
 	buttonReturnTexture.loadFromFile("assets/Menu/ReturnButton.png");
-	soundOnTexture.loadFromFile("assets/Menu/SoundOn.png");
-	soundOffTexture.loadFromFile("assets/Menu/SoundOff.png");
 
 	buttons.push_back(Button(buttonPlayTexture, Vector2f(500, 750)));
 	buttons.push_back(Button(buttonExitTexture, Vector2f(850, 750)));
@@ -135,6 +133,13 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	{
 		cout << "Erreur lors du chargement de la musique du menu" << endl;
 	}
+	else
+	{
+		if (levelOneMusic.getStatus() != Music::Playing)
+		{
+			levelOneMusic.play();
+		}
+	}
 
 	if (!levelTwoMusic.openFromFile("assets/Music/levelTwo.ogg"))
 	{
@@ -152,9 +157,9 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	}
 	else
 	{
-		if (levelOneMusic.getStatus() != Music::Playing)
+		if (mainMenuMusic.getStatus() != Music::Playing)
 		{
-			levelOneMusic.play();
+			mainMenuMusic.play();
 		}
 	}
 
@@ -253,8 +258,11 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 	{
 		if (type == 0)
 		{
+			if (mainMenuMusic.getStatus() != Music::Playing)
+			{
+				mainMenuMusic.play();
+			}
 			levelOneMusic.pause();
-			mainMenuMusic.play();
 			while (menu)
 			{
 				while (window.pollEvent(event))
@@ -299,7 +307,6 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 				buttons[5].draw(window);
 				window.display();
 			}
-			mainMenuMusic.stop();
 		}
 		if (type == 1)
 		{
@@ -418,6 +425,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 		if (type == 4)
 		{
 			levelOneMusic.pause();
+			mainMenuMusic.pause();
 			while (options)
 			{
 				window.setView(window.getDefaultView());
@@ -479,6 +487,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 		{
 			levelOneMusic.play();
 		}
+		mainMenuMusic.stop();
 	}
 }
 

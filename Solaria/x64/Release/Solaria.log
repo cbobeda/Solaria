@@ -1,48 +1,5 @@
-﻿  Button.cpp
-  DirtTile.cpp
-  GroundTile.cpp
-  Tiles.cpp
-  UndergroundTile3Down.cpp
-  UndergroundTile3Left.cpp
-  UndergroundTile3Right.cpp
-  UndergroundTile3Up.cpp
-  UndergroundTileDown.cpp
-  UndergroundTileDownLeft.cpp
-  UndergroundTileDownRight.cpp
-  UndergroundTileLeft.cpp
-  UndergroundTileRight.cpp
-  UndergroundTileUp.cpp
-  UndergroundTileUpLeft.cpp
-  UndergroundTileUpRight.cpp
-  Ennemi.cpp
-  Entity.cpp
+﻿  Ennemi.cpp
   FlyingEnemy.cpp
-  Grid.cpp
-C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(3,14): error C2511: 'FlyingEnemy::FlyingEnemy(sf::Vector2f,float,Grid *)' : impossible de trouver la fonction membre surchargée dans 'FlyingEnemy'
-      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(11,7):
-      voir la déclaration de 'FlyingEnemy'
-  
-C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(3,90): error C2550: 'FlyingEnemy::{ctor}' : les listes d'initialiseurs de constructeur ne sont autorisées que dans la définition d'un constructeur
-C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(7,23): error C2597: référence non conforme à un membre non static 'FlyingEnemy::texture'
-      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(14,13):
-      voir la déclaration de 'FlyingEnemy::texture'
-  
-C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(9,5): error C2597: référence non conforme à un membre non static 'FlyingEnemy::position'
-      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(26,14):
-      voir la déclaration de 'FlyingEnemy::position'
-  
-C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(10,5): error C2597: référence non conforme à un membre non static 'FlyingEnemy::detectionRadius'
-      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(29,11):
-      voir la déclaration de 'FlyingEnemy::detectionRadius'
-  
-C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(11,5): error C2597: référence non conforme à un membre non static 'FlyingEnemy::currentState'
-      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(31,11):
-      voir la déclaration de 'FlyingEnemy::currentState'
-  
-C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(12,5): error C2597: référence non conforme à un membre non static 'FlyingEnemy::pathIndex'
-      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(18,9):
-      voir la déclaration de 'FlyingEnemy::pathIndex'
-  
 C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
 C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         with
 C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         [
@@ -63,9 +20,6 @@ C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C424
 C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         [
 C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:             T=float
 C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         ]
-C:\Users\legai\source\repos\Solaria\Solaria\Grid.cpp(22,47): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\legai\source\repos\Solaria\Solaria\Grid.cpp(22,32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  Compilation en cours...
   MapLoader.cpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82): warning C4244: 'argument' : conversion de '_Ty' en 'float', perte possible de données
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82): warning C4244:         with
@@ -90,14 +44,30 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.3443
               _Ty=FlyingEnemy
           ]
   
-  Menu.cpp
-C:\Users\legai\source\repos\Solaria\Solaria\Menu.cpp(113,2): error C2065: 'soundOnTexture' : identificateur non déclaré
-C:\Users\legai\source\repos\Solaria\Solaria\Menu.cpp(114,2): error C2065: 'soundOffTexture' : identificateur non déclaré
-  Node.cpp
-  Pathfinding.cpp
-  Platform.cpp
   Player.cpp
-C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(267,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(82,21): warning C4244: 'initialisation' : conversion de 'T' en 'float', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(82,21): warning C4244:         with
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(82,21): warning C4244:         [
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(82,21): warning C4244:             T=unsigned int
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(82,21): warning C4244:         ]
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(90,49): warning C4244: 'argument' : conversion de 'float' en 'T', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(90,49): warning C4244:         with
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(90,49): warning C4244:         [
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(90,49): warning C4244:             T=int
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(90,49): warning C4244:         ]
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(97,19): warning C4244: '+=' : conversion de 'float' en 'T', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(97,19): warning C4244:         with
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(97,19): warning C4244:         [
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(97,19): warning C4244:             T=int
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(97,19): warning C4244:         ]
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(100,20): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(308,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
   Solaria.cpp
   Taupe.cpp
   Winitem.cpp
+  Génération de code en cours
+  12 of 1403 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    41 functions had inline decision re-evaluated but remain unchanged
+  Fin de la génération du code
+  Solaria.vcxproj -> C:\Users\legai\source\repos\Solaria\x64\Release\Solaria.exe
