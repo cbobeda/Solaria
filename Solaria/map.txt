@@ -1,27 +1,27 @@
 
 
-
-
-
-
 p
 
-ggg            gggggggggggggggggggggggggggggggggggggg
-ccr            lccccccccccccccccccccccccccccccccccccc
-ccr            lccccccccccccccccccccccccccccccccccccc
-ccr            lccccccccccccccccccccccccccccccccccccc
-ccr            fddddddddddddddddddddddddddddddddddddd
-ccr
-ccr
-ccr
-ccr
+
+
+
+
+ggg            gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+ccr            lccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccr            lcccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddccccccccddddddddddddddddd
+ccr            lccccccccccccccccccccccccccccccccccr                               lccccccr
+ccr            fddddddddddddddddddddddddddddddddddm                               lccccccr
+ccr                                                                               lccccccr
+ccr                                                                               lccccccr
+ccr                                                                               lccccccr
+ccr                                                                               fddddddm
 ccr                               tuuuuuuuub
 ccr                               lcccccccccuub
 ccr                               lccccccccccccuub
-ccr                               lccccccccccccccr
-cccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuucccccccccccccccr
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccr                               lcccccccccccccccuuub
+cccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuucccccccccccccccccccr
+cccccccccccccccccccccccccccccccccccccccccccccccccccccr
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuub
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccr
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccr
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccr

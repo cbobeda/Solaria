@@ -119,6 +119,7 @@ int main(int argc, char* argv[])
                 ennemi->update(deltaTime);
             }
             mapLoader.player.update(deltaTime,currentMap,window, event);
+            mapLoader.winitem->update(deltaTime);
             for (auto& taupe : mapLoader.taupes)
             {
                 taupe->update(deltaTime);
@@ -129,7 +130,12 @@ int main(int argc, char* argv[])
                 fly->update(deltaTime);
             }
             
-        
+
+            if (mapLoader.winitem->isWinning)
+            {
+                win = true;
+            }
+            
             window.clear();
             for (auto& fly :mapLoader.flyingEnemies)
             {
@@ -143,7 +149,10 @@ int main(int argc, char* argv[])
             {
                 taupe->draw(window);
             }
-            view.setCenter(mapLoader.player.playerSprite.getPosition());
+            if (mapLoader.player.playerSprite.getPosition().x > 960)
+            {
+                view.setCenter(mapLoader.player.playerSprite.getPosition().x,540);
+            }
             window.setView(view);
             mapLoader.draw(window);
             mapLoader.player.grapin(window, currentMap,view, deltaTime);

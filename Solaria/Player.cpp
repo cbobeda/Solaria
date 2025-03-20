@@ -88,7 +88,7 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	{
 		if (playerSprite.getPosition().y > initialY - maxJumpHeight)
 		{
-			playerSprite.move(0, -speed*2.f  * deltatime);
+			playerSprite.move(0, -speed*12.f  * deltatime);
 		}
 
 		else
@@ -115,7 +115,7 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	}
 	if (hasToMoveDown)
 	{
-		playerSprite.move(0, speed * deltatime);
+		playerSprite.move(0, speed*5.f * deltatime);
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Q) || Joystick::getAxisPosition(0, Joystick::X) <= -20 && Joystick::getAxisPosition(0, Joystick::X) >= -100)
 	{

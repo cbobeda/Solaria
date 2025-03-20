@@ -9,6 +9,7 @@ MapLoader::MapLoader()
     {
         std::cerr << "Failed to load background texture" << std::endl;
     }
+    winitem = std::make_shared<Winitem>(Vector2f(100000,100000),&player);
     bgSprite.setTexture(bgTexture);
     bgSprite.setScale(6.75, 6.75);
 }
@@ -92,6 +93,10 @@ void MapLoader::setCurrentLevel(string newlevel)
                 {
                     platforms.push_back(std::make_shared<UndergroundTile3Left>(Vector2f{x * 40.f, y * 40.f}));
                 }
+                if (map[y][x] == 'w')
+                {
+                    winitem->winitemSprite.setPosition(x * 40.f, y * 40.f);
+                }
                 if (map[y][x] == '1')
                 {
                     ennemies.push_back(std::make_shared<Ennemi>(Vector2f{x * 40.f, y * 40.f},10,&player));
@@ -119,8 +124,28 @@ void MapLoader::draw(RenderWindow& window)
     window.draw(bgSprite);
     for (auto& platform : platforms)
     {
+        if (platform->sprite.getGlobalBounds().intersects(player.playerSprite.getGlobalBounds()))
+        {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+            {
+                player.playerSprite.move(-player.speed,0);
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+            {
+                player.playerSprite.move(player.speed,0);
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+            {
+                player.playerSprite.move(0,player.speed);
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+            {
+                player.playerSprite.move(0,-player.speed);
+            }
+        }
         platform->draw(window);
     }
+    winitem->draw(window);
 }
 
 MapLoader::~MapLoader()
