@@ -8,7 +8,7 @@ Winitem::Winitem(Vector2f position, Player* player) : player(player)
 	}
 	winitemSprite.setTexture(winitemTexture);
 	winitemSprite.setPosition(position);
-	winitemSprite.setScale(2.f, 2.f);
+	winitemSprite.setScale(0.2f, 0.2f);
 }
 
 void Winitem::draw(RenderWindow& window)

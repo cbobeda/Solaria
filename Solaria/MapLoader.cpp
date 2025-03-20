@@ -99,7 +99,7 @@ void MapLoader::setCurrentLevel(string newlevel)
                 }
                 if (map[y][x] == '1')
                 {
-                    ennemies.push_back(std::make_shared<Ennemi>(Vector2f{x * 40.f, y * 40.f},10,&player));
+                    ennemies.push_back(std::make_shared<Ennemi>(Vector2f{x * 40.f, y * 40.f},300,&player));
                 }
                 if (map[y][x] == '2')
                 {

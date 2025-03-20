@@ -12,6 +12,10 @@ private:
     sf::Sprite sprite;
     sf::Vector2f pos;
     sf::Vector2f positionP[2];
+
+	IntRect ennemiRect;
+
+	sf::Clock watchanime;
 public:
 	sf::Clock attackclock;
     Ennemi(sf::Vector2f pos, int patrolRange, Player* player);

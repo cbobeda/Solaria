@@ -4,8 +4,9 @@ Ennemi::Ennemi(sf::Vector2f pos, int patrolRange, Player* player) : player(playe
 {
     positionP[0] = {pos.x, pos.y};
     positionP[1] = {pos.x + patrolRange, pos.y};
-    texture.loadFromFile("ennemi.png");
+    texture.loadFromFile("assets/ennemi.png");
     sprite.setTexture(texture);
+    ennemiRect = sf::IntRect(0, 0, 38, 81);
     sprite.setScale(2.f, 2.f);
     sprite.setPosition(pos);
 }
@@ -51,6 +52,12 @@ void Ennemi::update(float deltatime)
                 player->getdamage();
             }
 		}
+    }
+    if (watchanime.getElapsedTime().asSeconds() > 0.5f) {
+        ennemiRect.left += 38;
+        if (abs(ennemiRect.left) >= 114) { ennemiRect.left = 0; }
+        sprite.setTextureRect(ennemiRect);
+        watchanime.restart();
     }
 }
 
