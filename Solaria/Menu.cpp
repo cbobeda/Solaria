@@ -164,6 +164,7 @@ void Menu::draw(RenderWindow& window)
 	{
 		button.draw(window);
 	}
+	
 }
 
 int Menu::handleInput(const RenderWindow& window, Event event)
@@ -225,6 +226,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 				window.draw(titleTextSprite);
 				buttons[0].draw(window);
 				buttons[1].draw(window);
+				
 				window.display();
 			}
 		}

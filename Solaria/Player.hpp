@@ -17,6 +17,9 @@ public:
 	Texture energyTexture;
 	Texture grapinTexture;
 	RectangleShape line;
+	
+	Texture CurseurTexture;
+	Sprite CurseurSprite;
 
 	bool jump;
 	bool hasToMoveDown;
