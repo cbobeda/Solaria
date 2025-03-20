@@ -34,7 +34,7 @@ void FlyingEnemy::patrol() {
         }
         else {
             direction /= distance;
-            position += direction * 5.f;
+            position = position + direction * 5.f;
         }
         sprite.setPosition(position);
     }

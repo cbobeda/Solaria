@@ -17,48 +17,73 @@
   Ennemi.cpp
   Entity.cpp
   FlyingEnemy.cpp
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         with
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         [
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:             T=float
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         ]
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         with
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         [
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:             T=float
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         ]
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         with
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         [
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:             T=float
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         ]
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         with
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         [
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:             T=float
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         ]
   Grid.cpp
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\Grid.cpp(22,47): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\Grid.cpp(22,32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(3,14): error C2511: 'FlyingEnemy::FlyingEnemy(sf::Vector2f,float,Grid *)' : impossible de trouver la fonction membre surchargée dans 'FlyingEnemy'
+      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(11,7):
+      voir la déclaration de 'FlyingEnemy'
+  
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(3,90): error C2550: 'FlyingEnemy::{ctor}' : les listes d'initialiseurs de constructeur ne sont autorisées que dans la définition d'un constructeur
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(7,23): error C2597: référence non conforme à un membre non static 'FlyingEnemy::texture'
+      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(14,13):
+      voir la déclaration de 'FlyingEnemy::texture'
+  
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(9,5): error C2597: référence non conforme à un membre non static 'FlyingEnemy::position'
+      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(26,14):
+      voir la déclaration de 'FlyingEnemy::position'
+  
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(10,5): error C2597: référence non conforme à un membre non static 'FlyingEnemy::detectionRadius'
+      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(29,11):
+      voir la déclaration de 'FlyingEnemy::detectionRadius'
+  
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(11,5): error C2597: référence non conforme à un membre non static 'FlyingEnemy::currentState'
+      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(31,11):
+      voir la déclaration de 'FlyingEnemy::currentState'
+  
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(12,5): error C2597: référence non conforme à un membre non static 'FlyingEnemy::pathIndex'
+      C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.h(18,9):
+      voir la déclaration de 'FlyingEnemy::pathIndex'
+  
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         with
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         [
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:             T=float
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,74): warning C4244:         ]
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         with
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         [
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:             T=float
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(28,43): warning C4244:         ]
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         with
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         [
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:             T=float
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,74): warning C4244:         ]
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         with
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         [
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:             T=float
+C:\Users\legai\source\repos\Solaria\Solaria\FlyingEnemy.cpp(78,43): warning C4244:         ]
+C:\Users\legai\source\repos\Solaria\Solaria\Grid.cpp(22,47): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\Grid.cpp(22,32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   Compilation en cours...
   MapLoader.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244: 'argument' : conversion de '_Ty' en 'float', perte possible de données
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244:         with
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244:         [
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244:             _Ty=int
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82): warning C4244: 'argument' : conversion de '_Ty' en 'float', perte possible de données
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82): warning C4244:             _Ty=int
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82): warning C4244:         ]
   (compiler le fichier source 'MapLoader.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82):
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82):
       le contexte d’instanciation du modèle (le plus ancien) est
-          C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\MapLoader.cpp(101,50):
+          C:\Users\legai\source\repos\Solaria\Solaria\MapLoader.cpp(101,50):
           voir la référence à l'instanciation de la fonction modèle 'std::shared_ptr<FlyingEnemy> std::make_shared<FlyingEnemy,sf::Vector2f,int,Grid*,Player*>(sf::Vector2f &&,int &&,Grid *&&,Player *&&)' en cours de compilation
-          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(2903,46):
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\memory(2906,46):
           voir la référence à l'instanciation de la fonction modèle 'std::_Ref_count_obj2<FlyingEnemy>::_Ref_count_obj2<_Ty,int,Grid*,Player*>(_Ty &&,int &&,Grid *&&,Player *&&)' en cours de compilation
           with
           [
               _Ty=sf::Vector2f
           ]
-          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(2092,18):
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\memory(2095,18):
           voir la référence à l'instanciation de la fonction modèle 'void std::_Construct_in_place<_Ty,sf::Vector2<float>,int,Grid*,Player*>(_Ty &,sf::Vector2<float> &&,int &&,Grid *&&,Player *&&) noexcept(false)' en cours de compilation
           with
           [
@@ -66,16 +91,13 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
           ]
   
   Menu.cpp
+C:\Users\legai\source\repos\Solaria\Solaria\Menu.cpp(113,2): error C2065: 'soundOnTexture' : identificateur non déclaré
+C:\Users\legai\source\repos\Solaria\Solaria\Menu.cpp(114,2): error C2065: 'soundOffTexture' : identificateur non déclaré
   Node.cpp
   Pathfinding.cpp
   Platform.cpp
   Player.cpp
-C:\Users\tarik\source\repos\cbobeda\Solaria\Solaria\Player.cpp(267,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+C:\Users\legai\source\repos\Solaria\Solaria\Player.cpp(267,18): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
   Solaria.cpp
   Taupe.cpp
   Winitem.cpp
-  Génération de code en cours
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-  All 1418 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Fin de la génération du code
-  Solaria.vcxproj -> C:\Users\tarik\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe
