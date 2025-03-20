@@ -94,6 +94,8 @@ Menu::Menu(RenderWindow& window)
 	buttons.push_back(Button(buttonReturnTexture, Vector2f(50, 50)));
 
 	// Musique
+
+	
 }
 
 void Menu::draw(RenderWindow& window)
@@ -102,6 +104,7 @@ void Menu::draw(RenderWindow& window)
 	{
 		button.draw(window);
 	}
+	
 }
 
 int Menu::handleInput(const RenderWindow& window, Event event)
@@ -163,6 +166,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 				window.draw(titleTextSprite);
 				buttons[0].draw(window);
 				buttons[1].draw(window);
+				
 				window.display();
 			}
 		}

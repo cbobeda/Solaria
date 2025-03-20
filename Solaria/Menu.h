@@ -36,6 +36,9 @@ private:
 	Texture buttonOptionsTexture;
 	Texture buttonResumeTexture;
 	Texture buttonReturnTexture;
+
+	
+	
 	
 	vector<Button> buttons;
 
