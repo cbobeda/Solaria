@@ -10,6 +10,7 @@ public:
 	Sprite winitemSprite;
 	Texture winitemTexture;
 	Player* player;
+	bool isWinning;
 
 	void draw(RenderWindow& window) override;
 	void update(float deltatime) override;

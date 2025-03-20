@@ -20,10 +20,11 @@ void Winitem::update(float deltatime)
 {
 	FloatRect winitemBounds = winitemSprite.getGlobalBounds();
 	FloatRect playerBounds = player->playerSprite.getGlobalBounds();
-
+	isWinning = false;
 	if (winitemBounds.intersects(playerBounds))
 	{
 		cout << "You win!" << endl; //inserer eventuel ecran de victoire
+		isWinning = true;
 	}
 }
 
