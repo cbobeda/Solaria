@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Ennemi.h"
 #include "FlyingEnemy.h"
+#include "Taupe.h"
 #include "Platform.h"
 #include "MapLoader.h"
 #include "Player.hpp"
@@ -11,17 +12,21 @@
 #include "ClassTiles/DirtTile.h"
 #include "Grid.h"
 
+
 using namespace sf;
 using namespace std;
 
-Ennemi test({20.f,650.f},50.f);
+Ennemi test({20.f,650.f},10.f);
+Taupe taupe({ 500.f, 500.f }, 100.f);
 
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
+
+	Taupe taupe({ 500.f, 500.f }, 100.f);
     Grid grid;
     
-	Player player(100, 150.f, 100);
+	
     FlyingEnemy flyingEnemy(Vector2f(300, 300), 130.0f, &grid);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
     
@@ -114,18 +119,19 @@ int main(int argc, char* argv[])
             deltaTime = clock.restart().asSeconds();
 
             test.update(deltaTime);
-            mapLoader.player.update(deltaTime,currentMap, window, event);
-
+            mapLoader.player.update(deltaTime,currentMap,window, event);
+            taupe.update(deltaTime);
             flyingEnemy.setPlayerPosition(mapLoader.player.playerSprite.getPosition());
             flyingEnemy.update(deltaTime);
         
             window.clear();
 
-            player.grapin(window, currentMap, deltaTime);
-            mapLoader.player.draw(window);
+            mapLoader.player.grapin(window, currentMap, deltaTime);
             flyingEnemy.draw(window);
             test.draw(window);
+            taupe.draw(window);
             mapLoader.draw(window);
+            mapLoader.player.draw(window);
             mapLoader.mapLoaded = true;
         }
 
