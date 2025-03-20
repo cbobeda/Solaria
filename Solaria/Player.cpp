@@ -128,14 +128,17 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 		}
 	}
 
+	cout << hp << endl;
 	IntRect newRect = energySprite.getTextureRect();
 	newRect.left = 39 * energy;
 	if (newRect.left >= 585) { newRect.left -= 585; }
 	energySprite.setTextureRect(newRect);
 
 	if (energyreload.getElapsedTime().asSeconds() > 4.f) {
+		if (energy < 14) {
 		energy += 1;
 		energyreload.restart();
+		}
 	}
 }
 
@@ -224,6 +227,10 @@ void Player::grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap,
 Vector2f Player::getPosition() const {
 	return playerPosition;
 	
+}
+
+void Player::getdamage() {
+	hp -= 10;
 }
 
 

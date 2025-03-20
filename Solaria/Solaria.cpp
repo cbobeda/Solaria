@@ -16,18 +16,17 @@
 using namespace sf;
 using namespace std;
 
-Ennemi test({20.f,650.f},10.f);
-Taupe taupe({ 500.f, 500.f }, 100.f);
 
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
 
-	Taupe taupe({ 500.f, 500.f }, 100.f);
+	Taupe taupe({ 500.f, 500.f }, 100.f, &mapLoader.player);
+    Ennemi test({ 20.f,650.f }, 10.f, &mapLoader.player);
     Grid grid;
     
 	
-    FlyingEnemy flyingEnemy(Vector2f(300, 300), 130.0f, &grid);
+    FlyingEnemy flyingEnemy(Vector2f(300, 300), 130.0f, &grid, &mapLoader.player);
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
     
     std::vector<std::shared_ptr<Tiles>> currentMap;

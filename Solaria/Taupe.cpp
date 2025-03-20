@@ -1,7 +1,7 @@
 #include "Taupe.h"
 #include <iostream>
 
-Taupe::Taupe(sf::Vector2f pos, int moveRange)
+Taupe::Taupe(sf::Vector2f pos, int moveRange, Player* player): player(player)
 {
     if (!taupeTexture.loadFromFile("taupe.jpg"))
     {
@@ -19,6 +19,7 @@ Taupe::Taupe(sf::Vector2f pos, int moveRange)
 void Taupe::update(float deltaTime)
 {
     sf::Vector2f currentPos = taupeSprite.getPosition();
+
 
     if (!digging)
     {
@@ -44,6 +45,15 @@ void Taupe::update(float deltaTime)
 
         taupeSprite.move(-lateralSpeed * deltaTime, 0);
     }
+	if (player->playerSprite.getGlobalBounds().intersects(taupeSprite.getGlobalBounds()))
+	{
+		if (attackclock.getElapsedTime().asSeconds() > 1.f)
+		{
+			attackclock.restart();
+			player->getdamage();
+		}
+	}
+
 }
 
 void Taupe::draw(sf::RenderWindow& window)
