@@ -52,7 +52,12 @@ void Taupe::update(float deltaTime)
 			attackclock.restart();
 			player->getdamage();
 		}
+
+       
 	}
+
+
+
 
 }
 

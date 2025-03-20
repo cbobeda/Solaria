@@ -1,6 +1,7 @@
 #include "Player.hpp"
 #include "Platform.h"
 
+const int nombreDeFrames = 4; // Remplace 4 par le nombre exact de frames dans ton spritesheet
 
 Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed), energy(aenergy), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(180.f)
 {
@@ -14,6 +15,10 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 	playerSprite.setPosition(playerPosition);
 	playerSprite.setScale(2.5f, 2.5f);
 	FloatRect playerBounds = playerSprite.getGlobalBounds();
+
+	if (!PlayerAtaqueTexture.loadFromFile("attack-Sheet.png")) {
+		cout << "Error loading attack texture" << endl;
+	}
 
 	if (!energyTexture.loadFromFile("Energie-Sheet.png"))
 	{
@@ -62,7 +67,7 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 {
 	
 
-
+	//Animation de marche
 
 	if (watchanime.getElapsedTime().asSeconds() > 0.2f) {
 		IntRect newRect = playerSprite.getTextureRect();
@@ -71,6 +76,39 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 		playerSprite.setTextureRect(newRect);
 		watchanime.restart();
 	}
+
+	// Gestion de l'attaque
+
+	float largeurFrame = PlayerAtaqueTexture.getSize().x / nombreDeFrames; // Divise la largeur totale par le nombre de frames
+
+	if (Mouse::isButtonPressed(Mouse::Right) || Joystick::isButtonPressed(0, 0) && !isAttacking) {
+		isAttacking = true;
+		playerSprite.setTexture(PlayerAtaqueTexture);
+		
+
+		// Appliquer la première frame de l'animation d'attaque
+		playerSprite.setTextureRect(sf::IntRect(0, 0, largeurFrame, PlayerAtaqueTexture.getSize().y));
+		attackClock.restart();
+	}
+
+	// Animation de l'attaque
+	if (isAttacking && attackClock.getElapsedTime().asSeconds() > 0.1f) {
+		IntRect newRect = playerSprite.getTextureRect();
+		newRect.left += largeurFrame; // Utilise la largeur calculée de la frame
+
+		// Vérifier si on dépasse la largeur totale de l'image
+		if (newRect.left >= playerSprite.getTexture()->getSize().x) {
+			newRect.left = 0;
+			isAttacking = false;
+			playerSprite.setTexture(playerTexture); // Retour à la texture normale
+		}
+
+		playerSprite.setTextureRect(newRect);
+		attackClock.restart();
+	}
+
+	
+
 	if (Keyboard::isKeyPressed(Keyboard::Space) || Joystick::isButtonPressed(0, 1) && !jump && energy >= 1)
 	{
 		float currentTime = Clock().getElapsedTime().asSeconds();
@@ -187,6 +225,9 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	if (newRect2.left >= 189) { newRect2.left -= 189; }
 	lifeSprite.setTextureRect(newRect2);
 	lifeSprite.setPosition(viewCenter.x - viewSize.x / 2 + 20.f, viewCenter.y - viewSize.y / 2 + 35.f);
+
+
+	
 }
 
 bool rayIntersectsRect(const sf::Vector2f& rayOrigin,

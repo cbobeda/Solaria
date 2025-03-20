@@ -30,6 +30,7 @@ public:
     enum State { PATROL, CHASE, SEARCH };
     State currentState;
     sf::Clock attackclock;
+    bool isAttacking = false;
 
     FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid, Player* player);
     void update(float deltatime) override;

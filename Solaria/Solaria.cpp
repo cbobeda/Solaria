@@ -128,10 +128,18 @@ int main(int argc, char* argv[])
                 fly->setPlayerPosition(mapLoader.player.playerSprite.getPosition());
                 fly->update(deltaTime);
             }
+
+           
             
         
             window.clear();
-            for (auto& fly :mapLoader.flyingEnemies)
+            
+            view.setCenter(mapLoader.player.playerSprite.getPosition());
+            window.setView(view);
+            mapLoader.draw(window);
+            mapLoader.player.grapin(window, currentMap,view, deltaTime);
+            mapLoader.player.draw(window);
+            for (auto& fly : mapLoader.flyingEnemies)
             {
                 fly->draw(window);
             }
@@ -143,11 +151,6 @@ int main(int argc, char* argv[])
             {
                 taupe->draw(window);
             }
-            view.setCenter(mapLoader.player.playerSprite.getPosition());
-            window.setView(view);
-            mapLoader.draw(window);
-            mapLoader.player.grapin(window, currentMap,view, deltaTime);
-            mapLoader.player.draw(window);
             mapLoader.mapLoaded = true;
         }
 

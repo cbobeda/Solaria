@@ -13,6 +13,7 @@ public:
 	float speed;
 	Sprite playerSprite;
 	Texture playerTexture;
+	Texture PlayerAtaqueTexture;
 	Sprite energySprite;
 	Texture energyTexture;
 	Sprite lifeSprite;
@@ -28,6 +29,8 @@ public:
 	float initialY;
 	float initialX;
 	float maxJumpHeight;
+	bool isAttacking = false;
+	sf::Clock attackClock;
 	sf::Clock watchanime;
 	sf::Clock energyreload;
 	sf::Clock jumpCooldown; 
@@ -37,6 +40,8 @@ public:
 	Vector2f playerPosition;
 	Vector2f viewCenter;
 	Vector2f viewSize;
+
+	
 	
 
 	
