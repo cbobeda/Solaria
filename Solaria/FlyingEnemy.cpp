@@ -1,6 +1,6 @@
 #include "FlyingEnemy.h"
 
-FlyingEnemy::FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid) : grid(grid) {
+FlyingEnemy::FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid, Player* player) : grid(grid), player(player) {
     if (!texture.loadFromFile("chatMoche.png")) {
         cerr << "Erreur de chargement de la texture" << endl;
     }
@@ -48,6 +48,13 @@ void FlyingEnemy::chase(Vector2f playerPos) {
         direction /= distance;
         position += direction * 5.f;
     }
+
+	if (distance <= 5.0f) {
+        if (attackclock.getElapsedTime().asSeconds() > 5.f) {
+            attackclock.restart();
+            player->getdamage();
+        }
+	}
 
     sprite.setPosition(position);
 }

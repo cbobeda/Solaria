@@ -10,6 +10,7 @@ private:
     float speed = 300.0f;
     float digDepth = 210.0f;
     float digSpeed = 300.0f;
+	Player* player;
 
     sf::Texture taupeTexture;
     sf::Sprite taupeSprite;
@@ -18,7 +19,8 @@ private:
     float lateralSpeed = 80.0f;
 
 public:
-    Taupe(sf::Vector2f pos, int moveRange);
+	sf::Clock attackclock; 
+    Taupe(sf::Vector2f pos, int moveRange, Player* player);
     void update(float deltaTime) override;
     void draw(sf::RenderWindow& window) override;
     ~Taupe();

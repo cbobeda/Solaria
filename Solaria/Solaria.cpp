@@ -16,10 +16,14 @@
 using namespace sf;
 using namespace std;
 
+
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
     
+    
+	
+
     RenderWindow window(VideoMode(1920, 1080), "Solaria");
     
     std::vector<std::shared_ptr<Tiles>> currentMap;
