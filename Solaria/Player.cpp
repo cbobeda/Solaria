@@ -2,7 +2,7 @@
 #include "Platform.h"
 
 
-Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed), energy(aenergy), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(350.f)
+Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed), energy(aenergy), jump(false), initialY(0.f), initialX(0.f), maxJumpHeight(180.f)
 {
 	if (!playerTexture.loadFromFile("player.png"))
 	{
@@ -55,7 +55,7 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	{
 		float currentTime = Clock().getElapsedTime().asSeconds();
 
-		if (1 <= jumpCooldown.getElapsedTime().asSeconds())
+		if (2 <= jumpCooldown.getElapsedTime().asSeconds())
 		{
 			jump = true;
 			initialY = playerSprite.getPosition().y;
@@ -68,8 +68,9 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	{
 		if (playerSprite.getPosition().y > initialY - maxJumpHeight)
 		{
-			playerSprite.move(0, -speed * 0.5f);
+			playerSprite.move(0, -speed*2.f  * deltatime);
 		}
+
 		else
 		{
 			jump = false;
@@ -94,7 +95,7 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	}
 	if (hasToMoveDown)
 	{
-		playerSprite.move(0, speed * deltatime * 5.f);
+		playerSprite.move(0, speed * deltatime);
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Q))
 	{
