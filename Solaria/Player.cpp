@@ -83,7 +83,8 @@ void moveTowards(Vector2f dir)
 void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms, RenderWindow& window, Event& event)
 {
 	moving = false;
-	
+
+	runRect.width = abs(runRect.width);
 	if ((Keyboard::isKeyPressed(Keyboard::Space) || Joystick::isButtonPressed(0, 1)) && !jump && energy >= 1)
 	{
 		float currentTime = Clock().getElapsedTime().asSeconds();
@@ -144,6 +145,7 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	nextPosX.left += speed*deltatime - 5;
 	if ((Keyboard::isKeyPressed(Keyboard::Q) || Joystick::getAxisPosition(0, Joystick::X) <= -20 && Joystick::getAxisPosition(0, Joystick::X) >= -100) && !checkCollision(nextPosX,platforms))
 	{
+		runRect.width *= -1;
 		moving = true;
 		playerSprite.move(-speed * deltatime, 0);
 	}
@@ -192,7 +194,7 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 		playerSprite.setTextureRect(sf::IntRect(runRect));
 		if (watchanime.getElapsedTime().asSeconds() > 0.2f) {
 			runRect.left += 43;
-			if (runRect.left >= 258) { runRect.left -= 258; }
+			if (abs(runRect.left) >= 258) { runRect.left = 0; }
 			playerSprite.setTextureRect(runRect);
 			watchanime.restart();
 		}
