@@ -4,7 +4,7 @@ Ennemi::Ennemi(sf::Vector2f pos, int patrolRange, Player* player) : player(playe
 {
     positionP[0] = {pos.x, pos.y};
     positionP[1] = {pos.x + patrolRange, pos.y};
-    texture.loadFromFile("ennemi.png");
+    texture.loadFromFile("assets/Enemy/ennemi.png");
     sprite.setTexture(texture);
     sprite.setScale(2.f, 2.f);
     sprite.setPosition(pos);

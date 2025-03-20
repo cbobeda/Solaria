@@ -9,7 +9,7 @@ using namespace sf;
 Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 {
 	// Background du menu Principal
-	mainMenuBGTexture.loadFromFile("MainMenuBG.png");
+	mainMenuBGTexture.loadFromFile("assets/Menu/MainMenuBG.jpg");
 	mainMenuBGSprite.setTexture(mainMenuBGTexture);
 	Vector2u windowSizeMainBG = window.getSize();
 	Vector2u textureSizeMainBG = mainMenuBGTexture.getSize();
@@ -18,7 +18,7 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	float scaleMainBGY = static_cast<float>(windowSizeMainBG.y) / textureSizeMainBG.y;
 
 	// Background du menu Pause
-	pauseMenuBGTexture.loadFromFile("PauseMenuBG.jpg");
+	pauseMenuBGTexture.loadFromFile("assets/Menu/PauseMenuBG.jpg");
 	pauseMenuBGSprite.setTexture(pauseMenuBGTexture);
 	Vector2u windowSizePauseBG = window.getSize();
 	Vector2u textureSizePauseBG = pauseMenuBGTexture.getSize();
@@ -27,7 +27,7 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	float scalePauseBGY = static_cast<float>(windowSizePauseBG.y) / textureSizePauseBG.y;
 
 	// Background du menu Game Over
-	gameOverBGTexture.loadFromFile("GameOverBG.png");
+	gameOverBGTexture.loadFromFile("assets/Menu/GameOverBG.png");
 	gameOverBGSprite.setTexture(gameOverBGTexture);
 	Vector2u windowSizeGameOverBG = window.getSize();
 	Vector2u textureSizeGameOverBG = gameOverBGTexture.getSize();
@@ -36,7 +36,7 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	float scaleGameOverBGY = static_cast<float>(windowSizeGameOverBG.y) / textureSizeGameOverBG.y;
 
 	// Background du menu Win
-	winBGTexture.loadFromFile("WinBG.png");
+	winBGTexture.loadFromFile("assets/Menu/WinBG.png");
 	winBGSprite.setTexture(winBGTexture);
 	Vector2u windowSizeWinBG = window.getSize();
 	Vector2u textureSizeWinBG = winBGTexture.getSize();
@@ -45,7 +45,7 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	float scaleWinBGY = static_cast<float>(windowSizeWinBG.y) / textureSizeWinBG.y;
 
 	// Background du menu Options
-	optionsMenuBGTexture.loadFromFile("Options.png");
+	optionsMenuBGTexture.loadFromFile("assets/Menu/Options.png");
 	optionsMenuBGSprite.setTexture(optionsMenuBGTexture);
 	Vector2u windowSizeOptionsBG = window.getSize();
 	Vector2u textureSizeOptionsBG = optionsMenuBGTexture.getSize();
@@ -54,7 +54,7 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	float scaleOptionsBGY = static_cast<float>(windowSizeOptionsBG.y) / textureSizeOptionsBG.y;
 
 	// Sprite Titre
-	titleTextTexture.loadFromFile("Title.png");
+	titleTextTexture.loadFromFile("assets/Menu/Title.png");
 	titleTextSprite.setTexture(titleTextTexture);
 	titleTextSprite.setPosition(500, 150);
 	Vector2u windowSizeTitleText = window.getSize();
@@ -64,7 +64,7 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	float scaleTitleTextY = static_cast<float>(windowSizeTitleText.y) / textureSizeTitleText.y;
 
 	// Sprite Game Over
-	gameOverTextTexture.loadFromFile("GameOver.png");
+	gameOverTextTexture.loadFromFile("assets/Menu/GameOver.png");
 	gameOverTextSprite.setTexture(gameOverTextTexture);
 	Vector2u windowSizeGameOverText = window.getSize();
 	Vector2u textureSizeGameOverText = gameOverBGTexture.getSize();
@@ -73,7 +73,7 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	float scaleGameOverTextY = static_cast<float>(windowSizeGameOverText.y) / textureSizeGameOverText.y;
 
 	// Sprite Win
-	winTextTexture.loadFromFile("Win.png");
+	winTextTexture.loadFromFile("assets/Menu/Win.png");
 	winTextSprite.setTexture(winTextTexture);
 	Vector2u windowSizeWinText = window.getSize();
 	Vector2u textureSizeWinText = winTextTexture.getSize();
@@ -93,23 +93,25 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	float scaleVolumeTextY = static_cast<float>(windowSizeVolumeText.y) / textureSizeVolumeText.y;
 
 	// Initialisation de la barre de volume
-	volumeBarTexture.loadFromFile("VolumeBar.png");
+	volumeBarTexture.loadFromFile("assets/Menu/VolumeBar.png");
 	volumeBarSprite.setTexture(volumeBarTexture);
 	volumeBarSprite.setPosition(890, 300);
 	volumeBarSprite.setScale(8.0f, 8.0f);
 
 	// Initialisation du curseur de volume
-	volumeCursorTexture.loadFromFile("VolumeCursor.png");
+	volumeCursorTexture.loadFromFile("assets/Menu/VolumeCursor.png");
 	volumeCursorSprite.setTexture(volumeCursorTexture);
 	volumeCursorSprite.setScale(8.0f, 8.0f);
 	updateVolumeCursorPosition();
 
 	// Sprite Buttons
-	buttonPlayTexture.loadFromFile("PlayButton.png");
-	buttonExitTexture.loadFromFile("ExitButton.png");
-	buttonOptionsTexture.loadFromFile("OptionsButton.png");
-	buttonResumeTexture.loadFromFile("ResumeButton.png");
-	buttonReturnTexture.loadFromFile("ReturnButton.png");
+	buttonPlayTexture.loadFromFile("assets/Menu/PlayButton.png");
+	buttonExitTexture.loadFromFile("assets/Menu/ExitButton.png");
+	buttonOptionsTexture.loadFromFile("assets/Menu/OptionsButton.png");
+	buttonResumeTexture.loadFromFile("assets/Menu/ResumeButton.png");
+	buttonReturnTexture.loadFromFile("assets/Menu/ReturnButton.png");
+	soundOnTexture.loadFromFile("assets/Menu/SoundOn.png");
+	soundOffTexture.loadFromFile("assets/Menu/SoundOff.png");
 
 	buttons.push_back(Button(buttonPlayTexture, Vector2f(500, 750)));
 	buttons.push_back(Button(buttonExitTexture, Vector2f(850, 750)));
@@ -124,7 +126,27 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	}
 
 	// Musique
-	if (!levelOneMusic.openFromFile("Willderness.ogg"))
+	if (!tutorielMusic.openFromFile("assets/Music/Tutorial.ogg"))
+	{
+		cout << "Erreur lors du chargement de la musique du tutoriel" << endl;
+	}
+
+	if (!levelOneMusic.openFromFile("assets/Music/LevelOne.ogg"))
+	{
+		cout << "Erreur lors du chargement de la musique du menu" << endl;
+	}
+
+	if (!levelTwoMusic.openFromFile("assets/Music/levelTwo.ogg"))
+	{
+		cout << "Erreur lors du chargement de la musique du second niveau" << endl;
+	}
+
+	if (!bossMusic.openFromFile("assets/Music/boss.ogg"))
+	{
+		cout << "Erreur lors du chargement de la musique du boss" << endl;
+	}
+
+	if (!mainMenuMusic.openFromFile("assets/Music/MainMenu.ogg"))
 	{
 		cout << "Erreur lors du chargement de la musique du menu" << endl;
 	}
@@ -134,6 +156,21 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 		{
 			levelOneMusic.play();
 		}
+	}
+
+	if (!winMusic.openFromFile("assets/Music/Win.ogg"))
+	{
+		cout << "Erreur lors du chargement de la musique de l'écran de win" << endl;
+	}
+
+	if (!gameOverMusic.openFromFile("assets/Music/GameOver.ogg"))
+	{
+		cout << "Erreur lors du chargement de la musique de l'écran de game over" << endl;
+	}
+
+	if (!creditsMusic.openFromFile("assets/Music/Credits.ogg"))
+	{
+		cout << "Erreur lors du chargement de la musique des credits" << endl;
 	}
 }
 
@@ -217,6 +254,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 		if (type == 0)
 		{
 			levelOneMusic.pause();
+			mainMenuMusic.play();
 			while (menu)
 			{
 				while (window.pollEvent(event))
@@ -261,6 +299,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 				buttons[5].draw(window);
 				window.display();
 			}
+			mainMenuMusic.stop();
 		}
 		if (type == 1)
 		{

@@ -19,6 +19,9 @@ private:
     Grid* grid;
 	Player* player;
 
+    //Music robotTakingDamage;
+    //Music robotDying;
+
 public:
     Vector2f position;
     CircleShape circle;
