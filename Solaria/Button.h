@@ -3,6 +3,7 @@
 
 #include <iostream>  
 #include <SFML/Graphics.hpp>  
+#include <SFML/Audio.hpp>
 
 using namespace sf;  
 using namespace std;  
@@ -18,7 +19,7 @@ public:
    void setTextureRect(const sf::IntRect& rect);
 
 private:  
-   Sprite buttonSprite;  
+   Sprite buttonSprite;
 };  
 
 #endif

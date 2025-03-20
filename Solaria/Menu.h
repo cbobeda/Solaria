@@ -45,7 +45,14 @@ private:
 	Texture volumeBarTexture;
 	Texture volumeCursorTexture;
 
+	Music tutorielMusic;
 	Music levelOneMusic;
+	Music levelTwoMusic;
+	Music bossMusic;
+	Music mainMenuMusic;
+	Music winMusic;
+	Music gameOverMusic;
+	Music creditsMusic;
 	
 	vector<Button> buttons;
 

@@ -10,6 +10,9 @@ private:
     sf::Sprite sprite;
     sf::Vector2f pos;
     sf::Vector2f positionP[2];
+
+    //Music robotTakingDamage;
+    //Music robotDying;
 public:
     Ennemi(sf::Vector2f pos, int patrolRange);
     void update(float deltatime) override;

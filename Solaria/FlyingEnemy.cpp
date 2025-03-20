@@ -1,7 +1,7 @@
 #include "FlyingEnemy.h"
 
 FlyingEnemy::FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid) : grid(grid) {
-    if (!texture.loadFromFile("chatMoche.png")) {
+    if (!texture.loadFromFile("assets/Enemy/chatMoche.png")) {
         cerr << "Erreur de chargement de la texture" << endl;
     }
     sprite.setTexture(texture);
