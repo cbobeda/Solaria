@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
       <FullPath>C:\Users\tbouaifel\source\repos\cbobeda\Solaria\x64\Release\Solaria.exe</FullPath>
-=======
-      <FullPath>C:\Users\cleme\source\repos\Solaria\x64\Release\Solaria.exe</FullPath>
->>>>>>> a12de0ddd780e584c27987aa7de85f2e464a7fa0
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
