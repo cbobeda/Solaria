@@ -66,6 +66,7 @@ Menu::Menu(RenderWindow& window) : isDraggingCursor(false), volumeLevel(100.0f)
 	// Sprite Game Over
 	gameOverTextTexture.loadFromFile("assets/Menu/GameOver.png");
 	gameOverTextSprite.setTexture(gameOverTextTexture);
+	gameOverTextSprite.setPosition(550, 150);
 	Vector2u windowSizeGameOverText = window.getSize();
 	Vector2u textureSizeGameOverText = gameOverBGTexture.getSize();
 
@@ -358,6 +359,8 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 		}
 		if (type == 2)
 		{
+			gameOverMusic.play();
+			levelOneMusic.stop();
 			while (gameOver)
 			{
 				window.setView(window.getDefaultView());
@@ -388,9 +391,12 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 				buttons[1].draw(window);
 				window.display();
 			}
+			gameOverMusic.play();
 		}
 		if (type == 3)
 		{
+			levelOneMusic.stop();
+			winMusic.play();
 			while (win)
 			{
 				window.setView(window.getDefaultView());
@@ -421,6 +427,7 @@ void Menu::menuDisplay(RenderWindow& window, int type)
 				buttons[1].draw(window);
 				window.display();
 			}
+			winMusic.play();
 		}
 		if (type == 4)
 		{

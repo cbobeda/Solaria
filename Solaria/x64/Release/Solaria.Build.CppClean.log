@@ -1,3 +1,34 @@
+<<<<<<< HEAD
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\vc143.pdb
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\undergroundtile.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\tiles.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\player.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\platform.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\pathfinding.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\node.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\menu.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\maploader.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\groundtile.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\grid.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\flyingenemy.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\entity.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\ennemi.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\dirttile.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\button.obj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.ipdb
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.iobj
+c:\users\tbouaifel\source\repos\cbobeda\solaria\x64\release\solaria.pdb
+c:\users\tbouaifel\source\repos\cbobeda\solaria\x64\release\solaria.exe
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\cl.command.1.tlog
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\cl.items.tlog
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\cl.read.1.tlog
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\cl.write.1.tlog
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\link.command.1.tlog
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\link.read.1.tlog
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\link.secondary.1.tlog
+c:\users\tbouaifel\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\link.write.1.tlog
+=======
 c:\users\tarik\source\repos\cbobeda\solaria\solaria\x64\release\vc143.pdb
 c:\users\tarik\source\repos\cbobeda\solaria\solaria\x64\release\grid.obj
 c:\users\tarik\source\repos\cbobeda\solaria\solaria\x64\release\flyingenemy.obj
@@ -39,3 +70,4 @@ c:\users\tarik\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\lin
 c:\users\tarik\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\link.read.1.tlog
 c:\users\tarik\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\link.secondary.1.tlog
 c:\users\tarik\source\repos\cbobeda\solaria\solaria\x64\release\solaria.tlog\link.write.1.tlog
+>>>>>>> f29228295beb0a31d766904ea8da31f160775778
