@@ -3,7 +3,7 @@
 
 Taupe::Taupe(sf::Vector2f pos, int moveRange, Player* player): player(player)
 {
-    if (!taupeTexture.loadFromFile("assets/taupe.png"))
+    if (!taupeTexture.loadFromFile("assets/Enemy/taupe.png"))
     {
         std::cerr << "Erreur de chargement de la texture taupe.png" << std::endl;
     }

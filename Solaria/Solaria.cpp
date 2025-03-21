@@ -158,6 +158,11 @@ int main(int argc, char* argv[])
             mapLoader.player.grapin(window, currentMap,view, deltaTime);
             mapLoader.player.draw(window);
             mapLoader.mapLoaded = true;
+
+            if (mapLoader.player.hp <= 0)
+            {
+                gameOver = true;
+            }
         }
 
         
