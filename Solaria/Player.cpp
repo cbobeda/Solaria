@@ -226,14 +226,14 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	energySprite.setPosition(viewCenter.x - viewSize.x / 2 + 25.f, viewCenter.y - viewSize.y / 2 + 100.f);
 
 	int health;
-	if (0 < hp && hp <= 30) {
-		health = 2;
+	if (hp == 3) {
+		health = 0;
 	}
-	else if (30 < hp && hp <= 60) {
+	else if (hp == 2) {
 		health = 1;
 	}
-	else if (60 < hp && hp <= 90) {
-		health = 0;
+	else if (hp == 1) {
+		health = 2;
 	}
 
 	IntRect newRect2 = lifeSprite.getTextureRect();
@@ -378,7 +378,7 @@ Vector2f Player::getPosition() const {
 }
 
 void Player::getdamage() {
-	hp -= 10;
+	hp -= 1;
 }
 
 

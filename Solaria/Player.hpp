@@ -49,5 +49,5 @@ public:
 	void grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap,View& view, float deltatime);
 	void getdamage();
 	Vector2f getPosition() const;
-	Player(int health = 90, float aspeed = 150.f, int aenergy = 14);
+	Player(int health = 3, float aspeed = 150.f, int aenergy = 14);
 };
