@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     
 	
 
-    RenderWindow window(VideoMode(1920, 1080), "Solaria");
+    RenderWindow window(VideoMode(1920, 1080), "Solaria",Style::Fullscreen);
     
     std::vector<std::shared_ptr<Tiles>> currentMap;
     
@@ -119,6 +119,7 @@ int main(int argc, char* argv[])
                 ennemi->update(deltaTime);
             }
             mapLoader.player.update(deltaTime,currentMap,window, event);
+            mapLoader.winitem->update(deltaTime);
             for (auto& taupe : mapLoader.taupes)
             {
                 taupe->update(deltaTime);
@@ -129,8 +130,15 @@ int main(int argc, char* argv[])
                 fly->update(deltaTime);
             }
             
-        
+
+            if (mapLoader.winitem->isWinning)
+            {
+                win = true;
+            }
+            
             window.clear();
+            window.setView(view);
+            mapLoader.draw(window);
             for (auto& fly :mapLoader.flyingEnemies)
             {
                 fly->draw(window);
@@ -143,9 +151,10 @@ int main(int argc, char* argv[])
             {
                 taupe->draw(window);
             }
-            view.setCenter(mapLoader.player.playerSprite.getPosition());
-            window.setView(view);
-            mapLoader.draw(window);
+            if (mapLoader.player.playerSprite.getPosition().x > 960)
+            {
+                view.setCenter(mapLoader.player.playerSprite.getPosition().x,540);
+            }
             mapLoader.player.grapin(window, currentMap,view, deltaTime);
             mapLoader.player.draw(window);
             mapLoader.mapLoaded = true;

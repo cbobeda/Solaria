@@ -3,25 +3,26 @@
 
 
 
-
-p
-
-ggg            gggggggggggggggggggggggggggggggggggggg
-ccr            lccccccccccccccccccccccccccccccccccccc
-ccr            lccccccccccccccccccccccccccccccccccccc
-ccr            lccccccccccccccccccccccccccccccccccccc
-ccr            fddddddddddddddddddddddddddddddddddddd
-ccr
-ccr
-ccr
-ccr
-ccr                               tuuuuuuuub
-ccr                               lcccccccccuub
-ccr                               lccccccccccccuub
-ccr                               lccccccccccccccr
-cccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuucccccccccccccccr
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+         p
+                                 1                                                                                                                                                   1
+                                                                                                                                                                                     
+ggg            ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg                     ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg                                   tuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+ccr            lcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccr                     lcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr            lcccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddcccccccccccccccccccccccccccccccccccccccr                  tuuccccccccccccccccdddddddddddddddddddddddcccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc      
+ccr            lccccccccccccccccccccccccccccccccccr                               lccccccccccccccccccccccccccccccccccccccr                  lcccccccccccccccccr                       lccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr            fddddddddddddddddddddddddddddddddddm                               lccccccddddddddddddddddddddddddddddddddm                  lcccccccccccccccccr                       lccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr                                                                2              lccccccr                                               tuuccccccccccccccccccr      2                lccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr                                                                               lccccccr                                               lccccccccccccccccccccr                       lccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr                                                                               lccccccr                                               lccccccccccccccccccccr                       lccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr                                                                               lccccccr                                           tuuuccccccccccccccccccccccuuuuuuuuuuuuuuub       lccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr                               tuuuuuuuub                                      fddddddm                         tuuuuuuuuuuuuuuuuucccccccccccccccccccccccccccccccccccccccccr       lccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr                               lcccccccccuub                                   3                                lcccccccccccccccccccccddddddddddddddddddddddddddddddddddcccr       lccccccccccccccccccccr                                   lccccccccccccccccccccccccccccc
+ccr             1                 lccccccccccccuub                                                                 lccccccccccccccccccccr              3                   lccr       lccccccccccccccccccccr                              w    lccccccccccccccccccccccccccccc
+ccr                               lcccccccccccccccuuub                                                             fddddddddddddddddddddm                                  lccr       fddddddddddddddddddddm                                   lccccccccccccccccccccccccccccc
+cccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuucccccccccccccccccccr                                                                                                                     fddm                                                   tuuuuuuuuuuuucccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccr                                                                                                                                                                      tuuuucccccccccccccccccccccccccccccccccccccccccccc
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuub                                                                                                                lcccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccr                                                                                                         tuuuuuuccccccccccccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccr                                                                                                         lccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuucccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                                            ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc

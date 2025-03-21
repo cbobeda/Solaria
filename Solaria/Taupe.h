@@ -18,6 +18,9 @@ private:
     bool digging = false;
     float lateralSpeed = 80.0f;
 
+    IntRect taupeRect;
+
+    sf::Clock watchanime;
 public:
 	sf::Clock attackclock; 
     Taupe(sf::Vector2f pos, int moveRange, Player* player);

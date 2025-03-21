@@ -3,17 +3,17 @@
 
 Taupe::Taupe(sf::Vector2f pos, int moveRange, Player* player): player(player)
 {
-    if (!taupeTexture.loadFromFile("taupe.jpg"))
+    if (!taupeTexture.loadFromFile("assets/taupe.png"))
     {
-        std::cerr << "Erreur de chargement de la texture taupe.jpg" << std::endl;
+        std::cerr << "Erreur de chargement de la texture taupe.png" << std::endl;
     }
-
+    taupeRect = IntRect(0, 0, 74, 55);
     taupeSprite.setTexture(taupeTexture);
-    taupeSprite.setScale(0.1f, 0.1f);
+    taupeSprite.setScale(3.f, 3.f);
     taupeSprite.setPosition(pos);
 
-    positionP[0] = pos;
-    positionP[1] = { pos.x + moveRange, pos.y };
+    positionP[0] = {pos.x,pos.y - 50.f};
+    positionP[1] = { pos.x + moveRange, pos.y};
 }
 
 void Taupe::update(float deltaTime)
@@ -47,13 +47,18 @@ void Taupe::update(float deltaTime)
     }
 	if (player->playerSprite.getGlobalBounds().intersects(taupeSprite.getGlobalBounds()))
 	{
-		if (attackclock.getElapsedTime().asSeconds() > 1.f)
-		{
-			attackclock.restart();
-			player->getdamage();
-		}
+	    if (attackclock.getElapsedTime().asSeconds() > 1.f)
+	    {
+	        attackclock.restart();
+	        player->getdamage();
+	    }
 	}
-
+    if (watchanime.getElapsedTime().asSeconds() > 0.2f) {
+        taupeRect.left += 74;
+        if (abs(taupeRect.left) >= 444) { taupeRect.left = 0; }
+        taupeSprite.setTextureRect(taupeRect);
+        watchanime.restart();
+    }
 }
 
 void Taupe::draw(sf::RenderWindow& window)

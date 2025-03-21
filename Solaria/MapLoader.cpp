@@ -9,6 +9,7 @@ MapLoader::MapLoader()
     {
         std::cerr << "Failed to load background texture" << std::endl;
     }
+    winitem = std::make_shared<Winitem>(Vector2f(100000,100000),&player);
     bgSprite.setTexture(bgTexture);
     bgSprite.setScale(6.75, 6.75);
 }
@@ -92,9 +93,13 @@ void MapLoader::setCurrentLevel(string newlevel)
                 {
                     platforms.push_back(std::make_shared<UndergroundTile3Left>(Vector2f{x * 40.f, y * 40.f}));
                 }
+                if (map[y][x] == 'w')
+                {
+                    winitem->winitemSprite.setPosition(x * 40.f, y * 40.f);
+                }
                 if (map[y][x] == '1')
                 {
-                    ennemies.push_back(std::make_shared<Ennemi>(Vector2f{x * 40.f, y * 40.f},10,&player));
+                    ennemies.push_back(std::make_shared<Ennemi>(Vector2f{x * 40.f, y * 40.f},300,&player));
                 }
                 if (map[y][x] == '2')
                 {
@@ -121,6 +126,7 @@ void MapLoader::draw(RenderWindow& window)
     {
         platform->draw(window);
     }
+    winitem->draw(window);
 }
 
 MapLoader::~MapLoader()
