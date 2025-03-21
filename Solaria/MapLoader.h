@@ -17,6 +17,7 @@
 #include "ClassTiles/UndergroundTileDownRight.h"
 #include "ClassTiles/UndergroundTileLeft.h"
 #include "ClassTiles/UndergroundTileRight.h"
+#include "Winitem.h"
 #include "vector"
 #include "Player.hpp"
 #include "Grid.h"
@@ -34,6 +35,7 @@ private:
     std::vector<string> map;
 public:
     Player player;
+    std::shared_ptr<Winitem> winitem;
     std::vector<std::shared_ptr<Ennemi>> ennemies;
     std::vector<std::shared_ptr<FlyingEnemy>> flyingEnemies;
     std::vector<std::shared_ptr<Taupe>> taupes;

@@ -15,6 +15,10 @@ private:
 
     //Music robotTakingDamage;
     //Music robotDying;
+
+	IntRect ennemiRect;
+
+	sf::Clock watchanime;
 public:
 	sf::Clock attackclock;
     Ennemi(sf::Vector2f pos, int patrolRange, Player* player);

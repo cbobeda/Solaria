@@ -8,8 +8,14 @@ Player::Player(int health, float aspeed, int aenergy) : hp(health), speed(aspeed
 	{
 		cout << "Error loading player texture" << endl;
 	}
+	if (!runTexture.loadFromFile("assets/player/playerRun.png"))
+	{
+		cout << "Error loading player run texture" << endl;
+	}
 	playerSprite.setTexture(playerTexture);
-	playerSprite.setTextureRect(sf::IntRect(0, 0, 22, 53));
+	
+	idleRect = sf::IntRect(0, 0, 22, 53);
+	runRect = sf::IntRect(0, 0, 43, 52);
 	
 	playerSprite.setPosition(playerPosition);
 	playerSprite.setScale(2.5f, 2.5f);
@@ -57,21 +63,29 @@ void Player::draw(RenderWindow& window)
 	window.draw(lifeSprite);
 	//window.draw(CurseurSprite);
 }
+bool checkCollision(const FloatRect& nextPos, const std::vector<std::shared_ptr<Tiles>>& walls)
+{
+	for (auto& wall : walls)
+	{
+		if (nextPos.intersects(wall->sprite.getGlobalBounds()))
+		{
+			return true; // Collision détectée
+		}
+	}
+	return false; // Pas de collision
+}
+
+void moveTowards(Vector2f dir)
+{
+	
+}
 
 void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platforms, RenderWindow& window, Event& event)
 {
-	
+	moving = false;
 
-
-
-	if (watchanime.getElapsedTime().asSeconds() > 0.2f) {
-		IntRect newRect = playerSprite.getTextureRect();
-		newRect.left += 22;
-		if (newRect.left >= 176) { newRect.left -= 176; }
-		playerSprite.setTextureRect(newRect);
-		watchanime.restart();
-	}
-	if (Keyboard::isKeyPressed(Keyboard::Space) || Joystick::isButtonPressed(0, 1) && !jump && energy >= 1)
+	runRect.width = abs(runRect.width);
+	if ((Keyboard::isKeyPressed(Keyboard::Space) || Joystick::isButtonPressed(0, 1)) && !jump && energy >= 1)
 	{
 		float currentTime = Clock().getElapsedTime().asSeconds();
 
@@ -88,7 +102,16 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	{
 		if (playerSprite.getPosition().y > initialY - maxJumpHeight)
 		{
-			playerSprite.move(0, -speed*2.f  * deltatime);
+			FloatRect nextPos = playerSprite.getGlobalBounds();
+			nextPos.top += -speed*12.f  * deltatime;
+			if (!checkCollision(nextPos,platforms))
+			{
+				playerSprite.move(0, -speed*12.f  * deltatime);
+			}
+			else
+			{
+				jump = false;
+			}
 		}
 
 		else
@@ -115,17 +138,23 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 	}
 	if (hasToMoveDown)
 	{
-		playerSprite.move(0, speed * deltatime);
+		playerSprite.move(0, speed*5.f * deltatime);
 	}
-	if (Keyboard::isKeyPressed(Keyboard::Q) || Joystick::getAxisPosition(0, Joystick::X) <= -20 && Joystick::getAxisPosition(0, Joystick::X) >= -100)
+	FloatRect nextPosX = playerSprite.getGlobalBounds();
+	nextPosX.top -= 5;
+	nextPosX.left += speed*deltatime - 5;
+	if ((Keyboard::isKeyPressed(Keyboard::Q) || Joystick::getAxisPosition(0, Joystick::X) <= -20 && Joystick::getAxisPosition(0, Joystick::X) >= -100) && !checkCollision(nextPosX,platforms))
 	{
+		runRect.width *= -1;
+		moving = true;
 		playerSprite.move(-speed * deltatime, 0);
 	}
-	
-
-	if (Keyboard::isKeyPressed(Keyboard::Q) && Keyboard::isKeyPressed(Keyboard::LShift) ||
+	nextPosX = playerSprite.getGlobalBounds();
+	nextPosX.top -= 5;
+	nextPosX.left += (playerSprite.getGlobalBounds().width/2) - 100 - 5;
+	if (((Keyboard::isKeyPressed(Keyboard::Q) && Keyboard::isKeyPressed(Keyboard::LShift) ||
 		Joystick::getAxisPosition(0, Joystick::X) <= -20 && Joystick::getAxisPosition(0, Joystick::X) >= -100 &&
-		Joystick::isButtonPressed(0, 5) && energy >= 1) {
+		Joystick::isButtonPressed(0, 5)) && energy >= 1) && !checkCollision(nextPosX, platforms)) {
 		float currentTime = Clock().getElapsedTime().asSeconds();
 
 		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
@@ -135,16 +164,20 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 			dashCooldown.restart();
 		}
 	}
-
-	if (Keyboard::isKeyPressed(Keyboard::D) || 
-		Joystick::getAxisPosition(0, Joystick::X) >= 20 && Joystick::getAxisPosition(0, Joystick::X) <= 100)
+	nextPosX = playerSprite.getGlobalBounds();
+	nextPosX.top -= 5;
+	nextPosX.left -= speed*deltatime - 5;
+	if ((Keyboard::isKeyPressed(Keyboard::D) || Joystick::getAxisPosition(0, Joystick::X) >= 20 && Joystick::getAxisPosition(0, Joystick::X) <= 100)&& !checkCollision(nextPosX,platforms))
 	{
+		moving = true;
 		playerSprite.move(speed * deltatime, 0);
 	}
-
-	if (Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::LShift) || 
+	nextPosX = playerSprite.getGlobalBounds();
+	nextPosX.top -= 5;
+	nextPosX.left -= (playerSprite.getGlobalBounds().width/2) - 100 - 5;
+	if (((Keyboard::isKeyPressed(Keyboard::D) && Keyboard::isKeyPressed(Keyboard::LShift) || 
 		Joystick::getAxisPosition(0, Joystick::X) >= 20 && Joystick::getAxisPosition(0, Joystick::X) <= 100 && 
-		Joystick::isButtonPressed(0, 5) && energy >= 1) {
+		Joystick::isButtonPressed(0, 5)) && energy >= 1) && !checkCollision(nextPosX, platforms)) {
 		float currentTime = Clock().getElapsedTime().asSeconds();
 
 		if (1 <= dashCooldown.getElapsedTime().asSeconds()) {
@@ -155,12 +188,33 @@ void Player::update(float deltatime,std::vector<std::shared_ptr<Tiles>>& platfor
 		}
 	}
 
+	if (moving)
+	{
+		playerSprite.setTexture(runTexture);
+		playerSprite.setTextureRect(sf::IntRect(runRect));
+		if (watchanime.getElapsedTime().asSeconds() > 0.2f) {
+			runRect.left += 43;
+			if (abs(runRect.left) >= 258) { runRect.left = 0; }
+			playerSprite.setTextureRect(runRect);
+			watchanime.restart();
+		}
+	}
+	else if (!moving)
+	{
+		playerSprite.setTexture(playerTexture);
+		playerSprite.setTextureRect(sf::IntRect(idleRect));
+		if (watchanime.getElapsedTime().asSeconds() > 0.2f) {
+			idleRect.left += 22;
+			if (idleRect.left >= 176) { idleRect.left -= 176; }
+			playerSprite.setTextureRect(idleRect);
+			watchanime.restart();
+		}
+	}
 	viewCenter = window.getView().getCenter();
 	viewSize = window.getView().getSize();
 
 	IntRect newRect = energySprite.getTextureRect();
 	newRect.left = 39 * energy;
-	if (newRect.left >= 585) { newRect.left -= 585; }
 	energySprite.setTextureRect(newRect);
 
 	if (energyreload.getElapsedTime().asSeconds() > 4.f) {
@@ -276,7 +330,11 @@ void Player::grapin(RenderWindow& window, vector<shared_ptr<Tiles>>& currentMap,
 		// D�placement progressif du joueur
 		Vector2f moveDir = normalize(hitPoint - playerSprite.getPosition());
 		float speed = 6000.0f;  // Ajuste la vitesse selon le besoin
-		playerSprite.move(moveDir * deltatime * speed);
+		FloatRect nextPos = playerSprite.getGlobalBounds();
+		nextPos.top += moveDir.y * deltatime * speed;
+		nextPos.left += moveDir.x * deltatime * speed;
+		if (!checkCollision(nextPos,currentMap))
+			playerSprite.move(moveDir * deltatime * speed);
 		if (hit) window.draw(line);
 	}
 	

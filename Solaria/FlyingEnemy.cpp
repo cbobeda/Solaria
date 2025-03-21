@@ -1,11 +1,13 @@
 #include "FlyingEnemy.h"
 
 FlyingEnemy::FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid, Player* player) : grid(grid) {
-    if (!texture.loadFromFile("assets/Enemy/chatMoche.png")) {
+    if (!texture.loadFromFile("assets/Enemy/fly.png")) {
         cerr << "Erreur de chargement de la texture" << endl;
     }
+    flyRect = sf::IntRect(0, 0, 36, 29);
     sprite.setTexture(texture);
     sprite.setPosition(startPos);
+    sprite.setScale(2.f, 2.f);
     position = startPos;
     detectionRadius = radiusDetect;
     currentState = PATROL;
@@ -101,6 +103,12 @@ bool FlyingEnemy::detectPlayer(Vector2f playerPos) {
 }
 
 void FlyingEnemy::update(float deltatime) {
+    if (watchanime.getElapsedTime().asSeconds() > 0.1f) {
+        flyRect.left += 36;
+        if (abs(flyRect.left) >= 288) { flyRect.left = 0; }
+        sprite.setTextureRect(flyRect);
+        watchanime.restart();
+    }
     switch (currentState) {
     case PATROL:
         patrol();

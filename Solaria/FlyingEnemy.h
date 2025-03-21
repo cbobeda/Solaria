@@ -31,6 +31,10 @@ public:
     State currentState;
     sf::Clock attackclock;
 
+    IntRect flyRect;
+
+    sf::Clock watchanime;
+    
     FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid, Player* player);
     void update(float deltatime) override;
     void draw(RenderWindow& window) override;
