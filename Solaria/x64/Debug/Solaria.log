@@ -1,11 +1,29 @@
 ﻿  Button.cpp
+  DirtTile.cpp
+  GroundTile.cpp
+  Tiles.cpp
+  UndergroundTile.cpp
   Ennemi.cpp
   Entity.cpp
+  FlyingEnemy.cpp
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,73): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,73): warning C4244:         with
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,73): warning C4244:         [
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,73): warning C4244:             T=float
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,73): warning C4244:         ]
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,47): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,47): warning C4244:         with
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,47): warning C4244:         [
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,47): warning C4244:             T=float
+C:\Users\cleme\source\repos\Solaria\Solaria\FlyingEnemy.cpp(50,47): warning C4244:         ]
+  Grid.cpp
+  MapLoader.cpp
   Menu.cpp
+  Node.cpp
+  Pathfinding.cpp
   Platform.cpp
   Player.cpp
   Solaria.cpp
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Solaria.cpp(11,25): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-C:\Users\tbouaifel\source\repos\cbobeda\Solaria\Solaria\Solaria.cpp(81,21): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\cleme\source\repos\Solaria\Solaria\Solaria.cpp(16,26): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
   Génération de code en cours...
-  Solaria.vcxproj -> C:\Users\tbouaifel\source\repos\cbobeda\Solaria\x64\Debug\Solaria.exe
+  Solaria.vcxproj -> C:\Users\cleme\source\repos\Solaria\x64\Debug\Solaria.exe

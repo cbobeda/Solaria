@@ -161,12 +161,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
-    <ClCompile Include="DirtTile.cpp" />
+    <ClCompile Include="ClassTiles\DirtTile.cpp" />
+    <ClCompile Include="ClassTiles\GroundTile.cpp" />
+    <ClCompile Include="ClassTiles\Tiles.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTile3Down.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTile3Left.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTile3Right.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTile3Up.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileDown.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileDownLeft.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileDownRight.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileLeft.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileRight.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileUp.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileUpLeft.cpp" />
+    <ClCompile Include="ClassTiles\UndergroundTileUpRight.cpp" />
     <ClCompile Include="Ennemi.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FlyingEnemy.cpp" />
     <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="GroundTile.cpp" />
     <ClCompile Include="MapLoader.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -174,25 +187,38 @@
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Solaria.cpp" />
-    <ClCompile Include="Tiles.cpp" />
-    <ClCompile Include="UndergroundTile.cpp" />
+    <ClCompile Include="Taupe.cpp" />
+    <ClCompile Include="Winitem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
-    <ClInclude Include="DirtTile.h" />
+    <ClInclude Include="ClassTiles\DirtTile.h" />
+    <ClInclude Include="ClassTiles\GroundTile.h" />
+    <ClInclude Include="ClassTiles\Tiles.h" />
+    <ClInclude Include="ClassTiles\UndergroundTile3Down.h" />
+    <ClInclude Include="ClassTiles\UndergroundTile3Left.h" />
+    <ClInclude Include="ClassTiles\UndergroundTile3Right.h" />
+    <ClInclude Include="ClassTiles\UndergroundTile3Up.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileDown.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileDownLeft.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileDownRight.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileLeft.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileRight.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileUp.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileUpLeft.h" />
+    <ClInclude Include="ClassTiles\UndergroundTileUpRight.h" />
     <ClInclude Include="Ennemi.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FlyingEnemy.h" />
     <ClInclude Include="Grid.h" />
-    <ClInclude Include="GroundTile.h" />
     <ClInclude Include="MapLoader.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Pathfinding.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.hpp" />
-    <ClInclude Include="Tiles.h" />
-    <ClInclude Include="UndergroundTile.h" />
+    <ClInclude Include="Taupe.h" />
+    <ClInclude Include="Winitem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,36 +2,39 @@
 #include <iostream>
 #include "Ennemi.h"
 #include "FlyingEnemy.h"
+#include "Taupe.h"
 #include "Platform.h"
 #include "MapLoader.h"
 #include "Player.hpp"
 #include "Menu.h"
-#include "GroundTile.h"
-#include "UndergroundTile.h"
-#include "DirtTile.h"
-#include "Grid.h"
+#include "ClassTiles/GroundTile.h"
+#include "ClassTiles/UndergroundTileDown.h"
+#include "ClassTiles/DirtTile.h"
+
+
 
 using namespace sf;
 using namespace std;
 
-Ennemi test({20.f,20.f},10.f);
 
 int main(int argc, char* argv[])
 {
     MapLoader mapLoader;
-    Grid grid;
     
-	Player player(100, 150.f, 100);
-    FlyingEnemy flyingEnemy(Vector2f(300, 300), 130.0f, &grid);
-    RenderWindow window(VideoMode(1920, 1080), "Solaria");
+    
+	
 
-    std::vector<std::unique_ptr<Tiles>> currentMap;
+    RenderWindow window(VideoMode(1920, 1080), "Solaria");
+    
+    std::vector<std::shared_ptr<Tiles>> currentMap;
     
     float deltaTime;
-    View view = window.getView();
+    View view = window.getDefaultView();
     Menu menu(window);
     Clock clock;
 
+    int typeMenu = 0;
+    bool isMainMenu = true;
     bool isPause = false;
     bool gameOver = false;
     bool win = false;
@@ -42,6 +45,9 @@ int main(int argc, char* argv[])
 
     while (window.isOpen())
     {
+        
+       
+
         Event event;
         currentMap = mapLoader.getCurrentMap();
         while (window.pollEvent(event)) {
@@ -58,57 +64,94 @@ int main(int argc, char* argv[])
                 }
             }
         }
-        if (isPause)
+        if (isMainMenu)
         {
-            menu.menuDisplay(window, 1);
+            typeMenu = 0;
+            menu.menuDisplay(window, typeMenu);
+            isMainMenu = false;
+            clock.restart();
+            window.setView(view);
+            continue;
+        }
+        else if (isPause)
+        {
+            typeMenu = 1;
+            menu.menuDisplay(window, typeMenu);
             isPause = false;
             clock.restart();
             window.setView(view);
             continue;
         }
-        if (gameOver)
+        else if (gameOver)
         {
-            menu.menuDisplay(window, 2);
+            typeMenu = 2;
+            menu.menuDisplay(window, typeMenu);
             gameOver = false;
             clock.restart();
             window.setView(view);
             continue;
         }
-        if (win)
+        else if (win)
         {
-            menu.menuDisplay(window, 3);
+            typeMenu = 3;
+            menu.menuDisplay(window, typeMenu);
             win = false;
             clock.restart();
             window.setView(view);
             continue;
         }
-        if (isOptions)
+        else if (isOptions)
         {
-            menu.menuDisplay(window, 4);
+            typeMenu = 4;
+            menu.menuDisplay(window, typeMenu);
             isOptions = false;
             clock.restart();
             window.setView(view);
             continue;
         }
+        else if (!isMainMenu && !isPause && !gameOver && !win && !isOptions)
+        {
+            mapLoader.setCurrentLevel("map.txt");
+            deltaTime = clock.restart().asSeconds();
 
-        mapLoader.setCurrentLevel("map.txt");
-
-        deltaTime = clock.restart().asSeconds();
-
-        test.update(deltaTime);
-        player.update(deltaTime,currentMap, event);
-
-        flyingEnemy.setPlayerPosition(player.playerSprite.getPosition());
-        flyingEnemy.update(deltaTime);
+            for (auto& ennemi : mapLoader.ennemies)
+            {
+                ennemi->update(deltaTime);
+            }
+            mapLoader.player.update(deltaTime,currentMap,window, event);
+            for (auto& taupe : mapLoader.taupes)
+            {
+                taupe->update(deltaTime);
+            }
+            for (auto& fly :mapLoader.flyingEnemies)
+            {
+                fly->setPlayerPosition(mapLoader.player.playerSprite.getPosition());
+                fly->update(deltaTime);
+            }
+            
         
-        window.clear();
+            window.clear();
+            for (auto& fly :mapLoader.flyingEnemies)
+            {
+                fly->draw(window);
+            }
+            for (auto& ennemi : mapLoader.ennemies)
+            {
+                ennemi->draw(window);
+            }
+            for (auto& taupe : mapLoader.taupes)
+            {
+                taupe->draw(window);
+            }
+            view.setCenter(mapLoader.player.playerSprite.getPosition());
+            window.setView(view);
+            mapLoader.draw(window);
+            mapLoader.player.grapin(window, currentMap,view, deltaTime);
+            mapLoader.player.draw(window);
+            mapLoader.mapLoaded = true;
+        }
 
-		
-		player.draw(window);
-        flyingEnemy.draw(window);
-        test.draw(window);
-        mapLoader.draw(window);
-	    
+        
         
         window.display();
 

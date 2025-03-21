@@ -17,6 +17,10 @@ private:
     vector<Vector2i> path;
     int pathIndex;
     Grid* grid;
+	Player* player;
+
+    //Music robotTakingDamage;
+    //Music robotDying;
 
 public:
     Vector2f position;
@@ -25,8 +29,9 @@ public:
     float detectionRadius;
     enum State { PATROL, CHASE, SEARCH };
     State currentState;
+    sf::Clock attackclock;
 
-    FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid);
+    FlyingEnemy(Vector2f startPos, float radiusDetect, Grid* grid, Player* player);
     void update(float deltatime) override;
     void draw(RenderWindow& window) override;
 

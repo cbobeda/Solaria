@@ -3,12 +3,10 @@
 using namespace std;
 using namespace sf;
 
-class UndergroundTile : public Tiles
+class UndergroundTile3Right : public Tiles
 {
 public:
-	Sprite undergroundSprite;
-	Texture undergroundTexture;
-	UndergroundTile(sf::Vector2f pos);
+	UndergroundTile3Right(sf::Vector2f pos);
 	void draw(sf::RenderWindow& window) override;
 	void setTile() override;
 };

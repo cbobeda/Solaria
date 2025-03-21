@@ -1,10 +1,10 @@
 ﻿#include "Ennemi.h"
 
-Ennemi::Ennemi(sf::Vector2f pos, int patrolRange)
+Ennemi::Ennemi(sf::Vector2f pos, int patrolRange, Player* player) : player(player)
 {
     positionP[0] = {pos.x, pos.y};
     positionP[1] = {pos.x + patrolRange, pos.y};
-    texture.loadFromFile("ennemi.png");
+    texture.loadFromFile("assets/Enemy/ennemi.png");
     sprite.setTexture(texture);
     sprite.setScale(2.f, 2.f);
     sprite.setPosition(pos);
@@ -42,6 +42,15 @@ void Ennemi::update(float deltatime)
                 i = 0;
             }
         }
+
+		if (player->playerSprite.getGlobalBounds().intersects(sprite.getGlobalBounds()))
+		{
+            if (attackclock.getElapsedTime().asSeconds() > 3.f)
+            {
+                attackclock.restart();
+                player->getdamage();
+            }
+		}
     }
 }
 
